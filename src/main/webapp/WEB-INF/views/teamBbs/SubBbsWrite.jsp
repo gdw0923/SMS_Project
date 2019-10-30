@@ -55,6 +55,7 @@ select::-ms-expand {
 <div class="card-body">
 	<div id="_tooBar">
 		용병 게시글 작성
+		이부분에
 	</div>
 	<div class="table-responsive" style="display: flex; justify-content: center; align-items: center;">
 		<form class="form-horizontal" role="form" id="editorForm" method="post" action="/">
