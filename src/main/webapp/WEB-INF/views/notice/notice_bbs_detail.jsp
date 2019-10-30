@@ -54,7 +54,7 @@
 				<tr style="height: 50px">
 					<th th style="border-bottom:1px solid #DDD0D0;text-align: center;" class="writeTh"><div>이전글</div>
 						<c:choose>
-							<c:when test="${not empty previousNotice}">
+							<c:when test="${previousNotice.seq != 0}">
 								<td style="border-bottom:1px solid #DDD0D0;text-align: left; padding-left: 2%" class="npNotice" seq="${previousNotice.seq }">${previousNotice.title }</td>
 							</c:when>
 							<c:otherwise>
@@ -66,7 +66,7 @@
 				<tr style="height: 50px">
 					<th th style="border-bottom:1px solid #DDD0D0;text-align: center;" class="writeTh"><div>다음글</div>
 						<c:choose>
-							<c:when test="${not empty nextNotice}">
+							<c:when test="${nextNotice.seq != 0}">
 								<td style="border-bottom:1px solid #DDD0D0;text-align: left; padding-left: 2%" class="npNotice" seq="${nextNotice.seq }">${nextNotice.title }</td>
 							</c:when>
 							<c:otherwise>

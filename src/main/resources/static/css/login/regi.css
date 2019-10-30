@@ -27,3 +27,9 @@
 #loginBtn {
 	width: 100%;
 }
+.log-img { /* 상단 로고 */
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10%;
+	margin-top: 10%;
+}
