@@ -111,7 +111,6 @@ function c_deleteAll( e ) {
 	}
 }
 
-
 </script>
 
 
