@@ -23,22 +23,21 @@
 <div id="body_wrap">
 	<div id="main_wrap">
 		<tiles:insertAttribute name="top_inc" ignore="true"/>
-		<tiles:insertAttribute name="top_menu" ignore="true"/>
 	</div>
 
-	<div id="middle_wrap">
-		<div id="top_menu_wrap">
+	<div id="mypage_middle_wrap">
+		<div id="mypage_top_menu_wrap">
 			<tiles:insertAttribute name="my_top_menu" />
 		</div>
-		<div id="left_menu_wrap">
+		<div id="mypage_left_menu_wrap">
 			<tiles:insertAttribute name="my_left_menu"/>
 		</div>
-		<div id="content_wrap">
+		<div id="mypage_content_wrap">
 			<tiles:insertAttribute name="body"/>			
 		</div>		
 	</div>
 	
-	<div id="footer_wrap">
+	<div id="mypage_footer_wrap">
 		<tiles:insertAttribute name="footer"/>
 	</div>
 </div>

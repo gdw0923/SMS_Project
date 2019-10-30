@@ -24,7 +24,11 @@
 	</tr>
 	
 	<c:if test="${empty video }">
-		신고된 영상이 없습니다.
+		<tr>
+			<td style="text-align: center;" colspan="4"> 
+			신고된 영상이 없습니다.
+			</td>
+		</tr>
 	</c:if>
 	<c:forEach items="${video }" var="v" varStatus="i">	
 		<c:if test="${v.del eq 0 }">
@@ -62,7 +66,11 @@
 	</tr>
 	
 	<c:if test="${empty vc }">
-		신고된 댓글이 없습니다.
+		<tr>
+			<td style="text-align: center;" colspan="3"> 
+			신고된 댓글이 없습니다.
+			</td>
+		</tr>
 	</c:if>
 	
 	<c:forEach items="${vc }" var="vc" varStatus="i">
