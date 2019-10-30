@@ -22,7 +22,11 @@
 		
 		<th>제목</th><th>작성자</th><th>신고수</th>
 	</tr>
-	<c:forEach items="${video }" var="v" varStatus="i">
+	
+	<c:if test="${empty video }">
+		신고된 영상이 없습니다.
+	</c:if>
+	<c:forEach items="${video }" var="v" varStatus="i">	
 		<c:if test="${v.del eq 0 }">
 			<tr>
 				<td style="text-align: center;">
@@ -56,6 +60,10 @@
 		
 		<th>내용</th><th>작성자</th><th>신고수</th>
 	</tr>
+	
+	<c:if test="${empty vc }">
+		신고된 댓글이 없습니다.
+	</c:if>
 	
 	<c:forEach items="${vc }" var="vc" varStatus="i">
 	<c:if test="${vc.del eq 0 }">
