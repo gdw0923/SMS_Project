@@ -81,7 +81,9 @@ h3{
 </head>
 <body>
 
-<h3>동영상 올리기</h3>
+<div id="_top">
+	동영상 올리기
+</div>
 
 <div class="container" style="width: 600px; height: 300px" align="left">
 
