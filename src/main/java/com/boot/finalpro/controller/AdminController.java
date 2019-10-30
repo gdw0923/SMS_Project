@@ -616,6 +616,8 @@ public class AdminController {
 		model.addAttribute("search", dto);
 		model.addAttribute("list", list);
 		model.addAttribute("doc_sub_title", "경기 일정");
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 경기 일정");
 		return "admin_game_list";
 	}
 
@@ -627,6 +629,8 @@ public class AdminController {
 		model.addAttribute("doc_title","경기 관리");
 		model.addAttribute("doc_sub_title", "경기일정 상세보기");
 		model.addAttribute("gameDetail", gameDetail);
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 경기 일정 상세보기");
 		return "admin_game_detail";
 	}
 	
@@ -656,7 +660,9 @@ public class AdminController {
 		model.addAttribute("doc_sub_title", "연간 소득 통계");
 		model.addAttribute("yPminusyS", yPminusyS);
 		model.addAttribute("yearProfit",yearProfit);
-		model.addAttribute("yearSpend",yearSpend);		
+		model.addAttribute("yearSpend",yearSpend);
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 연간 소득통계");
 		return "admin_chart_money";
 	}
 	
@@ -687,6 +693,7 @@ public class AdminController {
 		model.addAttribute("monthMap", monthMap);
 		model.addAttribute("month_day", month_day);
 		
+		model.addAttribute("InsertTitle", "SMS 관리자 월간 소득통계");
 		return "admin_chart_monthly_money";
 	}
 	
@@ -699,7 +706,9 @@ public class AdminController {
 				
 		model.addAttribute("monthlyFavoriteSports", monthlyFavoriteSports);
 		model.addAttribute("doc_title","종목 통계");
-		model.addAttribute("doc_sub_title", "월별 선호 종목");		
+		model.addAttribute("doc_sub_title", "월간 선호 종목");
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 월간 선호 종목");
 		return "admin_chart_category";
 	}
 	
@@ -712,7 +721,9 @@ public class AdminController {
 		
 		model.addAttribute("sportsScore", sportsScore);
 		model.addAttribute("doc_title","종목 통계");
-		model.addAttribute("doc_sub_title", "종목별 점수");		
+		model.addAttribute("doc_sub_title", "종목별 점수");	
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 종목별 점수");
 		return "admin_chart_score";		
 	}
 	
@@ -729,7 +740,9 @@ public class AdminController {
 		model.addAttribute("selectMonth", month);
 		model.addAttribute("monthlyStadiumCount", monthlyStadiumCount);
 		model.addAttribute("doc_title","경기장 통계");
-		model.addAttribute("doc_sub_title", "월별 이용 현황");		
+		model.addAttribute("doc_sub_title", "월간 이용 현황");
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 월간 경기장 이용 현황");
 		return "admin_chart_stadiumCount";		
 	}
 
