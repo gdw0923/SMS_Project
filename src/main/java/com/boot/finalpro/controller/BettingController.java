@@ -34,7 +34,7 @@ public class BettingController {
 	 
 	@Autowired
 	BCryptPasswordEncoder bc;
-	
+	  
 	@RequestMapping(value = "bettinglist.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String bettinglist(Model model, GameParams gparam, HttpServletRequest req, Principal pcp) {
 		log.info("BettingController bettinglist");
