@@ -10,7 +10,7 @@
 			  FROM (SELECT SEQ_GAME, CATEGORY, NAME_TEAM1, GDATE, NAME_STADIUM, TITLE, CONTENT, DEL, READ_COUNT, WDATE 
 			  		FROM GAME	
 		  			WHERE DEL=0
-		  			AND (NAME_TEAM2 IS NULL)
+		  			AND (NAME_TEAM2 IS NULL) AND (LEAGUE IS NULL)
 		  			AND (TRUNC(SYSDATE, 'MI')-TO_DATE(CONCAT(SUBSTR(GDATE, 0, 11), SUBSTR(GDATE, 14, 18)),'YYYY-MM-DD HH24:MI')) <![CDATA[ < ]]> 0
 			  			<if test="choice != null and choice != ''
 			  				and keyword != null and keyword != ''">	
@@ -42,7 +42,7 @@
 		SELECT NVL(COUNT(*), 0) AS CNT
 		FROM GAME
 		WHERE DEL=0
-			AND (NAME_TEAM2 IS NULL)
+			AND (NAME_TEAM2 IS NULL) AND (LEAGUE IS NULL)
 			AND (TRUNC(SYSDATE, 'MI')-TO_DATE(CONCAT(SUBSTR(GDATE, 0, 11), SUBSTR(GDATE, 14, 18)),'YYYY-MM-DD HH24:MI')) <![CDATA[ < ]]> 0
 		<if test="choice != null and choice != ''
 			and keyword != null and keyword != ''">
@@ -195,109 +195,7 @@
 			AND BDATE=#{bdate} AND B.NAME_STADIUM LIKE '%'||#{name_stadium}||'%'
   </select>
    
-   <!-- 동영상 업로드 -->
-   <insert id="videoUpload" parameterType="com.boot.finalpro.model.VideoDTO">
-   	INSERT INTO VIDEO
-   	VALUES( VIDEO_SEQ.NEXTVAL, #{category}, #{id}, #{title}, #{content}, 0, 0, 0, #{file_name}, 0, SYSDATE )
-   </insert> 
-   
-   <!-- 동영상리스트 불러오기 -->
-   <select id="videolist" parameterType="com.boot.finalpro.model.GameParam" resultType="com.boot.finalpro.model.VideoDTO">
-   		SELECT B.SEQ_VIDEO, B.CATEGORY, B.ID, B.TITLE, B.CONTENT, B.LIKE_COUNT, B.READ_COUNT, B.REPORT_COUNT, B.FILE_NAME, B.DEL, B.WDATE 
-		FROM (SELECT ROWNUM AS RNUM, A.SEQ_VIDEO, A.CATEGORY, A.ID, A.TITLE, A.CONTENT, A.LIKE_COUNT, A.READ_COUNT, A.REPORT_COUNT, A.FILE_NAME, A.DEL, A.WDATE 
-			  FROM (SELECT SEQ_VIDEO, CATEGORY, ID, TITLE, CONTENT, LIKE_COUNT, READ_COUNT, REPORT_COUNT, FILE_NAME, DEL, WDATE  
-			  		FROM VIDEO	
-		  			WHERE DEL=0		  			
-			  			<if test="choice != null and choice != ''
-			  				and keyword != null and keyword != ''">	
-			  				<if test="choice == 'category'">
-			  					AND CATEGORY LIKE '%'||#{keyword}||'%'
-			  				</if>	
-			  				<if test="choice == 'id'">
-			  					AND ID LIKE '%'||#{keyword}||'%'
-			  				</if>	
-			  				<if test="choice == 'title'">
-			  					AND TITLE LIKE '%'||#{keyword}||'%'
-			  				</if>	  				
-			  			</if>
-			  		ORDER BY SEQ_VIDEO DESC)A
-			  	 WHERE ROWNUM <![CDATA[<=]]>#{endNum} )B		  
-		WHERE B.RNUM <![CDATA[>=]]>#{startNum}		  	
-   </select>
-   
-   <!-- 동영상 전체갯수 -->
-   <select id="getVideoCount" parameterType="com.boot.finalpro.model.GameParam" resultType="java.lang.Integer">
-		SELECT NVL(COUNT(*), 0) AS CNT
-		FROM VIDEO
-		WHERE DEL=0			
-		<if test="choice != null and choice != ''
-			and keyword != null and keyword != ''">
-			<if test="choice == 'category'">
-				AND CATEGORY LIKE '%'||#{keyword}||'%'
-			</if>
-			<if test="choice == 'id'">
-				AND ID LIKE '%'||#{keyword}||'%'
-			</if>		
-			<if test="choice == 'title'">
-				AND TITLE LIKE '%'||#{keyword}||'%'
-			</if>	  				
-	  	</if>	  	
-	</select>
-   
-   <!-- 동영상 디테일 DTO 불러오기 -->
-   <select id="videodetail" parameterType="java.lang.Integer" resultType="com.boot.finalpro.model.VideoDTO">
-   		SELECT * FROM VIDEO
-   		WHERE SEQ_VIDEO=#{seq_video}
-   </select>
-   
-   <!-- 동영상 조회수 -->
-   <update id="videoRead" parameterType="java.lang.Integer">
-   		UPDATE VIDEO
-   		SET READ_COUNT = READ_COUNT+1
-   		WHERE SEQ_VIDEO=#{seq_video}
-   </update>
-    
-    <!-- 동영상 댓글가져오기 -->
-    <select id="commentlist" parameterType="java.lang.Integer" resultType="com.boot.finalpro.model.VideoCommentDTO">
-    	SELECT * FROM VIDEO_COMMENT
-    	WHERE PARENT=#{parent}
-    	ORDER BY REF DESC, STEP ASC
-    </select>
-    
-    <!-- 동영상 댓글등록 -->
-    <insert id="commentWrite" parameterType="com.boot.finalpro.model.VideoCommentDTO">
-    	INSERT INTO VIDEO_COMMENT
-    	VALUES(VIDEO_COMMENT_SEQ.NEXTVAL, #{id}, #{content}, (SELECT NVL(MAX(REF), 0) +1 FROM VIDEO_COMMENT)
-    			, 0, 0, #{parent}, 0, 0, 0, SYSDATE)
-    </insert>
-    
-    <!-- 대댓글 STEP업데이트 -->
-    <update id="replyUpdate" parameterType="com.boot.finalpro.model.VideoCommentDTO">
-    	UPDATE VIDEO_COMMENT
-    	SET STEP=STEP+1
-    	WHERE REF=(SELECT REF FROM VIDEO_COMMENT WHERE SEQ=#{seq})
-		AND STEP <![CDATA[>]]> (SELECT STEP FROM VIDEO_COMMENT WHERE SEQ=#{seq})
-    </update>
-        
-    <!-- 대댓글등록 -->
-    <insert id="replyComment" parameterType="com.boot.finalpro.model.VideoCommentDTO">
-    	INSERT INTO VIDEO_COMMENT
-    	VALUES(VIDEO_COMMENT_SEQ.NEXTVAL, #{id}, #{content}
-    		, (SELECT REF FROM VIDEO_COMMENT WHERE SEQ=#{seq}),
-			  (SELECT STEP FROM VIDEO_COMMENT WHERE SEQ=#{seq})+1,
-			  (SELECT DEPTH FROM VIDEO_COMMENT WHERE SEQ=#{seq})+1,
-			  #{parent}, 0, 0, 0, SYSDATE)   	
-    </insert>
-    
-    <!-- 메인 동영상 좋아요 상위2개 -->
-    <select id="mainVideo" resultType="com.boot.finalpro.model.VideoDTO">
-    	SELECT * FROM ( SELECT * 
-			  			FROM VIDEO 
-			  			ORDER BY LIKE_COUNT DESC)
-		WHERE ROWNUM<![CDATA[<=]]>2    
-    </select>
-    
-    
+
     
 </mapper>
 
