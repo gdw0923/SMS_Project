@@ -33,8 +33,6 @@ public class ChatingController {
 		
 		NoChatDTO dto = leagueMatchService.NoChatSearch(id);
 		
-		// 주석스 !!!! 1
-		
 		if(dto == null) {
 			dto = new NoChatDTO(id, 0, 0);
 		}
