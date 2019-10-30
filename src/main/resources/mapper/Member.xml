@@ -17,7 +17,7 @@
   	<!-- security user 접근 -->
 	<select id="getOneMemberByMemberId" resultMap="memberMap" parameterType="java.lang.String">
 		SELECT 
-		  mem.id as userid, pw as userpw, enabled, authority
+		  mem.id as userid, pw as userpw, authority
 		FROM 
 		  SMS_MEM mem LEFT OUTER JOIN AUTHORITIES auth on mem.id = auth.id 
 		WHERE mem.id = #{userid} AND auth.authority!='ROLE_DELETE'
