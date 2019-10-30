@@ -117,9 +117,9 @@
 	<definition name="SubBbsDetail.tiles" extends="teamapplication.tiles">
 		<put-attribute name="body" value="/WEB-INF/views/teamBbs/SubBbsDetail.jsp" />
 	</definition>
-	<definition name="common1.tiles" extends="teamapplication.tiles">
+<!-- 	<definition name="common1.tiles" extends="teamapplication.tiles">
 		<put-attribute name="body" value="/WEB-INF/views/teamBbs/common1.jsp" />
-	</definition>	
+	</definition> -->	
 	
 	<!-- admin-bbs 민호 -->
 	<definition name="admin_bbs_list.tiles" extends="admin.main">
@@ -138,9 +138,9 @@
 	<definition name="adminMMRRankList.tiles" extends="admin.main">
         <put-attribute name="admin_content" value="/WEB-INF/views/admin/rank/MMRRankList.jsp" />
     </definition>
-    <definition name="common1.tiles" extends="teamapplication.tiles">
+<!--     <definition name="common1.tiles" extends="teamapplication.tiles">
 		<put-attribute name="body" value="/WEB-INF/views/teamBbs/common1.jsp" />
-	</definition>
+	</definition> -->
 
 
 	<!-- admin-team 재덕성님 -->

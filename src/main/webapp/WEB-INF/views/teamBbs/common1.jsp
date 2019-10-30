@@ -99,3 +99,13 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#menu1").css("background-color","#e60013");
+
+	
+});
+
+
+</script>
