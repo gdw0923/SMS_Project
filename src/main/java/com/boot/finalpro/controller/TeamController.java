@@ -53,7 +53,7 @@ import lombok.extern.java.Log;
 @Controller
 @RequestMapping("/mypage/*")
 public class TeamController {
-//추가합니다
+
 	@Autowired
 	TeamService teamService;
 	
