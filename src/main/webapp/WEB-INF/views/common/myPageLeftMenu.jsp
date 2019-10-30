@@ -16,7 +16,7 @@
 		  <li id="li-bet"><a href="myPageBet.do"><img src="/image/casino-chip.png" alt="myBet"> 내 배팅 목록</a></li>
 		  <li id="li-payInfo"><a href="myPagePayInfo.do"><img src="/image/bars.png" alt="myPayInfo"> 내 결제 내역</a>
 		  <li id="li-teamApp"><a href="myPageTeamAppInfo.do"><img src="/image/myPageTeam.png" alt="myTeamApp"> 팀 신청목록</a>
-		</ul>
+		</ul> 
 	</nav>
 </div>
 
