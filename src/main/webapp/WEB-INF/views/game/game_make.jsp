@@ -149,7 +149,7 @@ h3{
 					<td style="text-align: left;">
 					1. 시간은 3시간 단위,&nbsp;&nbsp;모든 구장 동일금액<br>&nbsp;&nbsp; ※ 조명사용은 별도 부과<br>
 					2. 등급별 차등 금액 적용<br>
-					3. 취사, 음식물 빈입 및 음주행위 금지<br>
+					3. 취사 및 과도한 음주행위 금지<br>
 					4. 사용중 파손(고장)시에는 사용자 부담으로 보수 및 원상회복해야 함<br>
 					</td>
 				</tr>
@@ -201,12 +201,9 @@ h3{
 			</div>	
 			
 		<div style="margin-top: 950px; text-align: center;">
-			<button type="button" id="gBtn" class="btn btn-default" style="background-color: #042e6f; color: #fff;">게임매칭신청</button> 
-		</div>
-		
-	
-	</td> 
-				
+			<button type="button" id="gBtn" class="btn btn-default" style="background-color: #042e6f; color: #fff; margin-bottom: 50px;">게임매칭신청</button> 
+		</div>			
+	</td> 				
 </tr>
 
 <tr>
@@ -231,7 +228,7 @@ h3{
 
 <tr>
 	<td colspan="2" style="background-color: #fafbfa; border: 1px solid #c3c3c3;">
-		<textarea rows="8" cols="50" id="content" name="content" placeholder="내용을 입력해주세요"></textarea>	
+		<textarea rows="8" cols="50" id="content" name="content"></textarea>	
 	</td>
 </tr>
 
@@ -242,6 +239,12 @@ h3{
 </div>
 
 <script type="text/javascript">
+$(".book_time").hide();
+
+$(".form-group").click(function () {
+	$(".book_time").hide();
+});
+
 $(function(){
     CKEDITOR.replace( 'content', {//해당 이름으로 된 textarea에 에디터를 적용
         width:'100%',
@@ -253,30 +256,40 @@ $(function(){
         config.removePlugins = 'easyimage, cloudservices';         
         config.language = 'ko';
      };
+     
 });
 
 $(document).ready(function () {
 	$("#menu1").css("background-color","#e60013");
-	
-	
-$("#pay_point").change(function () {
-	var pay_price = $("#pay_price").val();
-	$("#price").val(pay_price);
-	
-	var price = $("#price").val();
-	var pay_point = $("#pay_point").val();	
-	
-	var now_point = $("#now_point").val();	
-	if(parseInt(now_point) < parseInt(pay_point)){
-		alert("보유 포인트 이상은 사용 불가능합니다 ");
-		var pay_point = $("#pay_point").val("");
-		return;
-	}
 		
-	var totalprice = price - pay_point;	
-//	alert(pay_price);
-	$("#price").val(totalprice);			
-});	
+	$("#pay_point").change(function () {
+		var pay_price = $("#pay_price").val();
+		$("#price").val(pay_price);
+		
+		var price = $("#price").val();
+		var pay_point = $("#pay_point").val();
+		
+		var paycheck = pay_price - pay_point;
+//		alert(paycheck);
+		if(paycheck < 0){
+			alert("결제금액 이상 포인트를 사용할 수 없습니다");
+			$("#pay_point").val(pay_price);
+			$("#price").val(0);
+			return;
+		}
+		
+		var now_point = $("#now_point").val();	
+		if(parseInt(now_point) < parseInt(pay_point)){
+			alert("보유 포인트 이상은 사용 불가능합니다 ");
+			var pay_point = $("#pay_point").val("");
+			return;
+		}
+			
+		var totalprice = price - pay_point;	
+	//	alert(pay_price);
+		$("#price").val(totalprice);			
+	});	
+			
 
 	// 경기등록 버튼
 	$("#gBtn").click(function() {
@@ -301,14 +314,15 @@ $("#pay_point").change(function () {
 			alert("제목을 작성해주세요");
 			return;
 		} 
- 		if($("#content").val()==""){
-			alert("내용을 작성해주세요");
-			return;
-		} 
  		if($("input:checkbox[name=book_time]").is(":checked") == false){
  			alert("예약시간을 선택해 주세요");
  			return;
  		}
+ 		if(CKEDITOR.instances.content.getData()==""){
+ 	    	 window.alert("내용을 입력해주세요");
+ 	    	 CKEDITOR.instances.content.focus();
+ 	    	 return false;
+ 	     }
  		
  		// 경기장 예약 시간과 게임 시작시간을 비교한다
  		var booktime = "";
@@ -382,6 +396,7 @@ function seltime(i) {
 
 // 달력 날짜 선택 시 예약시간 가져오기
 function calselect(y, m, d, w) {
+	$(".book_time").show();
 	// 전체 배경색 원래대로 돌리고, 선택된 날짜 배경색 바꿔준다 
 	for(var i = 0; i < 32; i++){
 		$(".day" + i).css("background-color","#fff");
@@ -431,6 +446,7 @@ function calselect(y, m, d, w) {
 						$("#checklabel" + j).css("color","black");
 						$("#checklabel" + j).css("cursor","default");
 						$("#check" + j).prop("disabled", true);
+						
 					} 						
 				}	 
 			}																				

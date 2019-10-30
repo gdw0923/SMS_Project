@@ -29,6 +29,7 @@ import com.boot.finalpro.model.OverlapDTO;
 import com.boot.finalpro.model.VideoCommentDTO;
 import com.boot.finalpro.model.VideoDTO;
 import com.boot.finalpro.model.VideoReportDTO;
+import com.boot.finalpro.service.MemberService;
 import com.boot.finalpro.service.VideoService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,9 @@ public class VideoController {
 	
 	@Autowired
 	VideoService videoService;
+	
+	@Autowired
+	MemberService memberService;
 	
 	@RequestMapping(value = "video.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String video(String page, GameParam gp, Model model, Principal pcp) {
@@ -85,10 +89,10 @@ public class VideoController {
 	@RequestMapping(value = "videomakeAf.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String videomakeAf(MultipartHttpServletRequest multi, HttpServletRequest req, VideoDTO video)	{
 //		System.out.println(video.toString());
-		
+				
 		String path = req.getServletContext().getRealPath("/upload");
 
-        System.out.println("path : " + path);
+//      System.out.println("path : " + path);
         String fileName = "";
       
         File dir = new File(path);
@@ -119,12 +123,15 @@ public class VideoController {
 //        System.out.print(video.toString());       
         videoService.videoUpload(video);
         
+        String id = video.getId();
+        memberService.UploadPointPlus(id);
+        
       //썸네일 생성
         String str = null;
-        String[] cmd = new String[] {"D:\\springSample\\finalupdate1010.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\ffmpeg"
-        , "-i", "D:\\springSample\\finalupdate1010.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\"+fileName, "-an", "-ss"
-        , "00:00:10", "-r", "1", "-vframes", "1", "-y"
-        , "D:\\springSample\\finalupdate1010.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\"+fileName+".jpg"};
+        String[] cmd = new String[] {"D:\\springSample\\finalupdate.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\ffmpeg"
+        , "-i", "D:\\springSample\\finalupdate.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\"+fileName, "-an", "-ss"
+        , "00:00:05", "-r", "1", "-vframes", "1", "-y"
+        , "D:\\springSample\\finalupdate.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\"+fileName+".jpg"};
         Process process = null;
          
         try{            
@@ -188,9 +195,11 @@ public class VideoController {
 	@RequestMapping(value = "writecomment.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String writecomment(VideoCommentDTO vc) {
 //		log.info(vc.toString());
+		String id = vc.getId();
 		
 		// 댓글저장
 		boolean b = videoService.commentWrite(vc);
+		memberService.CommentPointPlus(id);
 				
 		return "";
 	}
@@ -198,7 +207,9 @@ public class VideoController {
 	@ResponseBody
 	@RequestMapping(value = "replycomment.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String replycomment(VideoCommentDTO vc) {
-		log.info(vc.toString());
+//		log.info(vc.toString());
+		String id = vc.getId();
+		memberService.CommentPointPlus(id);
 		
 		// 댓글저장
 		videoService.replyUpdate(vc);
@@ -351,8 +362,16 @@ public class VideoController {
 
 	// video 삭제
 	@RequestMapping(value = "video_delete.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String video_delete(int seq_video) {
+	public String video_delete(int seq_video, Principal pcp) {
 //		log.info(seq_video + "");		
+		String id = "guest";
+		
+		Object principal2 = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if(principal2 != "anonymousUser") {
+			id = pcp.getName();
+		}
+		
+		memberService.UploadPointMinus(id);
 		videoService.videoDelete(seq_video);
 		
 		return "redirect:/common/video.do";
@@ -360,11 +379,19 @@ public class VideoController {
 	
 	// comment 삭제
 	@RequestMapping(value = "comment_delete.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String commen_delete(int seq, int seq_video) {
+	public String commen_delete(int seq, int seq_video, Principal pcp) {
 //		log.info(seq_video + "");		
+		String id = "guest";
+		
+		Object principal2 = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if(principal2 != "anonymousUser") {
+			id = pcp.getName();
+		}
+		
+		memberService.CommentPointMinus(id);
 		videoService.videoCommentDelete(seq);
 		
-		return "redirect:/common/videodetail.do";
+		return "redirect:/common/videodetail.do?seq_video="+seq_video;
 	}
 	
 	
