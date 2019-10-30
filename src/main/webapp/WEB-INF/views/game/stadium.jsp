@@ -227,7 +227,7 @@ $(document).ready(function () {
 		success:function(data){							
 		var book = data.blist;
 					
-		var str = '<tr style="height: 40px; font-size: 15px;"><td style="width: 150px;">경기장</td><td style="width: 150px;">이용시간</td><td style="width: 150px;">예약팀</td></tr>';
+		var str = '<tr style="background-color: #042e6f; color: #fff; height: 50px; font-size: 15px;"><td style="width: 150px;">경기장</td><td style="width: 150px;">이용시간</td><td style="width: 150px;">예약팀</td></tr>';
 		if(book == ""){
 			str += '<tr style="height: 40px; font-size: 15px;">';			
 			str += '<td colspan="3" style="width: 400px; height: 30px;">등록된 일정이 없습니다</td>';						
@@ -292,7 +292,7 @@ function stadiumSelect( str, num ) {
 			$("#bookstadium *").remove();		
 			var book = data.blist;
 						
-			var str = '<tr style="height: 30px; height: 40px; font-size: 15px;"><td style="width: 150px;">경기장</td><td style="width: 150px;">이용시간</td><td style="width: 150px;">예약팀</td></tr>';
+			var str = '<tr style="background-color: #042e6f; color: #fff; height: 30px; height: 50px; font-size: 15px;"><td style="width: 150px;">경기장</td><td style="width: 150px;">이용시간</td><td style="width: 150px;">예약팀</td></tr>';
 			if(book == ""){
 				str += '<tr style="height: 40px; font-size: 15px;">';			
 				str += '<td colspan="3" style="width: 400px; height: 30px;">등록된 일정이 없습니다</td>';						
@@ -357,7 +357,7 @@ function calselect(y, m, d, w) {
 			var book = data.blist;
 //			alert(book);
 			
-			var str = '<tr style="height: 30px; height: 40px; font-size: 15px;"><td style="width: 150px;">경기장</td><td style="width: 150px;">이용시간</td><td style="width: 150px;">예약팀</td></tr>';
+			var str = '<tr style="background-color: #042e6f; color: #fff; height: 30px; height: 50px; font-size: 15px;"><td style="width: 150px;">경기장</td><td style="width: 150px;">이용시간</td><td style="width: 150px;">예약팀</td></tr>';
 			
 	  		if(book == ""){
 				str += '<tr style="height: 40px; font-size: 15px;">';			

@@ -157,7 +157,7 @@ $("#vmBtn").click(function () {
 //	alert(filename);
 	
 	var ex = filename.split(".")[1];
-//	alert(ex);
+	alert(ex);
 	if(ex == 'mp4' || ex == 'avi' || ex == 'mpeg'){
 		$("#frmVmake").attr("action","videomakeAf.do").submit();
 	}else{
