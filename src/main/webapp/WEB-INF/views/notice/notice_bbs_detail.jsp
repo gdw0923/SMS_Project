@@ -82,6 +82,23 @@
 		</table>
 	</div>
 	
+<form action="#" id="_detailForm">
+	<c:if test="${not empty search.category }">
+		<input type="hidden" value="${search.category }" name="category">
+	</c:if>
+	<c:if test="${not empty search.searchText }">
+		<input type="hidden" value="${search.searchText }" name="searchText">
+	</c:if>
+		<c:if test="${not empty search.begin }">
+		<input type="hidden" value="${search.begin }" name="begin">
+	</c:if>
+		<c:if test="${not empty search.end }">
+		<input type="hidden" value="${search.end }" name="end">
+	</c:if>
+		<c:if test="${search.page != 0}">
+		<input type="hidden" value="${search.page }" name="page">
+	</c:if>
+</form>		
 <script type="text/javascript">
 $(".downBtn").on("click",function(){
 	/* alert($(this).attr("seq")); */
@@ -89,7 +106,7 @@ $(".downBtn").on("click",function(){
 	location.href = "../common/noticeFileDown.do?file_seq="+file_seq;
 })
 $("#_backBtn").click(function(){
-	history.back();
+	$("#_detailForm").attr("action","notice.do").submit();
 });
 $(".npNotice").click(function() {
 	var seq = $(this).attr("seq");
