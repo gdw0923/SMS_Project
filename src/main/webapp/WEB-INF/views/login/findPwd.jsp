@@ -17,7 +17,7 @@
 <form name="signUpForm" class="form" role="form" id="regiFrm">
   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
   <div class="form-content">
-  	<img alt="사진없음" src="/image/main_logo.jpg" style="width: 100%; margin-bottom: 10%; margin-top: 10%">
+  	<img alt="사진없음" src="/image/main_logo.jpg" class="log-img">
     <div class="col-xs-6 col-md-9">
 		<input type="email" class="form-control" id="userid" name="id" placeholder="아이디">
     </div>

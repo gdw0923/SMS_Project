@@ -20,7 +20,7 @@
 	<form name="signUpForm" class="form" role="form" id="regiFrm">
 	  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	  <div class="form-content">
-	  	<img alt="사진없음" src="/image/main_logo.jpg" style="width: 100%; margin-bottom: 10%; margin-top: 10%" class="log-img">
+	  	<img alt="사진없음" src="/image/main_logo.jpg" class="log-img">
 	    <input type="text" class="form-control" id="id" name="id" placeholder="아이디">
 		<input type="hidden" id="idsave" value="">
 		<font color="red" id="idfont">7 ~ 20글자의 영문+숫자로 등록해주십시오</font>
@@ -30,7 +30,7 @@
 	    <font color="red" id="pwdfont">8~15자리의 특수,영문+숫자로 등록해주십시오<!-- ( ~!@\#$%&lt;&gt;^&amp;* 만 지원합니다. ) --></font>
 	
 		<input type="text" class="form-control"placeholder="이름 입력" id="name" name="name"> <br>
-	    <input type="text" class="form-control"placeholder="주소입력" id="address" name="address" maxlength="20" onclick="sample6_execDaumPostcode();" onchange="sample6_execDaumPostcode();" onkeyup="sample6_execDaumPostcode();"> <br>
+	    <input type="text" class="form-control"placeholder="주소입력" id="address" name="address" maxlength="20" onclick="sample6_execDaumPostcode();"> <br>
 		<input type="text" class="form-control" placeholder="생년월일(예 : 19920305)" id="birthday" name="birthday" maxlength="8"
 	  						onkeypress="return fn_press(event,'numbers');" onkeydown="fn_press_han(this);" style="ime-mode:disabled;"> <br>
 		<input type="text" class="form-control" placeholder="전화번호(예 : 01012345678)" id="phone" name="phone" maxlength="11"

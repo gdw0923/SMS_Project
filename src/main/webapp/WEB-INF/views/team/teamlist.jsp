@@ -135,45 +135,6 @@ td{
 </div>
 
 
-
-<%-- <table class="table table-hover table-responsive" >
-
-
-<thead>
-	<tr>
-		<th>팀명</th><th>소개말</th><th>정보</th>
-	</tr>
-</thead>
-<c:forEach items="${teamlist }" var="team" varStatus="vs">
-<tbody>
-	<tr>
-	<td>
-		<a href="teamdetail.do?team_name=${team.team_name }" class="badge badge-primary">${team.team_name }</a><br>
-	
-		<c:choose>
-				<c:when test="${empty team.file_name }">
-					<img alt="" src="/image/team.png"
-						style="width: 150px; height: 100px;">
-				</c:when>
-				<c:otherwise>
-					<img alt="" src="/teamimg/${team.file_name }"
-				style="width: 150px; height: 100px;">
-				</c:otherwise>
-			</c:choose>
-	</td>
-	<td>
-		<a href="teamdetail.do?team_name=${team.team_name }">${team.title }</a>
-	</td>
-	<td>
-		<a onclick="_go_send_message('${team.leader}')" href="#">${team.leader }</a><br>
-		주종목 / ${team.sport_category }<br>
-		창단일:<fmt:formatDate value="${team.fdate }" pattern="yyyy-MM-dd"/>
-	</td>
-	</tr>
-</tbody>
-</c:forEach>
-</table> --%>
-
 <jsp:include page="include/BbssendMessage2.jsp"/>
 <div id="jb-footer">
 	<div id="paging_wrap">

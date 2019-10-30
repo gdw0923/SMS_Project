@@ -42,7 +42,8 @@ var cer = false; // 인증을 했는지 안했는지 변수
 			location.href="main.do";
 		});
 		// 인증번호 전송
-		$("#findPwdBtn").click(function () {
+		$("#fincPwdBtn").click(function () {
+			console.log("findPwdBtn click");
 			$.ajax({
 				url: "findPwd.do",	
 				type: "get",			
@@ -80,7 +81,7 @@ var cer = false; // 인증을 했는지 안했는지 변수
 	        	
 	        	if(confirm("입력하신 패스워드로 변경을 하시겠습니까?") == true) {
 	        		
-	        		$("#changeFrm").attr({"action":"findPwdAf.do", "method":"post"}).submit();
+	        		$("#regiFrm").attr({"action":"findPwdAf.do", "method":"post"}).submit();
 	        		
 	        	}
 	        	
