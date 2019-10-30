@@ -1,27 +1,27 @@
-// caps lock 유무 확인
-function caps_lock(e) {
-	console.log("caps_lock function in");
-    var keyCode = 0;
-    var shiftKey = false;
-    keyCode = e.keyCode;
-    shiftKey = e.shiftKey;
-    if (((keyCode >= 65 && keyCode <= 90) && !shiftKey)
-            || ((keyCode >= 97 && keyCode <= 122) && shiftKey)) {
-        show_caps_lock();
-        setTimeout("hide_caps_lock()", 3500);
-    } else {
-        hide_caps_lock();
-    }
-}
-
-function show_caps_lock() {
-	$("#pwdfont").html("CapsLock키가 눌려있습니다.")
-	$("#pwdfont").css("display", "block" );
-}
-
-function hide_caps_lock() {
-	$("#pwdfont").css("display", "none" );
-}
+//// caps lock 유무 확인
+//function caps_lock(e) {
+//	console.log("caps_lock function in");
+//    var keyCode = 0;
+//    var shiftKey = false;
+//    keyCode = e.keyCode;
+//    shiftKey = e.shiftKey;
+//    if (((keyCode >= 65 && keyCode <= 90) && !shiftKey)
+//            || ((keyCode >= 97 && keyCode <= 122) && shiftKey)) {
+//        show_caps_lock();
+//        setTimeout("hide_caps_lock()", 3500);
+//    } else {
+//        hide_caps_lock();
+//    }
+//}
+//
+//function show_caps_lock() {
+//	$("#pwdfont").html("CapsLock키가 눌려있습니다.")
+//	$("#pwdfont").css("display", "block" );
+//}
+//
+//function hide_caps_lock() {
+//	$("#pwdfont").css("display", "none" );
+//}
 
 function sample6_execDaumPostcode() {
 	        new daum.Postcode({

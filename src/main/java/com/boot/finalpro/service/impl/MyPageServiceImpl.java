@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.boot.finalpro.dao.MyPageDAO;
 import com.boot.finalpro.model.ExchangeDTO;
 import com.boot.finalpro.model.MemberDTO;
+import com.boot.finalpro.model.MessageBlackListDTO;
 import com.boot.finalpro.model.MessageDTO;
 import com.boot.finalpro.model.ProfitDTO;
 import com.boot.finalpro.model.SMS_MemberDTO;
@@ -89,13 +90,11 @@ public class MyPageServiceImpl implements MyPageService {
 
 	@Override
 	public List<TeamBBSDTO> findAllLikeListById(BbsParam param) {
-		// TODO Auto-generated method stub
 		return myPageDAO.findAllLikeListById(param);
 	}
 
 	@Override
 	public int findAllLikeCountById(BbsParam param) {
-		// TODO Auto-generated method stub
 		return myPageDAO.findAllLikeCountById(param);
 	}
 
@@ -232,6 +231,11 @@ public class MyPageServiceImpl implements MyPageService {
 	@Override
 	public int findAllBlackListCount(String userid) {
 		return myPageDAO.findAllBlackListCount(userid);
+	}
+
+	@Override
+	public List<MessageBlackListDTO> findAllBlackListById(BbsParam param) {
+		return myPageDAO.findAllBlackListById(param);
 	}
 
 }

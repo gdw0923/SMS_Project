@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.boot.finalpro.model.ExchangeDTO;
 import com.boot.finalpro.model.MemberDTO;
+import com.boot.finalpro.model.MessageBlackListDTO;
 import com.boot.finalpro.model.MessageDTO;
 import com.boot.finalpro.model.ProfitDTO;
 import com.boot.finalpro.model.SMS_MemberDTO;
@@ -193,8 +194,6 @@ public class MyPageController {
 		
 //		long endChace = System.currentTimeMillis();
 //		log.info("MyPageController messagePage Cache 수행시간 :" + Long.toString(endChace-startCache));
-		
-		
 		
 		return messageMav;
 	}
@@ -813,17 +812,12 @@ public class MyPageController {
 		return "Y";
 	}
 	
-	@GetMapping("myPageBlacklist.do")
+	@RequestMapping(value = "myPageBlacklist.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView myPageBlacklist(BbsParam param, Principal pcp) {
 		
 		log.info("myPageController myPageBlacklist in");
 		// session id
 		String userid = pcp.getName();
-		// 쪽지 블랙리스트 숫자
-		int count = myPageService.findAllBlackListCount(userid);
-		// 쪽지 블랙리스트 데이터
-		
-		// 페이징해야함
 		param.setId(userid);
 		
 		int sn = param.getPageNumber(); // 0 1 2
@@ -833,10 +827,25 @@ public class MyPageController {
 		param.setStart(start);
 		param.setEnd(end);
 		
+		log.info("parma" + param.toString());
+		
+		// 쪽지 블랙리스트 숫자
+		int totalRecordCount = myPageService.findAllBlackListCount(userid);
+		// 쪽지 블랙리스트 데이터
+		List<MessageBlackListDTO> blacklist = myPageService.findAllBlackListById(param);
+		// member 정보
+		MemberDTO member = myPageService.findOneMemberById(userid);
 		
 		ModelAndView blackMav = new ModelAndView();
 		blackMav.setViewName("/myPage/myPageBlacklist");
-//		blackMav.addObject("blackList", blackList);
+		blackMav.addObject("blacklist", blacklist);
+		blackMav.addObject("id", param.getId());
+		blackMav.addObject("pageNumber", sn);
+		blackMav.addObject("totalRecordCount", totalRecordCount);
+		blackMav.addObject("pageCountPerScreen", 10);
+		blackMav.addObject("recordCountPerPage", param.getRecordCountPerPage());
+		blackMav.addObject("s_keyword", param.getS_keyword());
+		blackMav.addObject("member", member);
 		
 		return blackMav;
 	}

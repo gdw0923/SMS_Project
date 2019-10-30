@@ -362,9 +362,12 @@
 	<select id="findAllBlackListById" parameterType="com.boot.finalpro.util.BbsParam" resultType="com.boot.finalpro.model.MessageBlackListDTO">
 		SELECT MY_ID, BLACK_ID, BDATE
 		FROM(SELECT ROW_NUMBER()OVER(ORDER BY BDATE) AS RNUM,
-		MY_ID, BLACK_ID
+		MY_ID, BLACK_ID, BDATE
 		FROM MESSAGE_BLACKLIST
-		WHERE MY_ID=#{id} AND BLACK_ID LIKE '%' || #{s_keyword} || '%')
+		WHERE MY_ID=#{id} 
+		<if test="s_keyword != null ">
+		  		AND BLACK_ID LIKE '%'||#{s_keyword}||'%'
+		 </if>
 		 ) A
   		 WHERE RNUM BETWEEN ${start} AND ${end}
 	</select>
