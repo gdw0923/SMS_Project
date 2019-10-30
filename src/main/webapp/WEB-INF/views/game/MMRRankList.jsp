@@ -3,13 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-iframe{
-	
-}
-
-
-</style>
 
 
 <meta charset="UTF-8">
@@ -20,7 +13,9 @@ iframe{
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
 <div class="container" style="width: 1360px;">
-<h2>RANKING</h2>
+<div id="_top">
+	RANKING
+</div>
 <!-- 
 	<div style="width: 250px; height: auto; float: left; margin-right: 15px;">
 		<iframe src="MMRRankList1.do" style="border:0; display:block; width:250px; height: 100vh"></iframe>
