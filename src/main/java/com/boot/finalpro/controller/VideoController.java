@@ -96,7 +96,7 @@ public class VideoController {
 				
 		String path = req.getServletContext().getRealPath("/upload");
 
-//      System.out.println("path : " + path);
+        System.out.println("path : " + path);
         String fileName = "";
       
         File dir = new File(path);
@@ -118,7 +118,7 @@ public class VideoController {
             FileOutputStream fs = new FileOutputStream(path + "/" + fileName);
             fs.write(mFile.getBytes());
             fs.close();
-            
+          
          }catch(Exception e) {
             e.printStackTrace();
          }
@@ -132,11 +132,22 @@ public class VideoController {
         
       //썸네일 생성
         String str = null;
-        String[] cmd = new String[] {"D:\\springSample\\finalupdate.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\ffmpeg"
-        , "-i", "D:\\springSample\\finalupdate.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\"+fileName, "-an", "-ss"
-        , "00:00:05", "-r", "1", "-vframes", "1", "-y"
-        , "D:\\springSample\\finalupdate.zip_expanded\\FinalPro\\src\\main\\webapp\\upload\\"+fileName+".jpg"};
+        String[] cmd = new String[] {"" + path + "\\ffmpeg"
+                , "-i", "" + path + "\\" + fileName, "-an", "-ss"
+                , "00:00:05", "-r", "1", "-vframes", "1", "-y"
+                , "" + path + "\\" + fileName+".jpg"};
         Process process = null;
+        
+		/*
+		 * String[] cmd = new String[]
+		 * {"C:\\Users\\bit\\Desktop\\Final_sms\\SMS_Project\\src\\main\\webapp\\upload\\ffmpeg"
+		 * , "-i",
+		 * "C:\\Users\\bit\\Desktop\\Final_sms\\SMS_Project\\src\\main\\webapp\\upload\\"+fileName, "
+		 * -an", "-ss" , "00:00:05", "-r", "1", "-vframes", "1", "-y" ,
+		 * "C:\\Users\\bit\\Desktop\\Final_sms\\SMS_Project\\src\\main\\webapp\\upload\\"+fileName+"
+		 * .jpg"};
+		 */
+        
          
         try{            
             // 프로세스 빌더를 통하여 외부 프로그램 실행
