@@ -62,7 +62,7 @@ public class GameController {
 
 	@Autowired
 	GameService gameService;
-	
+	 
 	@RequestMapping(value = "gamelist.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String gamelist(String page, GameParam gp, Model model, Principal pcp) {
 //		log.info(gp.toString());		
