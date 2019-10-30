@@ -31,10 +31,10 @@ public class BettingController {
 
 	@Autowired
 	BettingService bettingService;
-	
+	 
 	@Autowired
 	BCryptPasswordEncoder bc;
-	
+	  
 	@RequestMapping(value = "bettinglist.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String bettinglist(Model model, GameParams gparam, HttpServletRequest req, Principal pcp) {
 		log.info("BettingController bettinglist");
@@ -48,7 +48,7 @@ public class BettingController {
 		if(principal2 != "anonymousUser") {
 			id = pcp.getName();
 		}
-		
+		 
 		// 검색 결과를 포함한 총 글 List
 		// List<GameDTO> glist = bettingService.getBettingList(gparam);
 		List<GameDTO> glist = bettingService.getBettingAllList(gparam, id);
