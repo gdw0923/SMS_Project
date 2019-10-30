@@ -76,18 +76,22 @@ public class VideoController {
 		model.addAttribute("video", video);
 		model.addAttribute("paging", gp);
 		
+		model.addAttribute("InsertTitle", "SMS 하이라이트");
+		
 		return "videolist.tiles";
 	}
 	
 	@RequestMapping(value = "videomake.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String videomake() {
+	public String videomake(Model model) {
+		
+		 model.addAttribute("InsertTitle", "SMS 하이라이트");
 								
 		return "videomake.tiles";
 	}
 
 	
 	@RequestMapping(value = "videomakeAf.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String videomakeAf(MultipartHttpServletRequest multi, HttpServletRequest req, VideoDTO video)	{
+	public String videomakeAf(MultipartHttpServletRequest multi, HttpServletRequest req, VideoDTO video, Model model)	{
 //		System.out.println(video.toString());
 				
 		String path = req.getServletContext().getRealPath("/upload");
@@ -148,6 +152,8 @@ public class VideoController {
             e.printStackTrace();
         }
        
+        model.addAttribute("InsertTitle", "SMS 하이라이트");
+        
 		return "redirect:/common/video.do";
 	}
 	
@@ -187,6 +193,8 @@ public class VideoController {
 		model.addAttribute("id", id);
 		model.addAttribute("comment", comment);		
 		model.addAttribute("video", video);
+		
+		model.addAttribute("InsertTitle", "SMS 하이라이트");
 								
 		return "videodetail.tiles";
 	}

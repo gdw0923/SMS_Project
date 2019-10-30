@@ -67,7 +67,7 @@ public class BettingController {
 		model.addAttribute("count", count);
 		model.addAttribute("gparam", gp);
 		
-		model.addAttribute("InsertTitle", "SMS 경기목록");
+		model.addAttribute("InsertTitle", "SMS 경기일정");
 
 		// 로그인한 사람 Session 정보 넘겨주기
 	//	MemberDTO login = (MemberDTO) req.getSession().getAttribute("login");

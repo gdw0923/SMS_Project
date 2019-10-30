@@ -100,6 +100,8 @@ public class GameController {
 		model.addAttribute("mem", mem);
 		model.addAttribute("auth", auth);
 		
+		model.addAttribute("InsertTitle", "SMS 경기매칭");
+		
 		//System.out.println("=============================================================== 들어옴");
 				
 		return "gamelist.tiles";
@@ -147,6 +149,8 @@ public class GameController {
 		model.addAttribute("month", month);	
 		model.addAttribute("mem", mem);
 		model.addAttribute("action", "gamemake.do?");
+		
+		model.addAttribute("InsertTitle", "SMS 경기매칭");
 		
 		return "gamemake.tiles";
 	}
@@ -404,6 +408,8 @@ public class GameController {
 		model.addAttribute("num", num);
 		model.addAttribute("slist", stadium);
 		model.addAttribute("action", "stadium.do?num="+num + "&");
+		
+		model.addAttribute("InsertTitle", "SMS 경기장");
 		
 		return "stadium.tiles";
 		
