@@ -82,7 +82,7 @@
 		</table>
 	</div>
 	
-<form action="#" id="_detailForm">
+<form action="#" id="_detailForm" >
 	<c:if test="${not empty search.category }">
 		<input type="hidden" value="${search.category }" name="category">
 	</c:if>
@@ -98,6 +98,7 @@
 		<c:if test="${search.page != 0}">
 		<input type="hidden" value="${search.page }" name="page">
 	</c:if>
+		<input type="hidden" value="" id="_seq" name="seq">
 </form>		
 <script type="text/javascript">
 $(".downBtn").on("click",function(){
@@ -106,11 +107,13 @@ $(".downBtn").on("click",function(){
 	location.href = "../common/noticeFileDown.do?file_seq="+file_seq;
 })
 $("#_backBtn").click(function(){
+	$("#_seq").remove();
 	$("#_detailForm").attr("action","notice.do").submit();
 });
 $(".npNotice").click(function() {
 	var seq = $(this).attr("seq");
-	location.href = "noticeDetail.do?seq="+seq;
+	$("#_seq").val(seq);
+	$("#_detailForm").attr("action","noticeDetail.do").submit();
 });
 </script>		
 </body>
