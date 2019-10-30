@@ -3,3 +3,4 @@ $(function() {
 		$("#frm").attr("action", "../logout").submit();	
 	});
 });
+
