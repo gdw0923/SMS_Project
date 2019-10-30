@@ -20,7 +20,7 @@
 		  mem.id as userid, pw as userpw, enabled, authority
 		FROM 
 		  SMS_MEM mem LEFT OUTER JOIN AUTHORITIES auth on mem.id = auth.id 
-		WHERE mem.id = #{userid} AND mem.enabled=1
+		WHERE mem.id = #{userid} AND auth.authority!='ROLE_DELETE'
  	</select>
 	<!-- 비밀번호 변경 -->
 	<update id="updatePwd" parameterType="com.boot.finalpro.model.MemberDTO">
@@ -46,8 +46,8 @@
 	</insert>
 	<!-- 회원가입 시큐리티 멤버 -->
 	<insert id="saveSMSMember" parameterType="com.boot.finalpro.model.SMS_MemberDTO">
-		INSERT INTO SMS_MEM(SEQ, ID, PW, RDATE, ENABLED)
-		VALUES(SMS_MEM_SEQ.NEXTVAL, #{userid}, #{userpw}, sysdate, 1)
+		INSERT INTO SMS_MEM(SEQ, ID, PW, RDATE)
+		VALUES(SMS_MEM_SEQ.NEXTVAL, #{userid}, #{userpw}, sysdate)
 	</insert>
 	<!-- 회원가입 권한 -->
 	<insert id="saveAuth" parameterType="java.lang.String">
