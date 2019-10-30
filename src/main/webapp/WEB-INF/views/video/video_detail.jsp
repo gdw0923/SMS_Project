@@ -90,10 +90,10 @@ textarea {
 			
 			<div>	
 				<jsp:setProperty property="depth" name="ubbs" value="${vc.depth }" />
-				<jsp:getProperty property="arrow" name="ubbs" />	
-				
-				<jsp:getProperty property="arrow" name="ubbs" />			
+				<jsp:getProperty property="arrow" name="ubbs" />					
+							
 				<c:if test="${vc.del eq 1 }">
+					<jsp:getProperty property="arrow" name="ubbs" />
 					삭제된 게시글입니다
 				</c:if>	
 			
