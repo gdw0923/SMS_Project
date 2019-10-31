@@ -76,7 +76,33 @@
 	clear: both; 
 	display: inline-block;
 }
-
+/* 네비바 높이와 메뉴글자 높이 가운데로 오게 하기 */
+.navbar{
+	height: 120px;
+	padding-top: 30px;
+}
+/* 네비바 안에 메뉴글자 가로 가운데로 오게 하기 */
+.navbar .navbar-nav {
+	display: inline-block;
+	float: none;
+}
+.navbar .navbar-collapse {
+	text-align: center;
+	font-size: 20px;
+}
+.navbar-default {
+	position: absolute;
+    left: 50%;
+    margin-left: -300px;
+	width: 800px;
+    background-color: #fff;
+    border-color: #fff;
+}
+/* 네비바 글자 */
+.navbar-default .navbar-nav>li>a {
+    color: black;
+    font-weight: 600;
+}
 
 /* 메인메뉴관련 */
 #top_menu_wrap{
@@ -85,7 +111,7 @@
 	height: 50px; */
 }
 #_top_menu{
-	background-color: #46AFA8;
+	/* background-color: #46AFA8; */
 	width: 100%;
 	height: 90px;
 	margin:0 auto;
@@ -105,10 +131,10 @@
 	font-size: 20px;
 }
 
-#middle_wrap { 
+#mypage_middle_wrap { 
 	/* display:inline-block;  */
 	/* clear:both;  */
-	width:70%; 
+	width:1200px;
 	padding:0px; 
 	margin: auto;
 	text-align:center; 
@@ -118,17 +144,17 @@
 }
  
 
-#top_menu_wrap { 
+#mypage_top_menu_wrap { 
 	width: 100%;
 }
 
-#leftmenu_wrap {
+#mypage_leftmenu_wrap {
 	width: 15%;
 	float: left;
 }
 
-#content_wrap { 
-	width: 85%; 
+#mypage_content_wrap { 
+	width: 1020px; 
 	float:left; 
 	padding: 5px; 
 	/* background-color: #875EB2; */
@@ -136,7 +162,7 @@
 }
 
 
-#footer_wrap { 
+#mypage_footer_wrap { 
 	width: 90%; 
 	height: 150px;
 	/* background-color:#AF4693; */

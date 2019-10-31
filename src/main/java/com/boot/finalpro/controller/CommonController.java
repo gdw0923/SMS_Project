@@ -301,7 +301,6 @@ public class CommonController {
 		list = noticeService.getNoticeList(dto);
 		PagingUtillDto pDto = new PagingUtillDto();
 		pDto = PagingUtill.getPageCount(count, dto.getPage());
-
 		model.addAttribute("totalCount", count);
 		model.addAttribute("pDto", pDto);
 		model.addAttribute("search", dto);
@@ -313,11 +312,12 @@ public class CommonController {
 	}
 
 	@GetMapping(value = "noticeDetail.do")
-	public String noticeDetail(@RequestParam("seq") int seq, Model model) {
+	public String noticeDetail(@RequestParam("seq") int seq, Model model,SearchUtillDto sdto) {
 		/* System.out.println("noticeDetail seq:"+seq); */
 		Map<String, Object> notice = new HashMap<String, Object>();
 		NoticeDTO dto = new NoticeDTO();
 		notice = noticeService.noticeDetail(seq);
+		/* System.out.println(sdto.toString()); */
 		dto = (NoticeDTO) notice.get("notice");
 		model.addAttribute("dto", dto);
 
@@ -331,6 +331,7 @@ public class CommonController {
 			model.addAttribute("fileList", fileList);
 		}
 		
+		model.addAttribute("search", sdto);
 		model.addAttribute("InsertTitle", "SMS 상세공지사항");
 
 		return "notice.detail";

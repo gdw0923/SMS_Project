@@ -21,7 +21,7 @@
 		</tr>
 		<c:if test="${empty bbsList}">
 			<tr>
-				<td colspan="3" align="center">작성한 게시물이 없습니다.</td>
+				<td colspan="4" align="center">작성한 게시물이 없습니다.</td>
 			</tr>
 		</c:if>
 		<c:if test="${not empty bbsList}">

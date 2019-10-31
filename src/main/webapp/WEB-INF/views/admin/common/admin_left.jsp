@@ -101,7 +101,7 @@
       
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMatch" aria-expanded="true" aria-controls="collapseMatch">
-          <i class="fas fa-fw fa-trophy"></i>
+          <i class="fas fa-fw fa-play"></i>
           <span>경기 관리</span>
         </a>
         <div id="collapseMatch" class="collapse" aria-labelledby="headingMatch" data-parent="#accordionSidebar">

@@ -257,7 +257,7 @@
 	<select id="monthlyGame" parameterType="java.lang.String" resultType="com.boot.finalpro.model.GameDTO">
 		SELECT *
 		FROM GAME
-		WHERE SUBSTR(GDATE,1,7) = #{ym}
+		WHERE 1=1 AND SUBSTR(GDATE,1,7) = #{ym} AND DEL=0
 		ORDER BY SEQ_GAME DESC
 	</select>
 	
@@ -265,7 +265,7 @@
 	<select id="dailyGame" parameterType="java.lang.String" resultType="com.boot.finalpro.model.GameDTO">
 		SELECT *
 		FROM GAME
-		WHERE SUBSTR(GDATE,1,10) = #{ymd}
+		WHERE 1=1 AND SUBSTR(GDATE,1,10) = #{ymd} AND DEL=0
 		ORDER BY SEQ_GAME DESC
 	</select>   
 

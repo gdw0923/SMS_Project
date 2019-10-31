@@ -6,7 +6,7 @@
 	margin: 100px auto;
 }
 .form-content {
-	width: 20%;
+	width: 380px;
 	margin: 0 auto;
 }
 .form-control {
@@ -26,4 +26,10 @@
 }
 #loginBtn {
 	width: 100%;
+}
+.log-img { /* 상단 로고 */
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10%;
+	margin-top: 10%;
 }

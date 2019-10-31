@@ -80,12 +80,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		 // 최대 세션 접근수
 		 .sessionManagement().maximumSessions(1)
 		 // 해당세션 재접근 차단여부 true 시 이미 로그인한 아이디로 재로그인시 에러발생
-		 .maxSessionsPreventsLogin(true);
-		 // 중복 세션 로그인시 redirect url
-		/*.expiredUrl("/dasdasdasdasd");*/
-		 // 그리고 기본 session timeout 시간은 yml 에서 설정하는걸로 추정됨
-		 // web xml 에서 session 시간을 일괄 처리한다고 하는데
-		 // web xml이 없으면 어디서 session time out 을 설정하는지
+		 .maxSessionsPreventsLogin(true)
+		 // 중복아이디 로그인시 보내주는 url
+		 .expiredUrl("/loginPage.do");
 		
 	}
 

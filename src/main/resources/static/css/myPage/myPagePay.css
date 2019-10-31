@@ -1,6 +1,6 @@
 
 .form-div {
-	width: 90%;
+	width: 930px;
 	height: 500px;
 	margin: auto;
 }
@@ -10,6 +10,7 @@
 	height: 400px;
 	float: left;
 	margin-top: 50px;
+	margin-left: 50px;
 }
 
 .form-div-sub2 {

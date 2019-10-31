@@ -193,10 +193,13 @@ td{
 
 </form>
 
-<input type="button" id="listBtn" class="btn btn-default" value="목록으로">
-<sec:authorize access="hasRole('ROLE_ADMIN')">
-	<input type="button" id="delBtn" class="btn btn-default" style="float: right;" value="삭제">
-</sec:authorize>
+	<div style="text-align: center;">
+		<input type="button" id="listBtn" class="btn btn-default" style="margin: auto; display: block;" value="목록으로">
+	
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<input type="button" id="delBtn" class="btn btn-default" style="float: right;" value="삭제">
+	</sec:authorize>
+	</div>
 
 </div>
 

@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.boot.finalpro.model.ExchangeDTO;
 import com.boot.finalpro.model.MemberDTO;
+import com.boot.finalpro.model.MessageBlackListDTO;
 import com.boot.finalpro.model.MessageDTO;
 import com.boot.finalpro.model.ProfitDTO;
 import com.boot.finalpro.model.SMS_MemberDTO;
@@ -38,16 +40,22 @@ import lombok.extern.slf4j.Slf4j;
 @EnableCaching
 public class MyPageController {
 
+	// service
 	@Autowired
 	MyPageService myPageService;
 	
+	// security encoder
 	@Autowired
 	BCryptPasswordEncoder bc;
+	
+	// jpa
+//	@Autowired
+//	MemberRepository memberRepository;
+	
+	
 	// 마이페이지 메인이동
 //	@GetMapping("/myPageMain.do")
 //	public ModelAndView myPageMain(Principal pcp) {
-//		
-//		
 //		
 //		log.info("MyPageController myPageMain in");
 //		
@@ -59,9 +67,7 @@ public class MyPageController {
 //		myMav.setViewName("myPageMain.tiles");
 //		myMav.addObject("member", member);
 //		
-//		
-//		
-//		return myMav;
+//		return myMav; 
 //	}
 		
 	// 마이페이지 메인이동
@@ -193,8 +199,6 @@ public class MyPageController {
 		
 //		long endChace = System.currentTimeMillis();
 //		log.info("MyPageController messagePage Cache 수행시간 :" + Long.toString(endChace-startCache));
-		
-		
 		
 		return messageMav;
 	}
@@ -367,13 +371,27 @@ public class MyPageController {
 		
 		boolean blacklist = myPageService.findMessageBlacklist(msg);
 		
+		log.info("blacklist" + blacklist);
+		
 		if(blacklist) {
-			boolean b = myPageService.SaveMessage(msg);
-			if(!b) {
-				return "false";
-			}
+			return "true";
 		}
-		return "true";
+		log.info("false");
+		
+		boolean suc = myPageService.SaveMessage(msg);
+		
+		if(suc) {
+			
+			return "true";
+		}
+		return "false";
+//		if(blacklist) {
+//			boolean b = myPageService.SaveMessage(msg);
+//			if(!b) {
+//				return "false";
+//			}
+//		}
+//		return "true";
 	}
 	// 수신한 편지 디테일에서 답장하기
 	@GetMapping("myPageAnswerMessage.do")
@@ -813,17 +831,12 @@ public class MyPageController {
 		return "Y";
 	}
 	
-	@GetMapping("myPageBlacklist.do")
+	@RequestMapping(value = "myPageBlacklist.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView myPageBlacklist(BbsParam param, Principal pcp) {
 		
 		log.info("myPageController myPageBlacklist in");
 		// session id
 		String userid = pcp.getName();
-		// 쪽지 블랙리스트 숫자
-		int count = myPageService.findAllBlackListCount(userid);
-		// 쪽지 블랙리스트 데이터
-		
-		// 페이징해야함
 		param.setId(userid);
 		
 		int sn = param.getPageNumber(); // 0 1 2
@@ -833,10 +846,25 @@ public class MyPageController {
 		param.setStart(start);
 		param.setEnd(end);
 		
+		log.info("parma" + param.toString());
+		
+		// 쪽지 블랙리스트 숫자
+		int totalRecordCount = myPageService.findAllBlackListCount(userid);
+		// 쪽지 블랙리스트 데이터
+		List<MessageBlackListDTO> blacklist = myPageService.findAllBlackListById(param);
+		// member 정보
+		MemberDTO member = myPageService.findOneMemberById(userid);
 		
 		ModelAndView blackMav = new ModelAndView();
 		blackMav.setViewName("/myPage/myPageBlacklist");
-//		blackMav.addObject("blackList", blackList);
+		blackMav.addObject("blacklist", blacklist);
+		blackMav.addObject("id", param.getId());
+		blackMav.addObject("pageNumber", sn);
+		blackMav.addObject("totalRecordCount", totalRecordCount);
+		blackMav.addObject("pageCountPerScreen", 10);
+		blackMav.addObject("recordCountPerPage", param.getRecordCountPerPage());
+		blackMav.addObject("s_keyword", param.getS_keyword());
+		blackMav.addObject("member", member);
 		
 		return blackMav;
 	}

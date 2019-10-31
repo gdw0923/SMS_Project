@@ -18,7 +18,17 @@
 	$("#_datepickTo").datepicker();                    
 	$("#_datepickFrom").datepicker();
 
-	
+
+	$('#_datepickTo').datepicker("option", "maxDate", $("#_datepickFrom").val());
+	$('#_datepickTo').datepicker("option", "onClose", function ( selectedDate ) {
+	    $("#_datepickFrom").datepicker( "option", "minDate", selectedDate );
+	});
+
+
+	$('#_datepickFrom').datepicker("option", "minDate", $("#_datepickTo").val());
+	$('#_datepickFrom').datepicker("option", "onClose", function ( selectedDate ) {
+	    $("#_datepickTo").datepicker( "option", "maxDate", selectedDate );
+	});
 	$("#_findBtn").on("click",function(){
 		var dateTo = $("#_datepickTo").val();
 		var dateFrom = $("#_datepickFrom").val();

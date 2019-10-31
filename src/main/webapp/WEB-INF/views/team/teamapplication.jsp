@@ -67,15 +67,15 @@
 			<option>축구</option>
 			<option>농구</option>
 			<option>야구</option>
-			<option>베드민턴</option>
+			<option>배드민턴</option>
 			<option>탁구</option>
 		</select>         
        </div>
      </div>
      <div class="form-group">
-		<label for="inputEmail" class="col-lg-3 control-label">팀소개</label>
+		<label for="inputEmail" class="col-lg-3 control-label">한줄소개</label>
 		<div class="col-lg-6">
-			<input type="text" id="_title" name="title" class="form-control">
+			<input type="text" id="_title" name="title" class="form-control" maxlength="30">
 		</div>
 	</div>
 	<div class="form-group">
