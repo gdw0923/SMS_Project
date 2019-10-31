@@ -3,7 +3,7 @@
 
 	<link rel="stylesheet" href="/css/myPage/myPageLeftMenu.css">
 	
-<div class="col-sm-2">
+<div class="col-sm-2" style="width: 170px;">
     <nav class="nav-sidebar">
 		<ul class="nav tabs" id="mypage-ul">
 		  <!-- <li id="li-main"><a href="myPageMain.do"><img src="/image/home.png" alt="myPage"> MyPage</a> -->

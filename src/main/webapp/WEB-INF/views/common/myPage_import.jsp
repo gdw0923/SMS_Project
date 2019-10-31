@@ -134,7 +134,7 @@
 #mypage_middle_wrap { 
 	/* display:inline-block;  */
 	/* clear:both;  */
-	width:70%; 
+	width:1200px;
 	padding:0px; 
 	margin: auto;
 	text-align:center; 
