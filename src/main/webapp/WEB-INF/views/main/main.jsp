@@ -316,7 +316,9 @@ String n = String.format("<a href='%s?year=%d&month=%d'><img src='/image/right-a
 					<c:choose>
 						<c:when test="${not empty gDaily }">
 							<c:forEach var="i" items="${gDaily }" varStatus="vs">
+								<c:if test="${vs.count <= 5 }">
 								<tr><th colspan="2">${vs.count }. ${i.title }</th></tr>
+								</c:if>
 							</c:forEach>
 						</c:when>
 						<c:otherwise>
@@ -539,7 +541,9 @@ $(".calTitle").on("click",function(){
 	var titleSize = $(this).parent().children("input[type='hidden']").length;
 	var titleArray = new Array(titleSize);
 	for (var i = 0; i < titleArray.length; i++) {
+		if(i<5){
 		$("#_scheduleTbody").append("<tr><th colspan='2'>"+(i+1)+". "+$(this).parent().children("input[type='hidden']").eq(i).val()+"<th></tr>")
+		}
 	}
 	
 });

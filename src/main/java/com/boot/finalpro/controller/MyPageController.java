@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.boot.finalpro.model.ExchangeDTO;
 import com.boot.finalpro.model.MemberDTO;
 import com.boot.finalpro.model.MessageBlackListDTO;
@@ -39,16 +40,22 @@ import lombok.extern.slf4j.Slf4j;
 @EnableCaching
 public class MyPageController {
 
+	// service
 	@Autowired
 	MyPageService myPageService;
 	
+	// security encoder
 	@Autowired
 	BCryptPasswordEncoder bc;
+	
+	// jpa
+//	@Autowired
+//	MemberRepository memberRepository;
+	
+	
 	// 마이페이지 메인이동
 //	@GetMapping("/myPageMain.do")
 //	public ModelAndView myPageMain(Principal pcp) {
-//		
-//		
 //		
 //		log.info("MyPageController myPageMain in");
 //		
@@ -60,9 +67,7 @@ public class MyPageController {
 //		myMav.setViewName("myPageMain.tiles");
 //		myMav.addObject("member", member);
 //		
-//		
-//		
-//		return myMav;
+//		return myMav; 
 //	}
 		
 	// 마이페이지 메인이동

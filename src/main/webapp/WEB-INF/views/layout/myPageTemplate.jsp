@@ -25,14 +25,14 @@
 		<tiles:insertAttribute name="top_inc" ignore="true"/>
 	</div>
 
-	<div id="mypage_middle_wrap">
+	<div id="mypage_middle_wrap" style="width: 1200px;">
 		<div id="mypage_top_menu_wrap">
 			<tiles:insertAttribute name="my_top_menu" />
 		</div>
 		<div id="mypage_left_menu_wrap">
 			<tiles:insertAttribute name="my_left_menu"/>
 		</div>
-		<div id="mypage_content_wrap">
+		<div id="mypage_content_wrap" style="width: 1030px;">
 			<tiles:insertAttribute name="body"/>			
 		</div>		
 	</div>

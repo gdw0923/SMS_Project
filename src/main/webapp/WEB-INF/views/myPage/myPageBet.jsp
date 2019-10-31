@@ -39,11 +39,11 @@
 				</td>
 				<td>
 					<p>${bet.name_team1}</p>
-					<p>${(bet.payout_r1 eq 0.0)?'미정':bet.payout_r1}</p>
+					<p>배당 :${(bet.payout_r1 eq 0.0)?'미정':bet.payout_r1}</p>
 				</td>
 				<td>
 					<p>${bet.name_team2}</p>
-					<p>${(bet.payout_r2 eq 0.0)?'미정':bet.payout_r2}</
+					<p>배당 :${(bet.payout_r2 eq 0.0)?'미정':bet.payout_r2}</
 				</td>
 				<td>
 					<p>${bet.gdate}</p>

@@ -134,7 +134,7 @@
 #mypage_middle_wrap { 
 	/* display:inline-block;  */
 	/* clear:both;  */
-	width:70%; 
+	width:1200px;
 	padding:0px; 
 	margin: auto;
 	text-align:center; 
@@ -154,7 +154,7 @@
 }
 
 #mypage_content_wrap { 
-	width: 85%; 
+	width: 1020px; 
 	float:left; 
 	padding: 5px; 
 	/* background-color: #875EB2; */
