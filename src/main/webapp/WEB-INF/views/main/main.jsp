@@ -541,7 +541,9 @@ $(".calTitle").on("click",function(){
 	var titleSize = $(this).parent().children("input[type='hidden']").length;
 	var titleArray = new Array(titleSize);
 	for (var i = 0; i < titleArray.length; i++) {
+		if(i<5){
 		$("#_scheduleTbody").append("<tr><th colspan='2'>"+(i+1)+". "+$(this).parent().children("input[type='hidden']").eq(i).val()+"<th></tr>")
+		}
 	}
 	
 });
