@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.boot.finalpro.model.ExchangeDTO;
 import com.boot.finalpro.model.MemberDTO;
+import com.boot.finalpro.model.MessageBlackListDTO;
 import com.boot.finalpro.model.MessageDTO;
 import com.boot.finalpro.model.ProfitDTO;
 import com.boot.finalpro.model.SMS_MemberDTO;
@@ -99,4 +100,6 @@ public interface MyPageService {
 	public void deleteMessageBlacklist(MessageDTO msg);
 	// 수신거부 목록
 	public int findAllBlackListCount(String userid);
+	// 수신거부 목록 리스트
+	public List<MessageBlackListDTO> findAllBlackListById(BbsParam param);
 }

@@ -54,7 +54,7 @@
 				<tr style="height: 50px">
 					<th th style="border-bottom:1px solid #DDD0D0;text-align: center;" class="writeTh"><div>이전글</div>
 						<c:choose>
-							<c:when test="${not empty previousNotice}">
+							<c:when test="${previousNotice.seq != 0}">
 								<td style="border-bottom:1px solid #DDD0D0;text-align: left; padding-left: 2%" class="npNotice" seq="${previousNotice.seq }">${previousNotice.title }</td>
 							</c:when>
 							<c:otherwise>
@@ -66,7 +66,7 @@
 				<tr style="height: 50px">
 					<th th style="border-bottom:1px solid #DDD0D0;text-align: center;" class="writeTh"><div>다음글</div>
 						<c:choose>
-							<c:when test="${not empty nextNotice}">
+							<c:when test="${nextNotice.seq != 0}">
 								<td style="border-bottom:1px solid #DDD0D0;text-align: left; padding-left: 2%" class="npNotice" seq="${nextNotice.seq }">${nextNotice.title }</td>
 							</c:when>
 							<c:otherwise>
@@ -82,6 +82,24 @@
 		</table>
 	</div>
 	
+<form action="#" id="_detailForm" >
+	<c:if test="${not empty search.category }">
+		<input type="hidden" value="${search.category }" name="category">
+	</c:if>
+	<c:if test="${not empty search.searchText }">
+		<input type="hidden" value="${search.searchText }" name="searchText">
+	</c:if>
+		<c:if test="${not empty search.begin }">
+		<input type="hidden" value="${search.begin }" name="begin">
+	</c:if>
+		<c:if test="${not empty search.end }">
+		<input type="hidden" value="${search.end }" name="end">
+	</c:if>
+		<c:if test="${search.page != 0}">
+		<input type="hidden" value="${search.page }" name="page">
+	</c:if>
+		<input type="hidden" value="" id="_seq" name="seq">
+</form>		
 <script type="text/javascript">
 $(".downBtn").on("click",function(){
 	/* alert($(this).attr("seq")); */
@@ -89,11 +107,13 @@ $(".downBtn").on("click",function(){
 	location.href = "../common/noticeFileDown.do?file_seq="+file_seq;
 })
 $("#_backBtn").click(function(){
-	history.back();
+	$("#_seq").remove();
+	$("#_detailForm").attr("action","notice.do").submit();
 });
 $(".npNotice").click(function() {
 	var seq = $(this).attr("seq");
-	location.href = "noticeDetail.do?seq="+seq;
+	$("#_seq").val(seq);
+	$("#_detailForm").attr("action","noticeDetail.do").submit();
 });
 </script>		
 </body>

@@ -178,7 +178,7 @@
 	
    <!-- myPage main -->
    <definition name="myPageMain.tiles" template="/WEB-INF/views/layout/myPageTemplate.jsp">
-		<put-attribute name="myPage_import" value="/WEB-INF/views/common/myPage_import.jsp"/>
+		<put-attribute name="myPage_import" value="/WEB-INF/views/common/header_import.jsp"/>
 		<put-attribute name="top_inc" value="/WEB-INF/views/common/top_inc.jsp"/>
 		<put-attribute name="top_menu" value="/WEB-INF/views/common/top_menu.jsp"/>
 		<put-attribute name="my_top_menu" value="/WEB-INF/views/common/myPageMain.jsp"/>
@@ -359,14 +359,11 @@
 
 	<!-- video_report -->
 	<definition name="admin_report.tiles" extends="admin.main">
-		<put-attribute name="admin_content"
-			value="/WEB-INF/views/admin/video/admin_video_report.jsp" />
+		<put-attribute name="admin_content"	value="/WEB-INF/views/admin/video/admin_video_report.jsp" />
 	</definition>
 
-	<definition name="admin_report_detail.tiles"
-		extends="admin.main">
-		<put-attribute name="admin_content"
-			value="/WEB-INF/views/admin/video/admin_video_report_detail.jsp" />
+	<definition name="admin_report_detail.tiles" extends="admin.main">
+		<put-attribute name="admin_content"	value="/WEB-INF/views/admin/video/admin_video_report_detail.jsp" />
 	</definition>
 
 

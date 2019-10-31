@@ -41,8 +41,44 @@ var cer = false; // 인증을 했는지 안했는지 변수
 		$(".log-img").click(function () {
 			location.href="main.do";
 		});
+		
+		$("#idFont").hide();
+		$("#pwdFont").hide();
+		
+		// 아이디 체크
+		$("#userid").change(function () {
+			
+			 if(($("#userid").val().trim().length < 7 || $("#userid").val().trim().length > 20 )){
+				 $("#idFont").show();
+				 console.log("frist if in");
+			}else{
+				$.ajax({
+					url:"idCheck.do",		
+					type:"get",			
+					data:"id=" + $("#userid").val(),
+					
+					success:function(data, status, xhr){
+						
+						if(data == "true"){
+							check = true;
+							$("#idFont").show();
+							console.log("if in");
+						}else{
+							check = false;
+							$("#idFont").hide();
+							console.log("else in");
+						}
+					},
+					error:function(xhr, status, error){
+						alert("통신실패");
+					}
+				});
+			} 
+			
+		});
 		// 인증번호 전송
-		$("#findPwdBtn").click(function () {
+		$("#fincPwdBtn").click(function () {
+			console.log("findPwdBtn click");
 			$.ajax({
 				url: "findPwd.do",	
 				type: "get",			
@@ -63,6 +99,19 @@ var cer = false; // 인증을 했는지 안했는지 변수
 			});
 		});
 		
+		// 비밀번호 조건
+		$("#pwd").on("propertychange change keyup paste input", function() {
+			
+			var pwd = $("#pwd").val().trim();
+			
+			if( pwd.length >= 8 && pwd.length <= 15 && pattern1.test( pwd ) && pattern2.test( pwd ) && pattern3.test( pwd ) ){
+				$("#pwdFont").hide();
+			}else {
+				$("#pwdFont").show();
+			}
+					
+		});
+		
 		$("#changBtn").click(function () {
 			
 			var pw = $("#pwd").val().trim();
@@ -80,7 +129,7 @@ var cer = false; // 인증을 했는지 안했는지 변수
 	        	
 	        	if(confirm("입력하신 패스워드로 변경을 하시겠습니까?") == true) {
 	        		
-	        		$("#changeFrm").attr({"action":"findPwdAf.do", "method":"post"}).submit();
+	        		$("#regiFrm").attr({"action":"findPwdAf.do", "method":"post"}).submit();
 	        		
 	        	}
 	        	

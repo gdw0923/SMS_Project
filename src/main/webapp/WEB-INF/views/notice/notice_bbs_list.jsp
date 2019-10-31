@@ -136,7 +136,25 @@
 			&nbsp;&nbsp;&nbsp;<a href="#" class="pagelist" page="${pDto.lastPage+1 }">></a>&nbsp;&nbsp;&nbsp;<a href="#" class="pagelist" page="${pDto.totalPage }">>></a>
 		</c:if>
 	</div>
-	
+
+<form action="#" id="_detailForm">
+	<c:if test="${not empty search.category }">
+		<input type="hidden" value="${search.category }" name="category">
+	</c:if>
+	<c:if test="${not empty search.searchText }">
+		<input type="hidden" value="${search.searchText }" name="searchText">
+	</c:if>
+		<c:if test="${not empty search.begin }">
+		<input type="hidden" value="${search.begin }" name="begin">
+	</c:if>
+		<c:if test="${not empty search.end }">
+		<input type="hidden" value="${search.end }" name="end">
+	</c:if>
+		<c:if test="${search.page != 0}">
+		<input type="hidden" value="${search.page }" name="page">
+	</c:if>
+		<input type="hidden" value="" id="_seq" name="seq">	
+</form>	
 	
 <script type="text/javascript">
 
@@ -215,8 +233,9 @@ $(".pagelist").on("click",function(){	// 페이징 버튼 눌렀을시
 $(".notice_seq").on("click",function(){	// detail창으로 넘기기
 	/* alert("클릭됨"); */
 	var seq = $(this).attr("seq");
-	/* alert(seq); */
-	location.href = "../common/noticeDetail.do?seq="+seq;
+	$("#_seq").val(seq);
+	$("#_detailForm").attr("action","noticeDetail.do").submit();
+	/* location.href = "../common/noticeDetail.do?seq="+seq; */
 });
 </script>		
 </body>

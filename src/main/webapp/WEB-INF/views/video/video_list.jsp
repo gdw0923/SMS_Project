@@ -23,9 +23,9 @@ h3{
 </head>
 <body>
 
-<h3>하이라이트</h3>
-
-
+<div id="_top">
+	하이라이트
+</div>
 
 <div class="container" style="width: 1200px;">
 	<div align="right" style="margin-bottom: 20px; width: 1160px;">

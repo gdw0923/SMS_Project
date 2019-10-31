@@ -8,8 +8,8 @@
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="/css/login/pwdFind.css">
-	<script type="text/javascript" src="/js/login/pwdFind.js"></script>
+	<link rel="stylesheet" href="/css/login/findPwd.css">
+	<script type="text/javascript" src="/js/login/findPwd.js"></script>
 	
 </head>
 <body>
@@ -17,9 +17,10 @@
 <form name="signUpForm" class="form" role="form" id="regiFrm">
   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
   <div class="form-content">
-  	<img alt="사진없음" src="/image/main_logo.jpg" style="width: 100%; margin-bottom: 10%; margin-top: 10%">
+  	<img alt="사진없음" src="/image/main_logo.jpg" class="log-img">
     <div class="col-xs-6 col-md-9">
-		<input type="email" class="form-control" id="userid" name="id" placeholder="아이디">
+		<input type="text" class="form-control" id="userid" name="id" placeholder="아이디">
+    	<font color="red" id="idFont">없는 아이디 입니다.</font>
     </div>
     <div class="col-xs-6 col-md-3">
         <button type="button" class="btn btn-default" id="fincPwdBtn">인증</button>
@@ -27,6 +28,7 @@
     <span style="opacity: 0">공간지정</span>
     <input type="text" class="form-control" placeholder="인증번호" id="cernum" onkeypress="return fn_press(event,'numbers');" onkeydown="fn_press_han(this);"> <br>
 	<input type="password" class="form-control" placeholder="바꾸실비밀번호" id="pwd" name="pwd"> <br>
+   	<font color="red" id="pwdFont">영문, 숫자, 특수기호 8~15자리로 구성해야 합니다.</font>
     <div class="form-group">
     	<input type="button" value="비밀번호 변경" class="btn btn-info" id="changBtn">
     </div>
