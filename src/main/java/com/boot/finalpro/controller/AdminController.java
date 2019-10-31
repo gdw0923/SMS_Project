@@ -121,7 +121,7 @@ public class AdminController {
 
 		List<VideoDTO> video = new ArrayList<VideoDTO>();
 		List<VideoCommentDTO> vc = new ArrayList<VideoCommentDTO>();
-
+				
 		for (int i = 0; i < vr.size(); i++) {
 			if (vr.get(i).getCategory() == 1) {
 // VideoDTO

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.boot.finalpro.dao.MyPageDAO;
 import com.boot.finalpro.model.ExchangeDTO;
 import com.boot.finalpro.model.MemberDTO;
+import com.boot.finalpro.model.MessageBlackListDTO;
 import com.boot.finalpro.model.MessageDTO;
 import com.boot.finalpro.model.ProfitDTO;
 import com.boot.finalpro.model.SMS_MemberDTO;
@@ -246,6 +247,11 @@ public class MyPageDAOImpl implements MyPageDAO{
 	@Override
 	public int findAllBlackListCount(String userid) {
 		return sqlSession.selectOne(ns + "findAllBlackListCount", userid);
+	}
+
+	@Override
+	public List<MessageBlackListDTO> findAllBlackListById(BbsParam param) {
+		return sqlSession.selectList(ns + "findAllBlackListById", param);
 	}
 
 }

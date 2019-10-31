@@ -127,6 +127,44 @@
 	margin-right: auto;
 }
 
+
+#mypage_middle_wrap { 
+	/* display:inline-block;  */
+	/* clear:both;  */
+	width:70%; 
+	padding:0px; 
+	margin: auto;
+	text-align:center; 
+	min-height: 609px;
+	/* background-color: #80FF00; */
+	/* border:solid 1px #EFEFEF; */
+}
+#mypage_top_menu_wrap { 
+	width: 100%;
+}
+
+#mypage_leftmenu_wrap {
+	width: 15%;
+	float: left;
+}
+
+#mypage_content_wrap { 
+	width: 85%; 
+	float:left; 
+	padding: 5px; 
+	/* background-color: #875EB2; */
+	margin: 3% auto;
+}
+
+
+#mypage_footer_wrap { 
+	width: 90%; 
+	height: 150px;
+	/* background-color:#AF4693; */
+	margin-left: auto;
+	margin-right: auto;
+}
+
 </style>
 
 
