@@ -61,7 +61,7 @@
      <div class="form-group">
        <label for="inputTeam" class="col-lg-3 control-label">팀소개</label>
        <div class="col-lg-6">
-		<input type="text" name="title" class="form-control" value="${teamdetail.title }">         
+		<input type="text" name="title" class="form-control" value="${teamdetail.title }" maxlength="30">         
        </div>
      </div>
      <div class="form-group">
@@ -72,7 +72,7 @@
 			<option>축구</option>
 			<option>농구</option>
 			<option>야구</option>
-			<option>베드민턴</option>
+			<option>배드민턴</option>
 			<option>탁구</option>
 		</select>         
        </div>

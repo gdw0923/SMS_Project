@@ -49,7 +49,7 @@ td{
 				<option value="농구" <c:if test="${sport == '농구'}">selected='selected'</c:if>>농구</option>
 				<option value="탁구" <c:if test="${sport == '탁구'}">selected='selected'</c:if>>탁구</option>	
 				<option value="배드민턴" <c:if test="${sport == '배드민턴'}">selected='selected'</c:if>>배드민턴</option>				
-			</select>	
+			</select>
 		</th>
 		<th>제목</th><th>내용</th><th>경기장</th>
 		<th>
