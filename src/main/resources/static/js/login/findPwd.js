@@ -79,6 +79,10 @@ var cer = false; // 인증을 했는지 안했는지 변수
 		// 인증번호 전송
 		$("#fincPwdBtn").click(function () {
 			console.log("findPwdBtn click");
+			
+			number = randomRange()+"";
+			alert("number:" + number);
+			
 			$.ajax({
 				url: "findPwd.do",	
 				type: "get",			

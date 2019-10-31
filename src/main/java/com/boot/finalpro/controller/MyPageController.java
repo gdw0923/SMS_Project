@@ -67,7 +67,7 @@ public class MyPageController {
 //		myMav.setViewName("myPageMain.tiles");
 //		myMav.addObject("member", member);
 //		
-//		return myMav;
+//		return myMav; 
 //	}
 		
 	// 마이페이지 메인이동

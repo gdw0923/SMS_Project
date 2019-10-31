@@ -32,7 +32,7 @@
 		<div id="mypage_left_menu_wrap">
 			<tiles:insertAttribute name="my_left_menu"/>
 		</div>
-		<div id="mypage_content_wrap">
+		<div id="mypage_content_wrap" style="width: 1030px;">
 			<tiles:insertAttribute name="body"/>			
 		</div>		
 	</div>

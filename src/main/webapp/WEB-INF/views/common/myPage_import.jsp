@@ -154,7 +154,7 @@
 }
 
 #mypage_content_wrap { 
-	width: 85%; 
+	width: 1020px; 
 	float:left; 
 	padding: 5px; 
 	/* background-color: #875EB2; */
