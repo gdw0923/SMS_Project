@@ -551,7 +551,7 @@ $(".calTitle").on("click",function(){
 $(".notice_tr").click(function() {
 	var notice_seq = $(this).attr("seq");
 	/* alert(notice_seq); */
-	location.href = "noticeDetail.do?seq="+notice_seq;
+	location.href = "noticeDetail.do?page=1&seq="+notice_seq;
 });
 $("#_noticeBtn").click(function() {
 /* 	alert("클릭됨"); */

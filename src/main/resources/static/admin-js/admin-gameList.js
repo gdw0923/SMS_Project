@@ -20,7 +20,17 @@
 	//input을 datepicker로 선언
 	$("#_datepickTo").datepicker();                    
 	$("#_datepickFrom").datepicker();
-	
+
+	$('#_datepickTo').datepicker("option", "maxDate", $("#_datepickFrom").val());
+	$('#_datepickTo').datepicker("option", "onClose", function ( selectedDate ) {
+	    $("#_datepickFrom").datepicker( "option", "minDate", selectedDate );
+	});
+
+
+	$('#_datepickFrom').datepicker("option", "minDate", $("#_datepickTo").val());
+	$('#_datepickFrom').datepicker("option", "onClose", function ( selectedDate ) {
+	    $("#_datepickTo").datepicker( "option", "maxDate", selectedDate );
+	});
 	$("#_checkAll").on("click",function(){	//삭제 체크박스 다 눌렀을때
 		var chk = $(this).is(":checked");
 		if(chk) $(".delCheck").prop('checked',true);
