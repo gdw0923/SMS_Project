@@ -108,13 +108,15 @@ $(document).ready(function(){
 	// 결제 버튼 클릭시
 	$("#payBtn").click(function () {
 		if(agree == false) {
-			bootbox.alert("이용약관 동의를 해주세요.");
+			alert("이용약관 동의를 해주세요.");
 		}else if($("#pay_Thing").val() == "") {
-			bootbox.alert("결제수단을 선택해 주세요.");
-		}else if($("#pay_Money").val() == ""){
-			bootbox.alert("금액을 입력해 주세요.");
+			alert("결제수단을 선택해 주세요.");
+		}else if($("#pay_Money").val() == "") {
+			alert("금액을 입력해 주세요.");
+		}else if($("#pay_Money").val() == 0) {
+			alert("0원은 충전할 수 없습니다.");
 		}else if(payCheck == false) {
-			bootbox.alert("천원단위로 금액을 입력해 주세요.");
+			alert("천원단위로 금액을 입력해 주세요.");
 		}else {
 /*			
 */			

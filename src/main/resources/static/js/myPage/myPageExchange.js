@@ -139,7 +139,7 @@ $(function() {
 					$("#bank_number_font").css("display", "block" );
 				} else {
 					if(check == true) {
-						bootbox.alert("check :" + check);
+//						alert("check :" + check);
 						$("#exchangeFrm").attr({"action":"myPageExchange.do", "method":"post"}).submit();
 						}else {
 							$("#exchange_money_font").html("금액을 똑바로 입력해 주세요.");

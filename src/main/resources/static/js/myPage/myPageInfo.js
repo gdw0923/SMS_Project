@@ -98,40 +98,48 @@ $(function () {
         
 		if (!pattern1.test(pw) || !pattern2.test(pw) || !pattern3.test(pw) || pw.length<8 || pw.length > 15) {
 
-            bootbox.alert("비밀번호는 영문+숫자+특수기호 8~15자리로 구성하여야 합니다.");
+            alert("비밀번호는 영문+숫자+특수기호 8~15자리로 구성하여야 합니다.");
             
         } else if ($("#name").val().trim() === "") {
 			
-			bootbox.alert("이름을 입력하세요");
+			alert("이름을 입력하세요");
 			
 		} else if ($("#address").val().trim() === "") {
 			
-			bootbox.alert("주소를 입력하세요");
+			alert("주소를 입력하세요");
 			
 		} else if ($("#birthday").val().trim().length !== 8) {
 			
-			bootbox.alert("생일을 형식이 올바르지 않습니다.");
+			alert("생일을 형식이 올바르지 않습니다.");
 			
 		} else if($("#phone").val().trim().length !== 11) {
 			
-			bootbox.alert("전화번호 형식이 올바르지 않습니다.");
+			alert("전화번호 형식이 올바르지 않습니다.");
 			
 		} else if($("#email").val().trim().indexOf("@") === -1) {
 			
-			bootbox.alert("이메일 형식으로 입력해주세요");
+			alert("이메일 형식으로 입력해주세요");
 			
 		} else if($("#height").val().trim().length < 3) {
 			
-			bootbox.alert("신장을 입력해 주세요");
+			alert("신장을 입력해 제대로 주세요");
 			
 		} else if($("#weight").val().trim().length < 1) {
 			
-			bootbox.alert("몸무게를 입력해 주세요");
+			alert("몸무게를 입력해 제대로 주세요");
+			
+		} else if($("#height").val().trim() > 230) {
+			
+			alert("신장을 확인해 주세요");
+			
+		} else if($("#weight").val().trim() > 130) {
+			
+			alert("몸무게를 확인해 주세요");
 			
 		} else {
-			
+
 			$("#infoFrm").attr({"action":"infoChange.do", "method":"post"}).submit();
-			
+		
 		}
 	});
 	
