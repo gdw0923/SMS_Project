@@ -44,7 +44,7 @@ td {
 
 #jb-footer {
 	clear: both;
-	padding: 20px;
+
 }
 
 #jb-content1 {
@@ -195,7 +195,7 @@ td {
 						<option value="">검색어</option>
 						<option value="team_name">팀이름</option>
 						<option value="leader">팀장</option>
-						<option value="title">제목</option>
+						<option value="title">한줄소개</option>
 					</select>
 				</div>
 			</div>
@@ -214,7 +214,7 @@ td {
 					<figure class="snip1361">
 						<c:choose>
 							<c:when test="${empty team.file_name }">
-								<img alt="sample45" src="/image/team.png">
+								<img alt="sample45" src="/image/teamlist.png">
 							</c:when>
 							<c:otherwise>
 								<img alt="sample45" src="/teamimg/${team.file_name }">
@@ -231,7 +231,7 @@ td {
 						<c:if test="${team.sport_category == '배드민턴'}">배드민턴</c:if>
 						</span>
 						<figcaption>
-							<h3>${team.team_name }</h3>
+							<h3 style="padding-bottom: 3px;">${team.team_name }</h3>
 							<p>팀장명:${team.leader }</p>
 							<p>창단일:<fmt:formatDate value="${team.fdate }" pattern="yyyy-MM-dd" /></p>
 							<p>한줄소개:${team.title }</p>
