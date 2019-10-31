@@ -127,6 +127,8 @@ $(function () {
 			
 		}else{
 			
+			number = randomRange()+"";
+			
 			alert("number " + number);
 			
 			$.ajax({

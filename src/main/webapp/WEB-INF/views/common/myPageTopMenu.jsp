@@ -17,8 +17,8 @@
 					<!-- 현 등급 및 등급보기 버튼있는 다이브 -->
 					<div style="width: 220px; height:140px; margin-right: 5px; float: left; border: 2.5px solid #00ffff;">
 						<div style="width: 200px; height: 50px; margin: 10px auto;">
-							<p style="font-size: 13pt; font-weight: bold; text-align: center;">${member.name}님의 등급</p>
-						</div>
+							<p style="font-size: 13pt; font-weight: bold; text-align: center;">${member.name}님의 등급 <img src="/image/myPageCrown.png"></p>
+						</div> 
 							<div style="width: 200px; height: 50px; margin: 10px auto; text-align: center;">
 								<c:if test="${(member.total_point gt -1) and (member.total_point lt 500)}">
 									<p>비기너</p>
