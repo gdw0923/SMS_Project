@@ -4,6 +4,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/css/myPage/myPageTopMenu.css">
+	<script type="text/javascript" src="/js/myPage/myPageTopMenu.js"></script>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 </head>
@@ -16,27 +17,44 @@
 			<ul>
 				<li>
 					<!-- 현 등급 및 등급보기 버튼있는 다이브 -->
-					<div class="menu-content-grade">
-						<div class="menu-content-grade_content1">
-							<p id="grade-font">${member.name}님의 등급 <img src="/image/myPageCrown.png" id="grade-crown"></p>
+					<div class="menu-content-grade-title">
+						<div class="menu-content-grade-title_content1">
+							<p class="grade-title-font">${member.name}님의 등급 </p>
 						</div> 
-						<div class="menu-content-grade_content2">
-							<c:if test="${(member.total_point gt -1) and (member.total_point lt 500)}">
-								<p>비기너</p>
+						<div class="menu-content-grade-title_content2">
+							<c:if test="${(member.total_point gt -1) and (member.total_point lt 1000)}">
+								<p class="grade-font">
+									SMS 비기너
+									<img src="/image/grade1.png" width="16px" height="16px;">
+								</p>
+								
 							</c:if>
-							<c:if test="${(member.total_point gt 500) and (member.total_point lt 5000)}">
-								<p>아머추어</p>
+							<c:if test="${(member.total_point gt 1000) and (member.total_point lt 5000)}">
+								<p class="grade-font">
+									SMS 아머추어
+									<img src="/image/grade2.png" width="16px" height="16px;">
+								</p>
 							</c:if>
 							<c:if test="${(member.total_point gt 5000) and (member.total_point lt 20000)}">
-								<p>세미프로</p>
+								<p class="grade-font">
+									SMS 세미프로
+									<img src="/image/grade3.png" width="16px" height="16px;">
+								</p>
 							</c:if>
 							<c:if test="${(member.total_point gt 20000) and (member.total_point lt 99999)}">
-								<p>프로페셔널</p>
+								<p class="grade-font">
+									SMS 프로페셔널
+									<img src="/image/grade4.png" width="16px" height="16px;">
+								</p>
 							</c:if>
-							<c:if test="${(member.total_point gt 99999) and (member.total_point lt 999999)}">
-								<p>킹</p>
+							<c:if test="${(member.total_point gt 99999)}">
+								<p class="grade-font">
+									SMS 킹
+									<img src="/image/crown.png" width="16px" height="16px;">
+								</p>
 							</c:if>
-							<label style="background-color: black; color: white; cursor: pointer;">등급표 보기</label>
+							
+							<label id="grade">등급표 보기</label>
 						</div>	
 					</div>
 				</li>
@@ -44,10 +62,10 @@
 					<!-- 토탈머니 -->
 					<div class="menu-content-number">
 						<div class="menu-content-number_content1">
-							<p>Total Money</p>
+							<b>Total Money</b>
 						</div>
 						<div class="menu-content-number_content2">
-							<p>${member.total_money}</p>
+							<p>${member.total_money} <b>머니</b></p>
 						</div>
 					</div>
 				</li>
@@ -55,10 +73,10 @@
 					<!-- 나우머니 -->
 					<div class="menu-content-number">
 						<div class="menu-content-number_content1">
-							<p>Now Money</p>
+							<b>Now Money</b>
 						</div>
 						<div class="menu-content-number_content2">
-							<p>${member.now_money}</p>
+							<p>${member.now_money} <b>머니</b></p>
 						</div>
 					</div>
 				</li>
@@ -66,10 +84,10 @@
 					<!-- 토탈포인트 -->				
 					<div class="menu-content-number">
 						<div class="menu-content-number_content1">
-							<p>Total Point</p>
+							<b>Total Point</b>
 						</div>
 						<div class="menu-content-number_content2">
-							<p>${member.total_point}</p>
+							<p>${member.total_point} <b>포인트</b></p>
 						</div>
 					</div>				
 				</li>
@@ -77,15 +95,80 @@
 					<!-- 나우포인트 -->
 					<div class="menu-content-number" style="margin-right: 0px;">
 						<div class="menu-content-number_content1">
-							<p>Now Point</p>
+							<b>Now Point</b>
 						</div>
 						<div class="menu-content-number_content2">
-							<p>${member.now_point}</p>
+							<p>${member.now_point} <b>포인트</b></p>
 						</div>
 					</div>
 				</li>				
 			</ul>		
 		</div>
 	</div>
+	
+	<!-- 등급표 -->
+	<div class="grade-container">
+		<div class="grade-content">
+			<ul>
+				<li>
+					<div class="menu-content-grade">
+						<div class="menu-content-grade_content1">
+							<p>SMS 비기너</p>
+							<img src="/image/grade1.png">
+						</div>
+						<div class="menu-content-grade_content2">
+							<p class="grade-cutline">0~1000</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="menu-content-grade">
+						<div class="menu-content-grade_content1">
+							<p>SMS 아마추어</p>
+							<img src="/image/grade2.png">
+						</div>
+						<div class="menu-content-grade_content2">
+							<p class="grade-cutline">1000~5000</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="menu-content-grade">
+						<div class="menu-content-grade_content1">
+							<p>SMS 세미프로</p>
+							<img src="/image/grade3.png">
+						</div>
+						<div class="menu-content-grade_content2">
+							<p class="grade-cutline">5000~20000</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="menu-content-grade">
+						<div class="menu-content-grade_content1">
+							<p>SMS 프로페셔널</p>
+							<img src="/image/grade4.png">
+						</div>
+						<div class="menu-content-grade_content2">
+							<p class="grade-cutline">20000~99999</p>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="menu-content-grade">
+						<div class="menu-content-grade_content1">
+							<p>SMS 킹</p>
+							<img src="/image/crown.png">
+						</div>
+						<div class="menu-content-grade_content2">
+							<p class="grade-cutline">99999~</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	
 </body>
 </html>

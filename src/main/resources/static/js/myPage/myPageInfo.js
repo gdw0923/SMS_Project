@@ -73,9 +73,24 @@ function fn_press_han(obj) {
 $(function () {
 	// 계정삭제
 	$("#deletebtn").click(function() {
-		if(confirm("정말 회원탈퇴를 진행하시겠습니까?") == true){
+		if(confirm("정말 회원탈퇴를 진행하시겠습니까?") == true)
+		{
 			/*$("#deleteFrm").attr({"action":"infoDelete.do", "method":"get"}).submit();*/
-			location.href="infoDelete.do"
+			
+			if($("#leader").val() == "leader") {
+				var team = $("#Tname").val();
+				
+				if(confirm("팀장은 팀을 먼저 해체 해야 계정삭제가 가능합니다. 해체하러 가시겠습니까?") == true) {
+					location.href="teamapplication.do";
+				}
+				
+			}else if($("#team").val() == "team") {
+				if(confirm("팀원은 팀을 먼저 탈퇴 해야 계정삭제가 가능합니다. 탈퇴하러 가시겠습니까?") == true) {
+					location.href="teamapplication.do";
+				}
+			}else {
+				location.href="infoDelete.do";
+			}
 		}
 	});
 	// 비빌번호 조건
@@ -96,15 +111,6 @@ $(function () {
 	$("#updateBtn").on("click", (event) => {
 		const pw = $("#pwd").val().trim();
         
-		const birthday = $("#birthday").val().trim();
-		
-		const year = birthday.substr(0, 4);
-		const month = birthday.substr(4, 2);
-		const day = birthday.substr(6, 2);
-		// 현재년도 구하기
-		const thisDate = new Date();
-		const nowYear = thisDate.getFullYear();
-		
 		if (!pattern1.test(pw) || !pattern2.test(pw) || !pattern3.test(pw) || pw.length<8 || pw.length > 15) {
 
             alert("비밀번호는 영문+숫자+특수기호 8~15자리로 구성하여야 합니다.");
@@ -120,29 +126,6 @@ $(function () {
 		} else if ($("#birthday").val().trim().length !== 8) {
 			
 			alert("생일을 형식이 올바르지 않습니다.");
-			
-		} else if (year < 1900 || year > nowYear) {
-			
-			alert("생년월일 년도가 올바르지 않습니다.");
-			
-		}else if (month < 1 || month > 12) {
-			
-			alert("달은 1월부터 12월까지 입력 가능합니다.");
-			
-		}else if (day < 1 || day > 31) {
-			
-			alert("일은 1일부터 31일까지 입력 가능합니다.");
-			
-		}else if ((month==4 || month==6 || month==9 || month==11) && day==31) {
-
-			alert(month + "월은 30일까지 존재합니다.");
-			
-		}else if (month == 2) {
-			
-			var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-	          if (day>29 || (day==29 && !isleap)) {
-	               alert(year + "년 2월은  " + day + "일이 없습니다.");
-	          }
 			
 		} else if($("#phone").val().trim().length !== 11) {
 			

@@ -1,4 +1,4 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
          updateCheck="false">
@@ -23,7 +23,7 @@
            transactionalMode="off">
         <persistence strategy="localTempSwap"/>
     </cache>
-</ehcache> -->
+</ehcache>
 
 <!-- maxElementelnMemory == 메모리에 저장될 수 있는 객체의 최대 개수  필수 -->
 <!-- eternal 이 값이 true이면 timeout 관련 설정은 무시되고, Element가 캐시에서 삭제되지 않는다. 필수 -->

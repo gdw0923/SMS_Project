@@ -216,8 +216,6 @@ public class TeamServiceImpl implements TeamService {
 		teamDAO.tdel_teamapp(team_name);
 		teamDAO.tdel_teambbs(team_name);
 		teamDAO.tdel_teamdet(team_name);
-		
-		
 	}
 	
 	@Override

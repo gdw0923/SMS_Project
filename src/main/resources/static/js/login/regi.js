@@ -163,7 +163,7 @@ $(function () {
 		if( id.length >= 7 && id.length <= 20 && pattern1.test( id ) && pattern2.test( id ) && !pattern3.test( id ) ){
 			
 		}else {
-			$("#idfont").css("display", "block" );
+			$("#idfont").show();
 			$("#idfont").html("7 ~ 20글자의 영문+숫자로 등록해주십시오");
 			console.log("values");
 		}
@@ -174,10 +174,10 @@ $(function () {
 		var pwd = $("#pwd").val().trim();
 		
 		if( pwd.length >= 8 && pwd.length <= 15 && pattern1.test( pwd ) && pattern2.test( pwd ) && pattern3.test( pwd ) ){
-			$("#pwdfont").css("display", "none" );
+			$("#pwdfont").hide();
 		}else {
 			$("#pwdfont").html("8~15자리의 특수,영문+숫자로 등록해주십시오")
-			$("#pwdfont").css("display", "block" );
+			$("#pwdfont").show();
 		}
 				
 	});
@@ -185,16 +185,9 @@ $(function () {
 	$("#accountbtn").click(function () {
 		
         var pw = $("#pwd").val().trim();
+        
         var cernum = $("#cernum").val().trim();
-        const birthday = $("#birthday").val().trim();
-        
-        const year = birthday.substr(0, 4);
-		const month = birthday.substr(4, 2);
-		const day = birthday.substr(6, 2);
-		// 현재년도 구하기
-		const thisDate = new Date();
-		const nowYear = thisDate.getFullYear();
-        
+
         if(check == false){
 			alert("아이디를 확인해 주세요.");
 		}else if(!pattern1.test(pw) ||!pattern2.test(pw)||!pattern3.test(pw)||pw.length<8||pw.length>15){
@@ -205,19 +198,6 @@ $(function () {
 			alert("주소를 확인해 주세요.");
 		}else if($("#birthday").val().trim().length != 8){
 			alert("생일을 확인해 주세요.");
-		} else if (year < 1900 || year > nowYear) {
-			alert("생년월일 년도가 올바르지 않습니다.");
-		}else if (month < 1 || month > 12) {
-			alert("달은 1월부터 12월까지 입력 가능합니다.");
-		}else if (day < 1 || day > 31) {
-			alert("일은 1일부터 31일까지 입력 가능합니다.");
-		}else if ((month==4 || month==6 || month==9 || month==11) && day==31) {
-			alert(month + "월은 30일까지 존재합니다.");
-		}else if (month == 2) {
-			var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
-	          if (day>29 || (day==29 && !isleap)) {
-	               alert(year + "년 2월은  " + day + "일이 없습니다.");
-	          }
 		}else if($("#phone").val().trim().length != 11){
 			alert("전화번호를 확인해 주세요.");
 		}else if(number.trim() != cernum){
@@ -228,11 +208,7 @@ $(function () {
 			alert("몸무게를 확인해 주세요");
 		}else if(grecaptcha.getResponse() == "") {
 			alert("로봇이 아닙니다를 확인해 주세요.")
-		} else if($("#height").val().trim() > 230) {
-			alert("신장을 확인해 주세요");
-		} else if($("#weight").val().trim() > 130) {
-			alert("몸무게를 확인해 주세요");
-		} else{
+		}else{
 			
 			if(confirm("입력하신 " + $("#idsave").val() + " 로 가입하게 됩니다 가입하시겠습니까?") == true){
 				
