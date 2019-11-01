@@ -902,7 +902,8 @@ public class AdminController {
 
 		List<ReportBBSDTO> Rlist = teamBbsSerivce.GetReportList(seq);
 		TeamBBSDTO teamVo = teamBbsSerivce.BbsDetail(seq);
-
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 팀 게시판 신고 리스트");
 		model.addAttribute("doc_title", "팀 게시판 관리");
 		model.addAttribute("doc_sub_title", "게시글 신고 내역");
 		model.addAttribute("reportlist", Rlist);
@@ -921,6 +922,7 @@ public class AdminController {
 		List<ReportCommentDTO> CRlist = tbs.getCommentReportList(seq);
 		String id = tbs.CommentWriteGetId(seq);
 
+		model.addAttribute("InsertTitle", "SMS 관리자 팀 게시판 댓글 신고 리스트");
 		model.addAttribute("doc_title", "팀 게시판 관리");
 		model.addAttribute("doc_sub_title", "댓글 신고 내역");
 		model.addAttribute("commentreportlist", CRlist);
@@ -1039,6 +1041,8 @@ public class AdminController {
 		log.info("AdminController AdminTeamReportContent()" + new Date());
 		List<ReportTeamDTO> reportteamList = teamService.GetTeamReportList(team_name);
 		model.addAttribute("reportlist", reportteamList);
+		
+		model.addAttribute("InsertTitle", "SMS 관리자 팀 신고 리스트");
 		model.addAttribute("doc_title", "팀 관리");
 		model.addAttribute("doc_sub_title", "팀 신고 내역");
 		model.addAttribute("team_name", team_name);
