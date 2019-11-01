@@ -83,7 +83,7 @@ function sendMessage() {
 	var receive_id = r_id;
 	var content = document.getElementById("_sendContent").value;
 		$.ajax({
-			url: "/mypage/myPageWriteMessageSuc.do",
+			url: "/mypage/AdminBbsSendMessageSuc.do",
 			type :"POST",
 			data : {send_id:send_id, receive_id:receive_id, content:content},
 			dataType : "text",
