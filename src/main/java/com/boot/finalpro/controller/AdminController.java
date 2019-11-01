@@ -991,19 +991,26 @@ public class AdminController {
 		PrintWriter out = resp.getWriter();
 		int count = 0;
 		String[] Schildchkeck = req.getParameterValues("childcheck");
+		boolean a = false;
 		for (int i = 0; i < Schildchkeck.length; i++) {
 			System.out.println(Schildchkeck[i]);
 			count = teamService.tdel_check(Schildchkeck[i]);
 			if (count > 0) {
-				out.println("<script>alert('남아있는 경기일정이 있습니다.'); location.href='admin_team.do';</script>");
+				a = true;
+				break;
+			}
+		}
+		if(a) {
+			out.println("<script>alert('남아있는 경기일정이 있습니다.'); location.href='admin_team.do';</script>");
+			out.flush();
+		}else {
+			for (int i = 0; i < Schildchkeck.length; i++) {
+				teamService.tdel_all(Schildchkeck[i]);
+				out.println("<script>location.href='admin_team.do';</script>");
 				out.flush();
 			}
 		}
-		for (int i = 0; i < Schildchkeck.length; i++) {
-			teamService.tdel_all(Schildchkeck[i]);
-			out.println("<script>location.href='admin_team.do';</script>");
-			out.flush();
-		}
+		
 	}
 
 	@GetMapping("Adminteamdetail.do")
