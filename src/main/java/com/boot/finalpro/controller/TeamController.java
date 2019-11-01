@@ -259,7 +259,7 @@ public class TeamController {
 		model.addAttribute("teamgameparam", teamgameparam);
 		
 		model.addAttribute("InsertTitle", "SMS 경기목록");
-		
+		System.out.println(teamgameparam.toString());
 		return "matchinglist.tiles";
 	}
 	
