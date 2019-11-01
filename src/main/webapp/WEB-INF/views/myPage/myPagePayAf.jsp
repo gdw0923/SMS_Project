@@ -102,8 +102,6 @@
 					//	alert("success");
 						alert(data);
 						
-						opener.location.reload();
-						
 					//	location.href="myPagePay.do";
 						self.close();
 					},
@@ -121,8 +119,6 @@
 				
 			}
 				alert(msg);
-				
-				opener.location.reload();
 				
 			//	location.href="myPagePay.do";
 				self.close();

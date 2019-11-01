@@ -373,8 +373,8 @@ public class MyPageController {
 		
 		log.info("blacklist" + blacklist);
 		
-		if(!blacklist) {
-			return "false";
+		if(blacklist) {
+			return "true";
 		}
 		log.info("false");
 		

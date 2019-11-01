@@ -96,7 +96,6 @@ public class TeamBbsCommonController {
 
 			System.out.println("totalRecordCount : " + totalRecordCount);
 
-			model.addAttribute("InsertTitle", "SMS 팀 게시판 리스트");
 			model.addAttribute("bbsList", bbsList);
 
 			model.addAttribute("pageNumber", sn);
@@ -146,7 +145,7 @@ public class TeamBbsCommonController {
 			int totalRecordCount = teamBbsSerivce.getBbsCount2(param);
 
 			System.out.println("totalRecordCount : " + totalRecordCount);
-			model.addAttribute("InsertTitle", "SMS 용병 게시판 리스트");
+
 			model.addAttribute("bbsList", bbsList);
 
 			model.addAttribute("pageNumber", sn);
@@ -181,7 +180,7 @@ public class TeamBbsCommonController {
 		// 게임신청 했는지 여부
 		List<GameMatchDTO> glist = gameService.subGame(seq_game);
 //		log.info(glist.toString());
-		model.addAttribute("InsertTitle", "테스트1");
+		
 		model.addAttribute("glist", glist);
 		model.addAttribute("mem", mem);
 		model.addAttribute("auth", auth);
@@ -223,13 +222,12 @@ public class TeamBbsCommonController {
 		model.addAttribute("paging", gp);
 		model.addAttribute("mem", mem);
 		model.addAttribute("auth", auth);
-		model.addAttribute("InsertTitle", "테스트2");
+				
 		return "teamBbs/game_list";
 	}
 	@RequestMapping(value = "common1.do", method={RequestMethod.GET, RequestMethod.POST})
-	public String common1(Model model) {
+	public String common1() {
 		log.info("TeamBbsController common1()" + new Date());
-		model.addAttribute("InsertTitle", "인사말");
 		return "common1.tiles";
 	}
 	
@@ -262,7 +260,7 @@ public class TeamBbsCommonController {
 		
 		log.info("gp : " + gp.toString());
 		log.info("count : " + count);
-		model.addAttribute("InsertTitle", "테스트3");
+
 		model.addAttribute("gamelist", glist);
 		model.addAttribute("count", count);
 		model.addAttribute("gparam", gp);
@@ -340,7 +338,7 @@ public class TeamBbsCommonController {
 			id = pcp.getName();
 			now_money = bettingService.getMoney(id);
 		}
-		model.addAttribute("InsertTitle", "테스트4");
+		
 		model.addAttribute("id", id);
 		model.addAttribute("now_money", now_money);
 		
