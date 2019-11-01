@@ -17,6 +17,6 @@ $(function() {
 	// 디테일
 	$(".detail").click(function() {
 		var seq = $(this).attr("seq");
-		location.href="teamBbsdetail.do?seq=" + seq;
+		location.href="../member/teamBbsdetail.do?seq=" + seq;
 	});
 });
