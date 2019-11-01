@@ -19,4 +19,5 @@ $(function() {
 		var seq = $(this).attr("seq");
 		location.href="../member/teamBbsdetail.do?seq=" + seq;
 	});
+	
 });

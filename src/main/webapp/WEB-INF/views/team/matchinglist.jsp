@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    <%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+    <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <sec:authentication var="user" property="principal" />
 <!DOCTYPE html>
 <html>
@@ -94,9 +93,18 @@ td{
 			<c:if test="${empty game.name_team2 }">
 			<td>경기상대구하는중 </td>
 			<td>
+			<c:if test="${teamgameparam.check eq 1 }">
+			<sec:authorize access="hasRole('ROLE_TEAMLEADER')">
 			<a href="getmatchinglist.do?seq_game=${game.seq_game }" onclick="window.open(this.href, '_blank', 'width=500px,height=500px,toolbars=no,scrollbars=no'); return false;">신청메세지보기</a>
-		<%-- 	<a href="#" class="maching_Btn" onclick="maching_Btn1('${game.seq_game }')">신청메세지보기</a>
-				<jsp:include page="include/matchingstate.jsp"/> --%>
+			</sec:authorize>
+			</c:if>
+			<c:if test="${teamgameparam.check eq 0 }">
+			<sec:authorize access="!hasRole('ROLE_TEAMLEADER')">
+			대기중
+			</sec:authorize>
+			</c:if>
+			
+
 			</td>
 			
 			</c:if>
