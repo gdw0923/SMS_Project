@@ -387,7 +387,7 @@ public class TeamController {
 	
 	@RequestMapping(value = "recruitmentAf.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public void recruitmentAf(RecruitTeamDTO recruitteamdto, HttpServletResponse resp)throws Exception {
-		log.info("====+++++++++" + recruitteamdto.toString());
+		log.info("====" + recruitteamdto.toString());
 		teamService.recruitmentAf(recruitteamdto);
 		
 		resp.setCharacterEncoding("utf-8");
