@@ -27,7 +27,7 @@
 									SMS 비기너
 									<img src="/image/grade1.png" width="16px" height="16px;">
 								</p>
-								
+								 
 							</c:if>
 							<c:if test="${(member.total_point gt 1000) and (member.total_point lt 5000)}">
 								<p class="grade-font">
