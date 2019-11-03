@@ -23,11 +23,11 @@
 	  	<img alt="사진없음" src="/image/main_logo.jpg" class="log-img">
 	    <input type="text" class="form-control" id="id" name="id" placeholder="아이디">
 		<input type="hidden" id="idsave" value="">
-		<font color="red" id="idfont">7 ~ 20글자의 영문+숫자로 등록해주십시오</font> <br>
+		<font color="red" id="idfont">7 ~ 20글자의 영문+숫자로 등록해주십시오</font>
 	
 		<input type="password" class="form-control" placeholder="비밀번호 입력" id="pwd" name="pwd" required="required" onkeypress="caps_lock(event);">	
 	
-	    <font color="red" id="pwdfont">8~15자리의 특수,영문+숫자로 등록해주십시오<!-- ( ~!@\#$%&lt;&gt;^&amp;* 만 지원합니다. ) --></font> <br>
+	    <font color="red" id="pwdfont">8~15자리의 특수,영문+숫자로 등록해주십시오<!-- ( ~!@\#$%&lt;&gt;^&amp;* 만 지원합니다. ) --></font>
 	
 		<input type="text" class="form-control"placeholder="이름 입력" id="name" name="name"> <br>
 	    <input type="text" class="form-control"placeholder="주소입력" id="address" name="address" maxlength="20" onclick="sample6_execDaumPostcode();"> <br>
