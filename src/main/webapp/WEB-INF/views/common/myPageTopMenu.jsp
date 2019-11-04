@@ -136,7 +136,7 @@
 					<div class="menu-content-grade">
 						<div class="menu-content-grade_content1">
 							<p>SMS 세미프로</p>
-							<img src="/image/grade3.png">
+							<img src="/image/grade3.png"> 
 						</div>
 						<div class="menu-content-grade_content2">
 							<p class="grade-cutline">5000~20000</p>
