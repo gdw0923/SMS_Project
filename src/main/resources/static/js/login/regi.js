@@ -163,7 +163,7 @@ $(function () {
 		if( id.length >= 7 && id.length <= 20 && pattern1.test( id ) && pattern2.test( id ) && !pattern3.test( id ) ){
 			
 		}else {
-			$("#idfont").show();
+			$("#idfont").css("display", "block" );
 			$("#idfont").html("7 ~ 20글자의 영문+숫자로 등록해주십시오");
 			console.log("values");
 		}
@@ -174,10 +174,10 @@ $(function () {
 		var pwd = $("#pwd").val().trim();
 		
 		if( pwd.length >= 8 && pwd.length <= 15 && pattern1.test( pwd ) && pattern2.test( pwd ) && pattern3.test( pwd ) ){
-			$("#pwdfont").hide();
+			$("#pwdfont").css("display", "none" );
 		}else {
 			$("#pwdfont").html("8~15자리의 특수,영문+숫자로 등록해주십시오")
-			$("#pwdfont").show();
+			$("#pwdfont").css("display", "block" );
 		}
 				
 	});

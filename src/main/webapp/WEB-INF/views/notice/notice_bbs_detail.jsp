@@ -101,6 +101,9 @@
 		<input type="hidden" value="" id="_seq" name="seq">
 </form>		
 <script type="text/javascript">
+
+$("#menu3").css("background-color","#e60013");
+
 $(".downBtn").on("click",function(){
 	/* alert($(this).attr("seq")); */
 	var file_seq = $(this).attr("seq");
