@@ -128,10 +128,10 @@
 	<definition name="admin_bbs_detail.tiles" extends="admin.main">
 		<put-attribute name="admin_content" value="/WEB-INF/views/admin/teamBbs/AdminTeamBbsDetail.jsp"/>	
 	</definition>
-	<definition name="admin_bbs_report.tiles" extends="admin.main">
+	<definition name="admin_bbs_report.tiles" extends="admin_team_report.tiles">
 		<put-attribute name="admin_content" value="/WEB-INF/views/admin/teamBbs/AdminTeamBbsReportList.jsp"/>	
 	</definition>
-	<definition name="admin_bbs_comment_report.tiles" extends="admin.main">
+	<definition name="admin_bbs_comment_report.tiles" extends="admin_team_report.tiles">
 		<put-attribute name="admin_content" value="/WEB-INF/views/admin/teamBbs/AdminTeamBbsCommentReportList.jsp"/>	
 	</definition>
 	<!-- admin-rank -->
@@ -154,9 +154,11 @@
 		<put-attribute name="admin_content"
 			value="/WEB-INF/views/admin/team/AdminteamDetail.jsp" />
 	</definition>
-	<definition name="admin_team_report.tiles" extends="admin.main">
-		<put-attribute name="admin_content" value="/WEB-INF/views/admin/team/AdminTeamReportList.jsp"/>	
-	</definition>
+
+		<definition name="admin_team_report.tiles" template="/WEB-INF/views/layout/admin_template2.jsp">
+			<put-attribute name="admin_import" value="/WEB-INF/views/admin/common/admin_import.jsp"/>
+			<put-attribute name="admin_content" value="/WEB-INF/views/admin/team/AdminTeamReportList.jsp"/>	
+		</definition>
 
 
 	<!-- 인우꺼 -->
