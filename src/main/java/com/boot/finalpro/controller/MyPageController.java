@@ -373,25 +373,15 @@ public class MyPageController {
 		
 		log.info("blacklist" + blacklist);
 		
-		if(!blacklist) {
+		if(blacklist) {
+			log.info("asdasdasd");
 			return "false";
 		}
-		log.info("false");
 		
-		boolean suc = myPageService.SaveMessage(msg);
+		myPageService.SaveMessage(msg);
 		
-		if(suc) {
-			
-			return "true";
-		}
-		return "false";
-//		if(blacklist) {
-//			boolean b = myPageService.SaveMessage(msg);
-//			if(!b) {
-//				return "false";
-//			}
-//		}
-//		return "true";
+		return "true";
+		
 	}
 	// 수신한 편지 디테일에서 답장하기
 	@GetMapping("myPageAnswerMessage.do")
