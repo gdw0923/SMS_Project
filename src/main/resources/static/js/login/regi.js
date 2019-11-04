@@ -146,11 +146,11 @@ $(function () {
 						
 					}else{
 						check = false;
-						alert("존재하는 이메일을 입력해 주세요");
+						alert("이메일을 확인해 주세요");
 					}
 				},
 				error:function(xhr, status, error){
-					alert("통신실패");
+					alert("이메일을 확인해 주세요.");
 				}
 			});
 		}

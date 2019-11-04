@@ -7,8 +7,8 @@
 <html>
 <head>
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageBBS.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageBBS.css">
+	<script type="text/javascript" src="/js/myPage/bbsList/myPageBBS.js"></script>
+	<link rel="stylesheet" href="/css/myPage/bbsList/myPageBBS.css">
 </head>
 <body>
 	<table class="table table-hover table-responsive">

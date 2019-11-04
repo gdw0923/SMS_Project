@@ -174,7 +174,7 @@
 						},
 						success : function(b) {
 							if(b == "true") {
-								alert("tr" + b)
+								opener.location.reload();
 								self.close();
 							} else {
 								alert("예기치 못한 오류로 메세지를 전송하지 못했습니다.");
@@ -183,6 +183,7 @@
 						},
 						error : function() {
 							console.log("myPageWriteMessageSuc() ajax 오류 In");
+							alert("예기치 못한 오류로 메세지를 전송하지 못했습니다.");
 						}
 					});
 					

@@ -81,7 +81,6 @@ var cer = false; // 인증을 했는지 안했는지 변수
 			console.log("findPwdBtn click");
 			
 			number = randomRange()+"";
-			alert("number:" + number);
 			
 			$.ajax({
 				url: "findPwd.do",	
@@ -98,7 +97,7 @@ var cer = false; // 인증을 했는지 안했는지 변수
 					}
 				},
 				error:function(xhr, status, error){
-					alert("통신실패");
+					alert("아이디를 제대로 입력해 주세요.");
 				}
 			});
 		});

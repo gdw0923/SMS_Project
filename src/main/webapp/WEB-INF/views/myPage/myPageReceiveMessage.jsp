@@ -5,8 +5,8 @@
 <html>
 	<head>
 		<title>Insert title here</title>
-		<script type="text/javascript" src="/js/myPage/myPageReceiveMessage.js"></script>
-		<link rel="stylesheet" href="/css/myPage/myPageReceiveMessage.css">
+		<script type="text/javascript" src="/js/myPage/message/myPageReceiveMessage.js"></script>
+		<link rel="stylesheet" href="/css/myPage/message/myPageReceiveMessage.css">
 	</head>
 <body>
 	<!-- <button type="button" id="sendBtn" class="btn btn-default">쪽지작성</button>

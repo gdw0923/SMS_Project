@@ -5,8 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageTeamAppInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageTeamAppInfo.css">
+	<script type="text/javascript" src="/js/myPage/bbsList/myPageTeamAppInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/bbsList/myPageTeamAppInfo.css">
 </head>
 <body>
 	<table class="table table-responsive">

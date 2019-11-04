@@ -7,8 +7,8 @@
 	<title>Insert title here</title>
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-	<script type="text/javascript" src="/js/myPage/myPageInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageInfo.css">
+	<script type="text/javascript" src="/js/myPage/info/myPageInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/info/myPageInfo.css">
 	
 </head>
 <body>

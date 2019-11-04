@@ -3,8 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-	<link rel="stylesheet" href="/css/myPage/myPageTopMenu.css">
-	<script type="text/javascript" src="/js/myPage/myPageTopMenu.js"></script>
+	<link rel="stylesheet" href="/css/myPage/common/myPageTopMenu.css">
+	<script type="text/javascript" src="/js/myPage/common/myPageTopMenu.js"></script>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 </head>
