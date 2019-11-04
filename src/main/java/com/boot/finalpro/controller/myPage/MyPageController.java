@@ -98,6 +98,7 @@ public class MyPageController {
 		ModelAndView payMav = new ModelAndView();
 		payMav.setViewName("payPage.tiles");
 		payMav.addObject("member", member);
+		payMav.addObject("InsertTitle", "마이페이지 결제");
 		
 		return payMav;
 	}
@@ -175,7 +176,7 @@ public class MyPageController {
 		messageMav.addObject("s_keyword", param.getS_keyword());
 		messageMav.addObject("s_category", param.getS_category());
 		messageMav.addObject("member", member);
-		
+		messageMav.addObject("InsertTitle", "마이페이지 송신함");
 		
 //		long endChace = System.currentTimeMillis();
 //		log.info("MyPageController messagePage Cache 수행시간 :" + Long.toString(endChace-startCache));
@@ -251,6 +252,7 @@ public class MyPageController {
 		messageMav.addObject("s_keyword", param.getS_keyword());
 		messageMav.addObject("s_category", param.getS_category());
 		messageMav.addObject("member", member);
+		messageMav.addObject("InsertTitle", "마이페이지 수신함");
 		
 		return messageMav;
 	}
@@ -331,7 +333,8 @@ public class MyPageController {
 		
 		detailMav.addObject("member", member);
 		detailMav.setViewName("myPageInfo.tiles");
-
+		detailMav.addObject("InsertTitle", "마이페이지 개인정보");
+		
 		return detailMav;
 	}
 	// 개인정보 수정
@@ -414,6 +417,7 @@ public class MyPageController {
 		BBSMav.addObject("s_keyword", param.getS_keyword());
 		BBSMav.addObject("s_category", param.getS_category());
 		BBSMav.addObject("member", member);
+		BBSMav.addObject("InsertTitle", "마이페이지 내 작성 게시물");
 
 		return BBSMav;
 	}
