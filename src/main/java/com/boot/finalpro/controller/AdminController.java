@@ -902,8 +902,7 @@ public class AdminController {
 
 		List<ReportBBSDTO> Rlist = teamBbsSerivce.GetReportList(seq);
 		TeamBBSDTO teamVo = teamBbsSerivce.BbsDetail(seq);
-		
-		model.addAttribute("InsertTitle", "SMS 관리자 팀 게시판 신고 리스트");
+
 		model.addAttribute("doc_title", "팀 게시판 관리");
 		model.addAttribute("doc_sub_title", "게시글 신고 내역");
 		model.addAttribute("reportlist", Rlist);
@@ -922,7 +921,6 @@ public class AdminController {
 		List<ReportCommentDTO> CRlist = tbs.getCommentReportList(seq);
 		String id = tbs.CommentWriteGetId(seq);
 
-		model.addAttribute("InsertTitle", "SMS 관리자 팀 게시판 댓글 신고 리스트");
 		model.addAttribute("doc_title", "팀 게시판 관리");
 		model.addAttribute("doc_sub_title", "댓글 신고 내역");
 		model.addAttribute("commentreportlist", CRlist);
@@ -991,26 +989,19 @@ public class AdminController {
 		PrintWriter out = resp.getWriter();
 		int count = 0;
 		String[] Schildchkeck = req.getParameterValues("childcheck");
-		boolean a = false;
 		for (int i = 0; i < Schildchkeck.length; i++) {
 			System.out.println(Schildchkeck[i]);
 			count = teamService.tdel_check(Schildchkeck[i]);
 			if (count > 0) {
-				a = true;
-				break;
-			}
-		}
-		if(a) {
-			out.println("<script>alert('남아있는 경기일정이 있습니다.'); location.href='admin_team.do';</script>");
-			out.flush();
-		}else {
-			for (int i = 0; i < Schildchkeck.length; i++) {
-				teamService.tdel_all(Schildchkeck[i]);
-				out.println("<script>location.href='admin_team.do';</script>");
+				out.println("<script>alert('남아있는 경기일정이 있습니다.'); location.href='admin_team.do';</script>");
 				out.flush();
 			}
 		}
-		
+		for (int i = 0; i < Schildchkeck.length; i++) {
+			teamService.tdel_all(Schildchkeck[i]);
+			out.println("<script>location.href='admin_team.do';</script>");
+			out.flush();
+		}
 	}
 
 	@GetMapping("Adminteamdetail.do")
@@ -1048,8 +1039,6 @@ public class AdminController {
 		log.info("AdminController AdminTeamReportContent()" + new Date());
 		List<ReportTeamDTO> reportteamList = teamService.GetTeamReportList(team_name);
 		model.addAttribute("reportlist", reportteamList);
-		
-		model.addAttribute("InsertTitle", "SMS 관리자 팀 신고 리스트");
 		model.addAttribute("doc_title", "팀 관리");
 		model.addAttribute("doc_sub_title", "팀 신고 내역");
 		model.addAttribute("team_name", team_name);

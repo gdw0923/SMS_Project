@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
 	<title>Insert title here</title>
@@ -12,17 +11,6 @@
 	
 </head>
 <body>
-	<!-- 계정삭제 정보 -->
-	<sec:authorize access="hasRole('ROLE_TEAMLEADER')">
-		<input type="hidden" value="leader" id="leader">
-	</sec:authorize>
-	
-	<sec:authorize access="hasRole('ROLE_TEAMMEMBER')">
-		<input type="hidden" value="team" id="team">
-	</sec:authorize>
-	
-	<input type="hidden" id="TName" value="${member.team_name}">
-	
 	<form id="infoFrm">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		<table class="table table-bordered">

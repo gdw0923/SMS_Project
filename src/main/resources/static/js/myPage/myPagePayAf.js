@@ -72,7 +72,7 @@ $(function() {
 				data:"id=" + id + "&money=" + money,	
 				success:function(data){
 				//	alert("success");
-					alert(data);
+					bootbox.alert(data);
 					
 				//	location.href="myPagePay.do";
 					self.close();
@@ -90,7 +90,7 @@ $(function() {
 			msg += '에러내용 : ' + rsp.error_msg;
 			
 		}
-			alert(msg);
+		bootbox.alert(msg);
 			
 		//	location.href="myPagePay.do";
 			self.close();

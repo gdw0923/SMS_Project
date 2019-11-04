@@ -9,7 +9,7 @@ $(function() {
 	// 디테일
 	$(".detail").click(function() {
 		var seq = $(this).attr("seq");
-		location.href="../member/teamBbsdetail.do?seq=" + seq;
+		location.href="myPageBbsDetail.do?seq=" + seq;
 	});
 	// 검색 셀렉트
 	var category = $("#category").val();
