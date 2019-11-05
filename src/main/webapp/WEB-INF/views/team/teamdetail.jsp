@@ -115,7 +115,7 @@ td {
 	<div id="jb-content1">
 		<div class="card mb-3">
 			<div class="panel panel-default">
-				<div class="panel-heading">팀명:${teamdetail.team_name }</div>
+				<div class="panel-heading" style="font-size: 20px;">${teamdetail.team_name }</div>
 				
 			</div>
 			<ul class="list-group list-group-flush" id="_list_group">
@@ -205,8 +205,8 @@ td {
 		</ul>
 		<div id="myTabContent" class="tab-content">
 
-			<div class="tab-pane fade active in" id="profile">
-				<pre id="_tab_content">${teamdetail.content }</pre>
+			<div class="tab-pane fade active in" id="profile" >
+				<pre id="_tab_content" style="border-top: hidden;">${teamdetail.content }</pre>
 			</div>
 
 			<div class="tab-pane fade" id="member">

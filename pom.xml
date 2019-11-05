@@ -30,6 +30,7 @@
 	<name>tilesExam</name>
 
 	<description>examples JSP in spring boot</description>
+	<packaging>war</packaging>
 
 	<properties>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
