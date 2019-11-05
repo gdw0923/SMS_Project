@@ -362,16 +362,25 @@ public class MyPageController {
 		return changeMav;
 	}
 	
-	// 삭제 미완성 다른것도 삭제해줘야함
+	// 계정 탈퇴
 	@GetMapping("/infoDelete.do")
 	public String infoDelete(Principal pcp) {
 		
 		log.info("MyPageController infoDelete in");
 		
 		String userid = pcp.getName();
-		myPageService.deleteById(userid);
+		// 권한조회
+		String auth = myPageService.findAuthByid(userid);
 		
-		return "redirect:/common/loginPage.do";
+		if(auth.equals("ROLE_MEMBER")) {
+			log.info("role_member in");
+			// 삭제 및 로그인페이지
+			myPageService.deleteById(userid);
+			return "redirect:/common/loginPage.do";
+		}
+		// 팀 내역이동
+		log.info("role_another");
+		return "redirect:/mypage/teamapplication.do";
 		
 	}
 

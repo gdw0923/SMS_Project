@@ -73,24 +73,9 @@ function fn_press_han(obj) {
 $(function () {
 	// 계정삭제
 	$("#deletebtn").click(function() {
-		if(confirm("정말 회원탈퇴를 진행하시겠습니까?") == true)
+		if(confirm("정말 회원탈퇴를 진행하시겠습니까? 팀에 소속되어 있으면 팀을 먼저 탈퇴 혹은 해체 해야합니다.") == true)
 		{
-			/*$("#deleteFrm").attr({"action":"infoDelete.do", "method":"get"}).submit();*/
-			
-			if($("#leader").val() == "leader") {
-				var team = $("#Tname").val();
-				
-				if(confirm("팀장은 팀을 먼저 해체 해야 계정삭제가 가능합니다. 해체하러 가시겠습니까?") == true) {
-					location.href="teamapplication.do";
-				}
-				
-			}else if($("#team").val() == "team") {
-				if(confirm("팀원은 팀을 먼저 탈퇴 해야 계정삭제가 가능합니다. 탈퇴하러 가시겠습니까?") == true) {
-					location.href="teamapplication.do";
-				}
-			}else {
-				location.href="infoDelete.do";
-			}
+			location.href="infoDelete.do";
 		}
 	});
 	// 비빌번호 조건

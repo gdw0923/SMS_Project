@@ -254,4 +254,9 @@ public class MyPageDAOImpl implements MyPageDAO{
 		return sqlSession.selectList(ns + "findAllBlackListById", param);
 	}
 
+	@Override
+	public String findAuthByid(String id) {
+		return sqlSession.selectOne(ns + "findAuthById", id);
+	}
+
 }

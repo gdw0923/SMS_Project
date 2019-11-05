@@ -12,14 +12,7 @@
 	
 </head>
 <body>
-	<!-- 계정삭제 정보 -->
-	<sec:authorize access="hasRole('ROLE_TEAMLEADER')">
-		<input type="hidden" value="leader" id="leader">
-	</sec:authorize>
-	
-	<sec:authorize access="hasRole('ROLE_TEAMMEMBER')">
-		<input type="hidden" value="team" id="team">
-	</sec:authorize>
+
 	
 	<input type="hidden" id="TName" value="${member.team_name}">
 	
@@ -29,7 +22,7 @@
 			<tr>
 				<th>비밀번호</th>
 				<td style="text-align: center;">
-					<input type="password"  class="form-control" placeholder="비빌번호 입력" id="pwd"
+					<input type="password"  class="form-control" placeholder="비밀번호 입력" id="pwd"
 							name="pwd">
 					<font color="red" id="pwdfont" size="2px">8~15자리의 특수,영문+숫자로 등록해주십시오</font>
 				</td>

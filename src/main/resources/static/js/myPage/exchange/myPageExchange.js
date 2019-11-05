@@ -104,7 +104,7 @@ $(function() {
 			
 			if($("#exBank").val() == "신한") {
 				
-				if($("#bankNumber").val().length != 14) {
+				if($("#bankNumber").val().length != 12) {
 					$("#bank_number_font").html("계좌번호를 똑바로 입력해 주세요.")
 					$("#bank_number_font").css("display", "block" );
 				} else {
@@ -119,7 +119,7 @@ $(function() {
 				
 			}else if($("#exBank").val() == "국민") {
 				
-				if($("#bankNumber").val().length != 16) {
+				if($("#bankNumber").val().length != 14) {
 					$("#bank_number_font").html("계좌번호를 똑바로 입력해 주세요.")
 					$("#bank_number_font").css("display", "block" );
 				} else {
@@ -134,7 +134,7 @@ $(function() {
 				
 			}else if($("#exBank").val() == "기업") {
 				
-				if($("#bankNumber").val().length != 17) {
+				if($("#bankNumber").val().length != 14) {
 					$("#bank_number_font").html("계좌번호를 똑바로 입력해 주세요.")
 					$("#bank_number_font").css("display", "block" );
 				} else {
@@ -149,7 +149,7 @@ $(function() {
 				
 			}else if($("#exBank").val() == "우리") {
 				
-				if($("#bankNumber").val().length != 15) {
+				if($("#bankNumber").val().length != 13) {
 					$("#bank_number_font").html("계좌번호를 똑바로 입력해 주세요.")
 					$("#bank_number_font").css("display", "block" );
 				} else {
@@ -164,7 +164,7 @@ $(function() {
 				
 			}else if($("#exBank").val() == "농협") {
 				
-				if($("#bankNumber").val().length != 16) {
+				if($("#bankNumber").val().length != 13) {
 					$("#bank_number_font").html("계좌번호를 똑바로 입력해 주세요.")
 					$("#bank_number_font").css("display", "block" );
 				} else {
@@ -179,7 +179,7 @@ $(function() {
 				
 			}else if($("#exBank").val() == "카카오뱅크") {
 				
-				if($("#bankNumber").val().length != 15) {
+				if($("#bankNumber").val().length != 13) {
 					$("#bank_number_font").html("계좌번호를 똑바로 입력해 주세요.")
 					$("#bank_number_font").css("display", "block" );
 				}else {
@@ -208,27 +208,27 @@ $(function() {
 		if($(this).val() == "신한") {
 			$("#bankNumber").val("");
 			$("#bankNumber").removeAttr( 'readonly' );
-			$("#bankNumber").attr("maxlength", "14");
+			$("#bankNumber").attr("maxlength", "12");
 		} else if($(this).val() == "국민") {
 			$("#bankNumber").val("");
 			$("#bankNumber").removeAttr( 'readonly' );
-			$("#bankNumber").attr("maxlength", "16");
+			$("#bankNumber").attr("maxlength", "14");
 		} else if($(this).val() == "기업") {
 			$("#bankNumber").val("");
 			$("#bankNumber").removeAttr( 'readonly' );
-			$("#bankNumber").attr("maxlength", "17");
+			$("#bankNumber").attr("maxlength", "14");
 		} else if($(this).val() == "우리") {
 			$("#bankNumber").val("");
 			$("#bankNumber").removeAttr( 'readonly' );
-			$("#bankNumber").attr("maxlength", "15");
+			$("#bankNumber").attr("maxlength", "13");
 		} else if($(this).val() == "농협") {
 			$("#bankNumber").val("");
 			$("#bankNumber").removeAttr( 'readonly' );
-			$("#bankNumber").attr("maxlength", "16");
+			$("#bankNumber").attr("maxlength", "13");
 		} else if($(this).val() == "카카오뱅크") {
 			$("#bankNumber").val("");
 			$("#bankNumber").removeAttr( 'readonly' );
-			$("#bankNumber").attr("maxlength", "15");
+			$("#bankNumber").attr("maxlength", "13");
 		} else if($(this).val() == ""){
 			$("#bankNumber").val("");
 			$("#bankNumber").attr('readonly', 'readonly');
@@ -237,38 +237,38 @@ $(function() {
 	});
 	
 	// 계좌번호 입력시 자동으로 하이픈 추가
-	$("#bankNumber").keyup(function(event) {
-		var keycode = event.which?event.which:event.keyCode;
-		console.log(keycode);
-		if(keycode === 8){
-			return;
-		}
-		$("#bank_number_font").css("display", "none" );
-		if($("#exBank").val() == "신한") {
-			if($("#bankNumber").val().length == 3 || $("#bankNumber").val().length == 7) {
-				$("#bankNumber").val($("#bankNumber").val() + "-");
-			}
-		}else if($("#exBank").val() == "국민") {
-			if($("#bankNumber").val().length == 6 || $("#bankNumber").val().length == 9) {
-				$("#bankNumber").val($("#bankNumber").val() + "-");
-			}
-		}else if($("#exBank").val() == "기업") {
-			if($("#bankNumber").val().length == 3 || $("#bankNumber").val().length == 10 || $("#bankNumber").val().length == 13) {
-				$("#bankNumber").val($("#bankNumber").val() + "-");
-			}
-		}else if($("#exBank").val() == "우리") {
-			if($("#bankNumber").val().length == 4 || $("#bankNumber").val().length == 8) {
-				$("#bankNumber").val($("#bankNumber").val() + "-");
-			}
-		}else if($("#exBank").val() == "농협") {
-			if($("#bankNumber").val().length == 3 || $("#bankNumber").val().length == 8 || $("#bankNumber").val().length == 13) {
-				$("#bankNumber").val($("#bankNumber").val() + "-");
-			}
-		}else if($("#exBank").val() == "카카오뱅크") {
-			if($("#bankNumber").val().length == 4 || $("#bankNumber").val().length == 7) {
-				$("#bankNumber").val($("#bankNumber").val() + "-");
-			}
-		}
-	});
+//	$("#bankNumber").keyup(function(event) {
+//		var keycode = event.which?event.which:event.keyCode;
+//		console.log(keycode);
+//		if(keycode === 8){
+//			return;
+//		}
+//		$("#bank_number_font").css("display", "none" );
+//		if($("#exBank").val() == "신한") {
+//			if($("#bankNumber").val().length == 3 || $("#bankNumber").val().length == 7) {
+//				$("#bankNumber").val($("#bankNumber").val() + "-");
+//			}
+//		}else if($("#exBank").val() == "국민") {
+//			if($("#bankNumber").val().length == 6 || $("#bankNumber").val().length == 9) {
+//				$("#bankNumber").val($("#bankNumber").val() + "-");
+//			}
+//		}else if($("#exBank").val() == "기업") {
+//			if($("#bankNumber").val().length == 3 || $("#bankNumber").val().length == 10 || $("#bankNumber").val().length == 13) {
+//				$("#bankNumber").val($("#bankNumber").val() + "-");
+//			}
+//		}else if($("#exBank").val() == "우리") {
+//			if($("#bankNumber").val().length == 4 || $("#bankNumber").val().length == 8) {
+//				$("#bankNumber").val($("#bankNumber").val() + "-");
+//			}
+//		}else if($("#exBank").val() == "농협") {
+//			if($("#bankNumber").val().length == 3 || $("#bankNumber").val().length == 8 || $("#bankNumber").val().length == 13) {
+//				$("#bankNumber").val($("#bankNumber").val() + "-");
+//			}
+//		}else if($("#exBank").val() == "카카오뱅크") {
+//			if($("#bankNumber").val().length == 4 || $("#bankNumber").val().length == 7) {
+//				$("#bankNumber").val($("#bankNumber").val() + "-");
+//			}
+//		}
+//	});
 	
 });
