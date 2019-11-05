@@ -113,8 +113,11 @@ $(document).ready(function(){
 			alert("결제수단을 선택해 주세요.");
 		}else if($("#pay_Money").val() == "") {
 			alert("금액을 입력해 주세요.");
-		}else if($("#pay_Money").val() == 0) {
-			alert("0원은 충전할 수 없습니다.");
+			$("#pay_Money").focus();
+		}else if($("#pay_Money").val() <= 0) {
+			alert("최소 1000원 부터 충전할 수 있습니다.");
+			$("#pay_Money").val("");
+			$("#pay_Money").focus();
 		}else if(payCheck == false) {
 			alert("천원단위로 금액을 입력해 주세요.");
 		}else {
