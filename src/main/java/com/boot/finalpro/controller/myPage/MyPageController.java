@@ -464,7 +464,8 @@ public class MyPageController {
 		likeMav.addObject("s_keyword", param.getS_keyword());
 		likeMav.addObject("s_category", param.getS_category());
 		likeMav.addObject("member", member);
-
+		likeMav.addObject("InsertTitle", "마이페이지 내 좋아요 게시물");
+		
 		return likeMav;
 	}
 
@@ -521,7 +522,6 @@ public class MyPageController {
 		MemberDTO member = myPageService.findOneMemberById(userid);
 		// 환전데이터 숫자
 		int count = myPageService.exchangeCheckCountById(userid);
-		
 		
 		// 기존의 환전 내역 없는경우
 		if(count == 0) {
