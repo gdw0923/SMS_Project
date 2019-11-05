@@ -1,4 +1,4 @@
-package com.boot.finalpro.controller;
+package com.boot.finalpro.controller.myPage;
 
 import java.security.Principal;
 import java.text.ParseException;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.boot.finalpro.model.ExchangeDTO;
@@ -71,23 +70,22 @@ public class MyPageController {
 //	}
 		
 	// 마이페이지 메인이동
-		@GetMapping("/myPageMain.do")
-		public ModelAndView myPageMain(Principal pcp) {
-			
-			log.info("MyPageController myPageMain in");
-			
-			String userId = pcp.getName();
-			
-			MemberDTO member = myPageService.findOneMemberById(userId);
-			
-			ModelAndView myMav = new ModelAndView();
-			myMav.setViewName("myPageMain.tiles");
-			myMav.addObject("member", member);
-			
-			return myMav;
-			
-		}
-	
+	@GetMapping("/myPageMain.do")
+	public ModelAndView myPageMain(Principal pcp) {
+		
+		log.info("MyPageController myPageMain in");
+		
+		String userId = pcp.getName();
+		
+		MemberDTO member = myPageService.findOneMemberById(userId);
+		
+		ModelAndView myMav = new ModelAndView();
+		myMav.setViewName("myPageMain.tiles");
+		myMav.addObject("member", member);
+		
+		return myMav;
+		
+	}
 	// 결제 페이지 이동
 	@GetMapping("/myPagePay.do")
 	public ModelAndView myPagePay(Principal pcp) {
@@ -128,24 +126,6 @@ public class MyPageController {
 	    moneyMav.setViewName("/myPage/myPagePayAf");
 
 		return moneyMav;
-	}
-	// 돈 충전
-	@ResponseBody
-	@GetMapping("/changeInFoMoney.do")
-	public void changeInFoMoney(MemberDTO member) {
-
-		log.info("MyPageController changeInFoMoney in");
-		log.info("money : " + member.getMoney() + member.getId());
-
-		// 멤버 돈추가
-		myPageService.ChangeInfoMoney(member);
-		
-		ProfitDTO profit = new ProfitDTO();
-		profit.setId(member.getId());
-		profit.setProfit_money(member.getMoney());
-		
-		// 이익테이블 추가
-		myPageService.saveProfit(profit);
 	}
 	// 보낸 메시지함 들어가기
 	@RequestMapping(value = "myPageSendMessage.do", method = { RequestMethod.GET, RequestMethod.POST })
@@ -202,46 +182,7 @@ public class MyPageController {
 		
 		return messageMav;
 	}
-
-	// msgAutocompleate...(자동완성 jquery 기능)
-	@ResponseBody
-	@GetMapping("msgAutocompleate.do")
-	public List<String> json(String value, Principal pcp) {
-		
-		log.info("myPageController msgAutocompleate IN");
-		
-		log.info(value);
-		// db에 접속시켜 돌려줄 데이터
-		Map<String, Object> memberMap = new HashMap<String, Object>();
-		
-		memberMap.put("value", value);
-		memberMap.put("id", pcp.getName());
-		
-		List<String> member = myPageService.FindMessageIdById(memberMap);
-		
-		log.info("member to String" + member.toString());
-		
-		return member;
-	}
-	// 메세지 작성시 상대방 아이디 존재 유무 체크
-	@ResponseBody
-	@GetMapping("receiveIdCheck.do")
-	public String receiveIdCheck(MessageDTO msg) {
-		
-		log.info("CommonController receiveIdCheck in");
-		log.info("msg = " + msg.toString());
-		
-		boolean b = myPageService.receiveIdCheck(msg);
-
-		if(b) {
-			// 데이터가 있는경우
-			log.info("CommonController receiveIdCheck true");
-			return "true";
-		}
-		// 데이터가 없는경우
-		log.info("CommonController receiveIdCheck false");
-		return "false";
-	}
+	
 	// 내가 보낸 쪽지함 디테일 이동
 	@GetMapping("/myPageSendMessageDetail.do")
 	public ModelAndView messageDetail(int seq) {
@@ -360,38 +301,6 @@ public class MyPageController {
 		writeMav.addObject("member", member);
 		
 		return writeMav;
-	}
-	// 팝업으로 메세지 전송해서 ajax로 데이터 입력후 팝업 닫기
-	@ResponseBody
-	@RequestMapping(value="/myPageWriteMessageSuc.do", method = {RequestMethod.POST, RequestMethod.GET})
-	public String myPageSendMessageSuc(MessageDTO msg) {
-		
-		log.info("MyPageController myPageSendMessageSuc in");
-		log.info("msg" + msg.toString());
-		
-		boolean blacklist = myPageService.findMessageBlacklist(msg);
-		
-		log.info("blacklist" + blacklist);
-		
-		if(blacklist) {
-			return "true";
-		}
-		log.info("false");
-		
-		boolean suc = myPageService.SaveMessage(msg);
-		
-		if(suc) {
-			
-			return "true";
-		}
-		return "false";
-//		if(blacklist) {
-//			boolean b = myPageService.SaveMessage(msg);
-//			if(!b) {
-//				return "false";
-//			}
-//		}
-//		return "true";
 	}
 	// 수신한 편지 디테일에서 답장하기
 	@GetMapping("myPageAnswerMessage.do")
@@ -804,33 +713,7 @@ public class MyPageController {
 		}
 		return "redirect:/mypage/myPageReceiveMessage.do";
 	}
-	
-	// 쪽지 차단
-	@ResponseBody
-	@GetMapping("mypageMessageReceiveStat.do")
-	public String mypageMessageReceiveStat(MessageDTO msg, Principal pcp) {
-		
-		log.info("myPageController mypageMessageReceiveStat in");
-
-		String userid = pcp.getName();
-		msg.setReceive_id(userid);
-		
-		log.info("msg :" + msg.toString());
-		
-		// 수신여부 확인
-		boolean b = myPageService.findMessageIsBlacklist(msg);
-		
-		if(b) {
-			// 수신거부가 되있으면 풀어준다.
-			myPageService.deleteMessageBlacklist(msg);
-			return "N";
-		}
-		// 수신거부가 안되어있으면 수신거부를 해준다.
-		myPageService.saveMessageBlacklist(msg);
-		
-		return "Y";
-	}
-	
+	// blacklist
 	@RequestMapping(value = "myPageBlacklist.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView myPageBlacklist(BbsParam param, Principal pcp) {
 		
@@ -869,22 +752,4 @@ public class MyPageController {
 		return blackMav;
 	}
 	
-	
-	@ResponseBody
-	@GetMapping("myPageBlacklistDelete.do")
-	public String myPageBlacklistDelete(MessageDTO msg, Principal pcp) {
-
-		log.info("myPageController myPageBlacklistDelete in");
-		
-		String userid = pcp.getName();
-		msg.setReceive_id(userid);
-		
-		myPageService.deleteMessageBlacklist(msg);
-		
-		return "Suc";
-	}
 }
-
-
-
-

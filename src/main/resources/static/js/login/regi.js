@@ -146,11 +146,11 @@ $(function () {
 						
 					}else{
 						check = false;
-						alert("존재하는 이메일을 입력해 주세요");
+						alert("이메일을 확인해 주세요");
 					}
 				},
 				error:function(xhr, status, error){
-					alert("통신실패");
+					alert("이메일을 확인해 주세요.");
 				}
 			});
 		}
@@ -163,7 +163,7 @@ $(function () {
 		if( id.length >= 7 && id.length <= 20 && pattern1.test( id ) && pattern2.test( id ) && !pattern3.test( id ) ){
 			
 		}else {
-			$("#idfont").css("display", "block" );
+			$("#idfont").show();
 			$("#idfont").html("7 ~ 20글자의 영문+숫자로 등록해주십시오");
 			console.log("values");
 		}
@@ -174,10 +174,10 @@ $(function () {
 		var pwd = $("#pwd").val().trim();
 		
 		if( pwd.length >= 8 && pwd.length <= 15 && pattern1.test( pwd ) && pattern2.test( pwd ) && pattern3.test( pwd ) ){
-			$("#pwdfont").css("display", "none" );
+			$("#pwdfont").hide();
 		}else {
 			$("#pwdfont").html("8~15자리의 특수,영문+숫자로 등록해주십시오")
-			$("#pwdfont").css("display", "block" );
+			$("#pwdfont").show();
 		}
 				
 	});

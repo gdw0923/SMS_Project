@@ -5,8 +5,8 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPagePayInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPagePayInfo.css">
+	<script type="text/javascript" src="/js/myPage/pay/myPagePayInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/pay/myPagePayInfo.css">
 </head>
 
 <body>

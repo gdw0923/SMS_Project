@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	<link rel="stylesheet" href="/css/myPage/myPageLeftMenu.css">
+	<link rel="stylesheet" href="/css/myPage/common/myPageLeftMenu.css">
 	
 <div class="col-sm-2" style="width: 170px;">
     <nav class="nav-sidebar">

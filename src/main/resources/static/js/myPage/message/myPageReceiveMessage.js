@@ -63,10 +63,10 @@ $(function() {
 		}
 		
 		if(!isChecked) {
-			bootbox.alert("삭제 항목을 선택하세요.");
+			alert("삭제 항목을 선택하세요.");
 			return ;
 		}else {
-			bootbox.confirm("쪽지를 삭제합니다.", function(result){ 
+			confirm("쪽지를 삭제합니다.", function(result){ 
 			    if(result) {
 			    	$("#deleteFrm").attr("action", "myPageAllReceiveMessageDelete.do").submit();
 			    }

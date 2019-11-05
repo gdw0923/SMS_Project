@@ -1,16 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
 	<title>Insert title here</title>
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-	<script type="text/javascript" src="/js/myPage/myPageInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageInfo.css">
+	<script type="text/javascript" src="/js/myPage/info/myPageInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/info/myPageInfo.css">
 	
 </head>
 <body>
+	<!-- 계정삭제 정보 -->
+	<sec:authorize access="hasRole('ROLE_TEAMLEADER')">
+		<input type="hidden" value="leader" id="leader">
+	</sec:authorize>
+	
+	<sec:authorize access="hasRole('ROLE_TEAMMEMBER')">
+		<input type="hidden" value="team" id="team">
+	</sec:authorize>
+	
+	<input type="hidden" id="TName" value="${member.team_name}">
+	
 	<form id="infoFrm">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		<table class="table table-bordered">

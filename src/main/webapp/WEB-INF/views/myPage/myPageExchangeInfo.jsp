@@ -5,8 +5,8 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageExchangeInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageTable.css">
+	<script type="text/javascript" src="/js/myPage/exchange/myPageExchangeInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/exchange/myPageTable.css">
 </head>
 <body>
 
