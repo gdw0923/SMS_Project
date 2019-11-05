@@ -44,18 +44,18 @@
 	 <div class="form-group">
        <label for="inputTeam" class="col-lg-3 control-label">팀이름</label>
        <div class="col-lg-6">
-		<input type="text" name="team_name" id="_team_name" class="form-control"  value="${teamdetail.team_name }" maxlength="10">
+		<input type="text" name="team_name" id="_team_name" class="form-control"  value="${teamdetail.team_name }" readonly="readonly">
 		<input type="hidden" name="old_team_name" value="${teamdetail.team_name }">         
        </div>
      </div>
      
 		<div class="form-group">
-		<label for="inputEmail" class="col-lg-3 control-label">팀사진</label>
-		<div class="col-lg-6">
-			<div class='filebox'><br><input class='upload-name bs3-primary' value='파일선택' disabled='disabled'>
-			<label for='ex_file' id="_fileUpload">업로드</label>
-			<input type='file' name='file' id='ex_file' class='upload-hidden'>
-		</div>
+			<label for="inputEmail" class="col-lg-3 control-label">팀사진</label>
+			<div class="col-lg-6">
+				<div class='filebox'><br><input class='upload-name bs3-primary' value='파일선택' disabled='disabled'>
+				<label for='ex_file' id="_fileUpload">업로드</label>
+				<input type='file' name='file' id='ex_file' class='upload-hidden'>
+			</div>
 		</div>
 	</div>     
      <div class="form-group">

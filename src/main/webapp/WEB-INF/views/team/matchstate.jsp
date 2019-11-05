@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +17,7 @@ th{
 }
 td{
 	border-bottom: 1px solid #A2AAC1;
+	text-align: center;
 	padding: 12px;
 }
 
@@ -29,6 +30,9 @@ td{
 <body>
 
 <table class="table table-hover table-responsive" id="matlist">
+	<colgroup>
+		<col width="80px;"><col width="80px;"><col width="300px;"><col width="150px;">
+	</colgroup>
     	<thead>
 		<tr>
 			<th>팀명</th><th>팀장명</th><th>내용</th><th>수락/거절</th>
@@ -48,7 +52,16 @@ td{
 		<tr>
 			<td>${matlist.name_team2 }</td>
 			<td>${matlist.id }</td>
-			<td>${matlist.message }</td>
+			<td>
+			<c:choose>
+			<c:when test="${fn:length(matlist.message) gt 10 }">
+			${fn:substring(matlist.message,0,9) }...
+			</c:when>
+			<c:otherwise>
+			${matlist.message }
+			</c:otherwise>						
+			</c:choose>
+			</td>
 			<td>
 				<button type="button" id="_accept_btncls" class="accept_btncls" user_id="${matlist.name_team2 }">수락</button>&nbsp;
 				<button type="button" id="_reject_btncls" class="reject_btncls" user_id="${matlist.seq_gamematch }">거절</button>

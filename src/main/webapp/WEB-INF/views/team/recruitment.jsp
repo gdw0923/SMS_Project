@@ -30,7 +30,7 @@
     
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>팀 모집 글 쓰기</title>
 </head>
 <body>
 <form action="recruitmentAf.do" method="post">
@@ -50,7 +50,7 @@
 	</td>
 </tr>
 <tr>
-	<th>내용</th>
+	<th>제목</th>
 	<td>
 		<input type="text" class="form-control" name="content" id="_content">
 	</td>
