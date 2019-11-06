@@ -716,7 +716,7 @@ public class AdminController {
 	public String admin_chart_ranking(Model model) {
 		Map<String, SportsScoreDto> sportsScore =  new HashMap<String, SportsScoreDto>();
 		sportsScore = adminService.sportsScore();
-		System.out.println(sportsScore.get("soccer").toString());
+
 		
 		
 		model.addAttribute("sportsScore", sportsScore);
