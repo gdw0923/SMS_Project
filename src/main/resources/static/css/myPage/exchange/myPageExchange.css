@@ -23,3 +23,9 @@
 #exchange_money_font, #bank_font, #bank_number_font {
 	color: red;
 }
+.container-banner {
+	position: absolute;
+	right: 20px;
+	bottom: 130px;
+	cursor: pointer;
+}

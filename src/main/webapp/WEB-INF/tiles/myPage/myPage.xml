@@ -6,7 +6,7 @@
 
  <!-- myPage main -->
    <definition name="myPageMain.tiles" template="/WEB-INF/views/layout/myPageTemplate.jsp">
-		<put-attribute name="myPage_import" value="/WEB-INF/views/common/header_import.jsp"/>
+		<put-attribute name="myPage_import" value="/WEB-INF/views/common/myPage_import.jsp"/>
 		<put-attribute name="top_inc" value="/WEB-INF/views/common/top_inc.jsp"/>
 		<put-attribute name="top_menu" value="/WEB-INF/views/common/top_menu.jsp"/>
 		<put-attribute name="my_top_menu" value="/WEB-INF/views/common/myPageTopMenu.jsp"/>

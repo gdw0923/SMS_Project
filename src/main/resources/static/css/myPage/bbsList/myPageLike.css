@@ -37,3 +37,9 @@
 #li-like {
 	background-color: #dadada;
 }
+.container-banner {
+	position: absolute;
+	right: 20px;
+	bottom: 130px;
+	cursor: pointer;
+}

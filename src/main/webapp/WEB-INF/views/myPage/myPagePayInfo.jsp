@@ -54,5 +54,9 @@
 		</jsp:include>
 	</div>
 	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
+	
 </body>
 </html>
