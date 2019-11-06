@@ -2210,7 +2210,7 @@
 	
 	<!-- admin 종목별 최고점,최저점,평균점 구하기(통계용) -->
 	<select id="sportsScore" parameterType="java.lang.String" resultType="com.boot.finalpro.util.SportsScoreDto">
-	SELECT NVL(MAX(SOCCER_MMR),0)AS MAX,NVL(MIN(SOCCER_MMR),0)AS MIN,NVL(AVG(SOCCER_MMR),0)AS AVG
+	SELECT NVL(MAX(#{category}),0)AS MAX,NVL(MIN(#{category}),0)AS MIN,NVL(AVG(#{category}),0)AS AVG
 	FROM TEAM_DETAIL
 	</select>
 	
