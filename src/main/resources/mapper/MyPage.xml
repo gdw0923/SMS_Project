@@ -250,7 +250,7 @@
 	
 	<select id="findAllExchangeListById" parameterType="com.boot.finalpro.util.BbsParam" resultType="com.boot.finalpro.model.ExchangeDTO">
 		SELECT SEQ, ID, BANK, BANK_NUMBER, EXCHANGE_MONEY, EXDATE, EX_CHECK
-		FROM(SELECT ROW_NUMBER()OVER(ORDER BY SEQ DESC) AS RNUM,
+		FROM(SELECT ROW_NUMBER()OVER(ORDER BY EXDATE DESC) AS RNUM,
 			SEQ, ID, BANK, BANK_NUMBER, EXCHANGE_MONEY, EXDATE, EX_CHECK
 			FROM EXCHANGE
 			WHERE ID=#{id}

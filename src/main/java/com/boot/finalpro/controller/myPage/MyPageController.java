@@ -603,7 +603,7 @@ public class MyPageController {
 		
 	}
 	// 내 결제 내역
-	@GetMapping("/myPagePayInfo.do")
+	@RequestMapping(value = "/myPagePayInfo.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView myPagePayInfo(BbsParam param, Principal pcp) {
 		
 		String userid = pcp.getName();

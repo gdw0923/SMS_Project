@@ -206,9 +206,9 @@ $(function () {
 			alert("신장을 확인해 주세요");
 		}else if($("#weight").val().trim().length < 1){
 			alert("몸무게를 확인해 주세요");
-		}else if(grecaptcha.getResponse() == "") {
+		}/*else if(grecaptcha.getResponse() == "") {
 			alert("로봇이 아닙니다를 확인해 주세요.")
-		}else{
+		}*/else{
 			
 			if(confirm("입력하신 " + $("#idsave").val() + " 로 가입하게 됩니다 가입하시겠습니까?") == true){
 				
