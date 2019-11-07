@@ -1557,76 +1557,76 @@
 				<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText} AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText} AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL 
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose> 
 				</when>
 				<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>						
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose> 			
 				</when>
 				<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>							
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose>			
 				</when>
 				<otherwise>	<!-- 날짜 선택 없을경우 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText}
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CATEGORY=#{searchText} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND GAME_RESULT IS NULL AND TITLE LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND GAME_RESULT IS NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>						
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NULL
+							WHERE 1=1 AND GAME_RESULT IS NULL AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose>					
 				</otherwise>
@@ -1638,76 +1638,76 @@
 				<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText} AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText} AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>						
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose> 
 				</when>
 				<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>										
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose> 			
 				</when>
 				<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText} AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>									
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose>			
 				</when>
 				<otherwise>	<!-- 날짜 선택 없을경우 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText}
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CATEGORY=#{searchText} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND TITLE LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND CONTENT LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>								
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GAME_RESULT IS NOT NULL
+							WHERE 1=1 AND GAME_RESULT IS NOT NULL AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose>					
 				</otherwise>
@@ -1719,76 +1719,76 @@
 				<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND CATEGORY=#{searchText} AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND CATEGORY=#{searchText} AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>						
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GDATE BETWEEN #{begin} AND #{end}
+							WHERE 1=1 AND GDATE BETWEEN #{begin} AND #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose> 
 				</when>
 				<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND CATEGORY=#{searchText} AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND CATEGORY=#{searchText} AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>							
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GDATE <![CDATA[>=]]> #{begin}
+							WHERE 1=1 AND GDATE <![CDATA[>=]]> #{begin} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose> 			
 				</when>
 				<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND CATEGORY=#{searchText} AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND CATEGORY=#{searchText} AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>								
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1 AND GDATE <![CDATA[<=]]> #{end}
+							WHERE 1=1 AND GDATE <![CDATA[<=]]> #{end} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose>			
 				</when>
 				<otherwise>	<!-- 날짜 선택 없을경우 -->
 					<choose>
 						<when test="category == 'CATEGORY'">	<!-- 검색어가 작성자 -->
-							WHERE 1=1 AND CATEGORY=#{searchText}
+							WHERE 1=1 AND CATEGORY=#{searchText} AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'TITLE'"> <!-- 검색어가 제목 -->
-							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND TITLE LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'CONTENT'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND CONTENT LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>
 						<when test="category == 'NAME_STADIUM'"> <!-- 검색어가 내용 -->
-							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%'
+							WHERE 1=1 AND NAME_STADIUM LIKE '%'||#{searchText}||'%' AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</when>								
 						<otherwise>	<!-- 검색어가 없을경우  -->
-							WHERE 1=1
+							WHERE 1=1 AND NAME_TEAM1 IS NOT NULL AND NAME_TEAM2 IS NOT NULL
 						</otherwise>
 					</choose>					
 				</otherwise>
