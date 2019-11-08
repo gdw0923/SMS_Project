@@ -180,6 +180,17 @@ $.datepicker.setDefaults({
 $("#_datepickTo").datepicker();                    
 $("#_datepickFrom").datepicker();
 
+
+$('#_datepickTo').datepicker("option", "maxDate", $("#_datepickFrom").val());
+$('#_datepickTo').datepicker("option", "onClose", function ( selectedDate ) {
+    $("#_datepickFrom").datepicker( "option", "minDate", selectedDate );
+});
+
+
+$('#_datepickFrom').datepicker("option", "minDate", $("#_datepickTo").val());
+$('#_datepickFrom').datepicker("option", "onClose", function ( selectedDate ) {
+    $("#_datepickTo").datepicker( "option", "maxDate", selectedDate );
+});
 $("#_findBtn").on("click",function(){	// 검색버튼 클릭시
 	/* alert("클릭됨"); */
 	var begin = $("#_datepickTo").val();

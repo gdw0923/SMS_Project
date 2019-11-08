@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +17,7 @@ th{
 }
 td{
 	border-bottom: 1px solid #A2AAC1;
+	text-align: center;
 	padding: 12px;
 }
 
@@ -29,6 +30,9 @@ td{
 <body>
 
 <table class="table table-hover table-responsive" id="matlist">
+	<colgroup>
+		<col width="80px;"><col width="80px;"><col width="300px;"><col width="150px;">
+	</colgroup>
     	<thead>
 		<tr>
 			<th>팀명</th><th>팀장명</th><th>내용</th><th>수락/거절</th>
@@ -48,10 +52,19 @@ td{
 		<tr>
 			<td>${matlist.name_team2 }</td>
 			<td>${matlist.id }</td>
-			<td>${matlist.message }</td>
 			<td>
-				<button type="button" class="btn btn-secondary" user_id="${matlist.name_team2 }">수락</button>&nbsp;
-				<button type="button" class="reject_btncls" user_id="${matlist.seq_gamematch }">거절</button>
+			<c:choose>
+			<c:when test="${fn:length(matlist.message) gt 10 }">
+			${fn:substring(matlist.message,0,9) }...
+			</c:when>
+			<c:otherwise>
+			${matlist.message }
+			</c:otherwise>						
+			</c:choose>
+			</td>
+			<td>
+				<button type="button" id="_accept_btncls" class="accept_btncls" user_id="${matlist.name_team2 }">수락</button>&nbsp;
+				<button type="button" id="_reject_btncls" class="reject_btncls" user_id="${matlist.seq_gamematch }">거절</button>
 				<input type="hidden" id="_seq_game" value="${matlist.seq_game }">
 				<input type="hidden" id="_mat_seq" value="${matlist.seq_gamematch }">
 			</td>
@@ -70,33 +83,17 @@ $(document).ready(function () {
 	
 	
 	
-	$(document).on("click", ".accept_btncls", function () {
+	$(document).on("click", "#_accept_btncls", function () {
 		var name_team2 = $(this).attr("user_id");
 		var seq = $("#_seq_game").val();
-		
-//		$("#seqGame").val($(this).attr("user_id"));
-//		$("#teamName2").val($("#_seq_game").val());
-//		
-//		$("#frm").submit();
-		
-		//alert(name_team2);
-		//alert(seq);
-		//location.href="matchappect.do?seq_game="+ seq + "&name_team2=" + name_team2;
 		opener.location.href = "matchappect.do?seq_game="+ seq + "&name_team2=" + name_team2;
 		self.close();
-		//location.href="matchappect.do?seq_game=1&name_team2=djsajhwqusd";
-		//opener.parent.location.reload();
-		//window.close();
+
 		
 	});
 	
-	$(document).on("click", ".reject_btncls", function () {
+	$(document).on("click", "#_reject_btncls", function () {
 		var matseq = $("#_mat_seq").val();
-		//alert(matseq);
-		//location.href="matchreject.do?seq_gamematch="+ matseq;
-		//opener.parent.location.reload();
-		//window.close();
-		
 		opener.location.href = "matchreject.do?seq_gamematch="+ matseq;
 		self.close();
 	});

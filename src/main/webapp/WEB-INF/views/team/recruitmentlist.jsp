@@ -38,7 +38,7 @@ td{
 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 <table class="table table-hover table-responsive">
 <colgroup>
-	<col width="200px"><col width="200px"><col width="200px"><col width="200px"><col width="200px">
+	<col width="80px"><col width="80px"><col width="100px"><col width="300px"><col width="100px">
 </colgroup>
 
 <thead>
@@ -54,7 +54,7 @@ td{
 				<option value="배드민턴" <c:if test="${sport_category == '배드민턴'}">selected='selected'</c:if>>배드민턴</option>				
 			</select>	
 	</th>
-	<th>팀명</th><th>내용</th><th>날짜</th>
+	<th>팀명</th><th>제목</th><th>날짜</th>
 </tr>
 </thead>
 <c:if test="${empty recruitmentlist }">

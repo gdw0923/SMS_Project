@@ -6,8 +6,8 @@
 <html>
 <head>
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageExchange.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageExchange.css">
+	<script type="text/javascript" src="/js/myPage/exchange/myPageExchange.js"></script>
+	<link rel="stylesheet" href="/css/myPage/exchange/myPageExchange.css">
 	<!-- bootbox -->
 </head>
 <body>
@@ -62,7 +62,9 @@
 	</table>
 	
 	
-
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
 	
 	
 	

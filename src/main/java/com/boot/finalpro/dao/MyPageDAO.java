@@ -101,4 +101,6 @@ public interface MyPageDAO {
 	public int findAllBlackListCount(String userid);
 	// 수신거부 목록 리스트
 	public List<MessageBlackListDTO> findAllBlackListById(BbsParam param);
+	// 권한조회
+	public String findAuthByid(String id);
 }

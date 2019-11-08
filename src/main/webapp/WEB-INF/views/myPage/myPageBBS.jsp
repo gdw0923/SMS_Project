@@ -7,8 +7,8 @@
 <html>
 <head>
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageBBS.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageBBS.css">
+	<script type="text/javascript" src="/js/myPage/bbsList/myPageBBS.js"></script>
+	<link rel="stylesheet" href="/css/myPage/bbsList/myPageBBS.css">
 </head>
 <body>
 	<table class="table table-hover table-responsive">
@@ -21,7 +21,7 @@
 		</tr>
 		<c:if test="${empty bbsList}">
 			<tr>
-				<td colspan="3" align="center">작성한 게시물이 없습니다.</td>
+				<td colspan="4" align="center">작성한 게시물이 없습니다.</td>
 			</tr>
 		</c:if>
 		<c:if test="${not empty bbsList}">
@@ -85,7 +85,9 @@
 		<input type="hidden" name="id" value="${id}">
 	</form>
 	
-	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
 	
 </body>
 </html>

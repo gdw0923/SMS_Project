@@ -4,8 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="/css/myPage/myPagePay.css">
-	<script type="text/javascript" src="/js/myPage/myPagePay.js"></script>
+	<link rel="stylesheet" href="/css/myPage/pay/myPagePay.css">
+	<script type="text/javascript" src="/js/myPage/pay/myPagePay.js"></script>
 </head>
 <body>
 	<form id="payFrm">
@@ -95,6 +95,10 @@
 			</div>
 		</div>
 	</form>
+	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
 	
 </body>
 </html>

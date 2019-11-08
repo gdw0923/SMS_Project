@@ -30,6 +30,7 @@
 	<name>tilesExam</name>
 
 	<description>examples JSP in spring boot</description>
+	<packaging>war</packaging>
 
 	<properties>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
@@ -430,27 +431,6 @@
 		    <artifactId>activation</artifactId>
 		    <version>1.1.1</version>
 		</dependency>
-
-		<!-- EHCache 관련 -->
-		<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
-		<dependency>
-		    <groupId>net.sf.ehcache</groupId>
-		    <artifactId>ehcache</artifactId>
-		</dependency>
-		<dependency>
-	    <!-- 캐시 관련 의존성(CacheManager 등)을 직접 추가하지 않기 위해 추가한 디펜던시 -->
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-cache</artifactId>    
-		</dependency>
-		<dependency>
-		    <groupId>ch.qos.logback</groupId>
-		    <artifactId>logback-core</artifactId>
-		</dependency>
-		<!-- JPA -->
-<!-- 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency> -->
 
 	</dependencies>
 	

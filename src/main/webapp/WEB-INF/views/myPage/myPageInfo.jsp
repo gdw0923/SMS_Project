@@ -1,23 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
 	<title>Insert title here</title>
 
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-	<script type="text/javascript" src="/js/myPage/myPageInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageInfo.css">
+	<script type="text/javascript" src="/js/myPage/info/myPageInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/info/myPageInfo.css">
 	
 </head>
 <body>
+
+	
+	<input type="hidden" id="TName" value="${member.team_name}">
+	
 	<form id="infoFrm">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		<table class="table table-bordered">
 			<tr>
 				<th>비밀번호</th>
 				<td style="text-align: center;">
-					<input type="password"  class="form-control" placeholder="비빌번호 입력" id="pwd"
+					<input type="password"  class="form-control" placeholder="비밀번호 입력" id="pwd"
 							name="pwd">
 					<font color="red" id="pwdfont" size="2px">8~15자리의 특수,영문+숫자로 등록해주십시오</font>
 				</td>
@@ -79,5 +84,10 @@
 		  		</tr>
 		</table>
 	</form>
+	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
+	
 </body>
 </html>

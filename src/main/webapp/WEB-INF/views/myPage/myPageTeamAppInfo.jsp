@@ -5,8 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageTeamAppInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageTeamAppInfo.css">
+	<script type="text/javascript" src="/js/myPage/bbsList/myPageTeamAppInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/bbsList/myPageTeamAppInfo.css">
 </head>
 <body>
 	<table class="table table-responsive">
@@ -56,6 +56,11 @@
 			<jsp:param name="pageCountPerScreen" value="${pageCountPerScreen }" />
 			<jsp:param name="recordCountPerPage" value="${recordCountPerPage }" />	
 		</jsp:include>
+	</div>
+	
+	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
 	</div>
 	
 </body>

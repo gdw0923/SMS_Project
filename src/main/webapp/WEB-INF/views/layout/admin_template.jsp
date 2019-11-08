@@ -27,9 +27,7 @@
 </head>
 <body id="page-top">
 	<div id="wrapper">
-		<div id="_sideBar">
 			<tiles:insertAttribute name="admin_left"/>
-		</div>
 	    <div id="content-wrapper" class="d-flex flex-column">
       		<div id="content">
 		        <div class="container-fluid">

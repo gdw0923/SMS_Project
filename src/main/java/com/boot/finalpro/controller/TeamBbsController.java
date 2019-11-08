@@ -69,7 +69,7 @@ public class TeamBbsController {
 		String id = pcp.getName();
 		
 		String team_name = teamBbsSerivce.getTeamName(id);
-		
+		model.addAttribute("InsertTitle", "SMS 팀 게시판 글쓰기");
 		model.addAttribute("team_name", team_name);
 		
 		return "TeamBbsWrite.tiles";
@@ -128,6 +128,7 @@ public class TeamBbsController {
 		teamBbsSerivce.BbsViewsCount(OverDto);
 		teamBbsSerivce.BbsReadCount(seq);
 		}
+		model.addAttribute("InsertTitle", "SMS 팀 게시판 상세내역");
 		model.addAttribute("likedto", likedto);
 		model.addAttribute("bbsdto", teamBBSDTO);
 		model.addAttribute("bbscommentdto", BbsCommentDto);
@@ -238,7 +239,7 @@ public class TeamBbsController {
 
 		TeamBBSDTO teamBBSDTO = teamBbsSerivce.BbsDetail(seq);
 		String s_category = teamBBSDTO.getSubject_category();
-		
+		model.addAttribute("InsertTitle", "SMS 팀 게시판 수정하기");
 		model.addAttribute("dto", teamBBSDTO);
 		model.addAttribute("s_category", s_category);
 		
@@ -378,7 +379,7 @@ public class TeamBbsController {
 		String id = pcp.getName();
 		
 		String team_name = teamBbsSerivce.getTeamName(id);
-		
+		model.addAttribute("InsertTitle", "SMS 용병 게시판 글쓰기");
 		model.addAttribute("team_name", team_name);
 		
 		return "SubBbsWrite.tiles";
@@ -411,7 +412,7 @@ public class TeamBbsController {
 		log.info("TeamBbsController BbsDetail2()" + new Date());
 		
 		SubDTO dto = teamBbsSerivce.BbsDetail2(seq);
-		
+		model.addAttribute("InsertTitle", "SMS 용병 게시판 상세내역");
 		model.addAttribute("bbsdto", dto);
 		return "SubBbsDetail.tiles";
 	}
@@ -442,7 +443,7 @@ public class TeamBbsController {
 		log.info("TeamBbsController teamBbsupdate2()" + new Date());
 		
 		SubDTO dto = teamBbsSerivce.BbsDetail2(seq);
-		
+		model.addAttribute("InsertTitle", "SMS 용병 게시판 수정 하기");
 		model.addAttribute("bbsdto", dto);
 		return "SubBbsUpdate.tiles";
 	}

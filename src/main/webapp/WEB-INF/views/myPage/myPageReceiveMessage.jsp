@@ -5,8 +5,8 @@
 <html>
 	<head>
 		<title>Insert title here</title>
-		<script type="text/javascript" src="/js/myPage/myPageReceiveMessage.js"></script>
-		<link rel="stylesheet" href="/css/myPage/myPageReceiveMessage.css">
+		<script type="text/javascript" src="/js/myPage/message/myPageReceiveMessage.js"></script>
+		<link rel="stylesheet" href="/css/myPage/message/myPageReceiveMessage.css">
 	</head>
 <body>
 	<!-- <button type="button" id="sendBtn" class="btn btn-default">쪽지작성</button>
@@ -122,6 +122,10 @@
 		<input type="hidden" name="recordCountPerPage" id="_recordCountPerPage" value="${(empty recordCountPerPage)?0:recordCountPerPage }">
 		<input type="hidden" name="id" value="${id}" id="id">
 	</form>
+	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
 	
 </body>
 </html>

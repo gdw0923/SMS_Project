@@ -5,8 +5,8 @@
 <html>
 <head>
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageBet.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageBet.css">
+	<script type="text/javascript" src="/js/myPage/bbsList/myPageBet.js"></script>
+	<link rel="stylesheet" href="/css/myPage/bbsList/myPageBet.css">
 </head>
 <body>
 
@@ -77,6 +77,10 @@
 		<jsp:param name="pageCountPerScreen" value="${pageCountPerScreen }" />
 		<jsp:param name="recordCountPerPage" value="${recordCountPerPage }" />	
 	</jsp:include>
+</div>
+
+<div class="container-banner">
+	<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
 </div>
 
 </body>

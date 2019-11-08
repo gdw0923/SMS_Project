@@ -5,8 +5,8 @@
 <html>
 	<head>
 		<title>Insert title here</title>
-		<script type="text/javascript" src="/js/myPage/myPageLike.js"></script>
-		<link rel="stylesheet" href="/css/myPage/myPageLike.css">
+		<script type="text/javascript" src="/js/myPage/bbsList/myPageLike.js"></script>
+		<link rel="stylesheet" href="/css/myPage/bbsList/myPageLike.css">
 	</head>
 <body>
 	<table class="table table-hover table-responsive">
@@ -83,6 +83,10 @@
 		<input type="hidden" name="recordCountPerPage" id="_recordCountPerPage" value="${(empty recordCountPerPage)?0:recordCountPerPage }">
 		<input type="hidden" name="id" value="${id}">
 	</form>
+	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
 	
 </body>
 

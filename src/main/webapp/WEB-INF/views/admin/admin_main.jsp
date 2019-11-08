@@ -89,8 +89,7 @@ th{
                           		<h2>순위가 없습니다.</h2>
                           	</c:when>
                           	<c:otherwise>
-       	                        ${firstTeam.team_name }<br>
-                          		${firstTeam.total_mmr }
+       	                        ${firstTeam.team_name }(${firstTeam.total_mmr }점)
                           	</c:otherwise>
                           </c:choose>
                           </div>
@@ -118,8 +117,7 @@ th{
                           		<h2>순위가 없습니다.</h2>
                           	</c:when>
                           	<c:otherwise>
-       	                        ${lastTeam.team_name }<br>
-                          		${lastTeam.total_mmr }
+       	                        ${lastTeam.team_name }(${lastTeam.total_mmr }점)
                           	</c:otherwise>
                           </c:choose>                                        
                       </div>

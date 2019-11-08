@@ -137,11 +137,11 @@
 					success : function(b) {
 						if(b == "true") {
 							console.log("트루" + b);
-							$("#id_font").html("<b id = 'suc'>전송 가능한 아이디</b>");
+							$("#id_font").html("<b>전송 가능한 아이디</b>");
 							count = true;
 						} else {
 							console.log("펄스" + b);
-							$("#id_font").html("<b id ='error'>발신 불가능한 아이디 입니다.</b>");
+							$("#id_font").html("<b>발신 불가능한 아이디 입니다.</b>");
 							count = false;
 						}
 					},
@@ -174,6 +174,7 @@
 						},
 						success : function(b) {
 							if(b == "true") {
+								opener.location.reload();
 								self.close();
 							} else {
 								alert("예기치 못한 오류로 메세지를 전송하지 못했습니다.");
@@ -182,6 +183,7 @@
 						},
 						error : function() {
 							console.log("myPageWriteMessageSuc() ajax 오류 In");
+							alert("예기치 못한 오류로 메세지를 전송하지 못했습니다.");
 						}
 					});
 					

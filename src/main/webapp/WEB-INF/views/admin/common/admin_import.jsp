@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
 
 <style type="text/css">
-/* #_sideBar{
+ #_sideBar{
 	min-height: 100vh;
 }
 @media (min-width) {
 	#_sideBar{
 	width: 14rem!important;
 	}
-} */
+} 
 </style>
 
 

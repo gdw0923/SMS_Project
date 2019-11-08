@@ -5,8 +5,8 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>Insert title here</title>
-	<script type="text/javascript" src="/js/myPage/myPageExchangeInfo.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageTable.css">
+	<script type="text/javascript" src="/js/myPage/exchange/myPageExchangeInfo.js"></script>
+	<link rel="stylesheet" href="/css/myPage/exchange/myPageTable.css">
 </head>
 <body>
 
@@ -60,6 +60,10 @@
 		<jsp:param name="pageCountPerScreen" value="${pageCountPerScreen }" />
 		<jsp:param name="recordCountPerPage" value="${recordCountPerPage }" />	
 	</jsp:include>
+</div>
+
+<div class="container-banner">
+	<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
 </div>
 
 </body>

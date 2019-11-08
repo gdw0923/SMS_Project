@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-	<script type="text/javascript" src="/js/myPage/myPageSendMessage.js"></script>
-	<link rel="stylesheet" href="/css/myPage/myPageSendMessage.css">
+	<script type="text/javascript" src="/js/myPage/message/myPageSendMessage.js"></script>
+	<link rel="stylesheet" href="/css/myPage/message/myPageSendMessage.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -124,6 +124,9 @@
 	
 	</div>
 	
+	<div class="container-banner">
+		<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	</div>
 
 	
 </body>

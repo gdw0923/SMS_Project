@@ -259,7 +259,7 @@ public class TeamController {
 		model.addAttribute("teamgameparam", teamgameparam);
 		
 		model.addAttribute("InsertTitle", "SMS 경기목록");
-		
+		System.out.println(teamgameparam.toString());
 		return "matchinglist.tiles";
 	}
 	
@@ -290,10 +290,11 @@ public class TeamController {
 	}
 	
 	@RequestMapping(value = "matchreject.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public void matchreject(GameMatchDTO gamematchdto) {
+	public String matchreject(GameMatchDTO gamematchdto) {
 		log.info("--------------------------여기");
 		teamService.matchreject(gamematchdto);
 		
+		return "redirect:/mypage/teamapplication.do";
 	}
 	
 	@RequestMapping(value = "memberstate.do", method = {RequestMethod.GET, RequestMethod.POST})

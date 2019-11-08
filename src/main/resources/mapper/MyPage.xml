@@ -134,7 +134,7 @@
 	<select id="findMessageBlacklist" parameterType="com.boot.finalpro.model.MessageDTO" resultType="java.lang.Integer">
 		SELECT NVL(COUNT(*), 0)
 		FROM MESSAGE_BLACKLIST
-		WHERE #{send_id} NOT IN (SELECT BLACK_ID 
+		WHERE #{send_id} IN (SELECT BLACK_ID 
 								FROM MESSAGE_BLACKLIST 
 								WHERE MY_ID=#{receive_id})
 	</select>
@@ -370,5 +370,12 @@
 		 </if>
 		 ) A
   		 WHERE RNUM BETWEEN ${start} AND ${end}
+	</select>
+	
+	<!-- 권한 조회 -->
+	<select id="findAuthById" parameterType="java.lang.String" resultType="java.lang.String">
+		SELECT AUTHORITY
+		FROM AUTHORITIES
+		WHERE ID=#{id}
 	</select>
 </mapper>

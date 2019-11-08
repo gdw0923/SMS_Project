@@ -238,4 +238,9 @@ public class MyPageServiceImpl implements MyPageService {
 		return myPageDAO.findAllBlackListById(param);
 	}
 
+	@Override
+	public String findAuthByid(String id) {
+		return myPageDAO.findAuthByid(id);
+	}
+
 }
