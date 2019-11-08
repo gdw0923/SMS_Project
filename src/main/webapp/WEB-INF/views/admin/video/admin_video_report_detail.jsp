@@ -68,7 +68,7 @@
 	
 
 <div class="container" style="width: 1500px;">
-	<div style="float: left; width: 500px;" align="left">
+	<div style="float: left; width: 450px;" align="left">
 		<c:forEach items="${comment }" var="vc">
 		
 		<c:if test="${vc.del eq 1 }">
@@ -95,10 +95,10 @@
 		</c:forEach> 
 	</div>
 	
-	<div style="float: left; width: 550px">
+	<div style="float: left; width: 600px">
 		<h3>댓글신고내역</h3>
 		
-		<table class="table" style="width: 550px;">
+		<table class="table" style="width: 600px;">
 		<tr>
 			<th>번호</th><th>댓글내용</th><th>신고자</th><th>신고내용</th><th>신고취소</th>
 		</tr>
@@ -113,10 +113,11 @@
 		
 		<c:forEach items="${r_comment }" var="rc" varStatus="i">		
 			<tr>
-				<td>${i.count }</td><td>${rc.content }</td><td>${rc.r_id }</td><td>${rc.r_content }</td>
+				<td style="width: 60px;">${i.count }</td><td style="width: 150px;">${rc.content }</td>
+				<td style="width: 100px;">${rc.r_id }</td><td style="width: 230px;">${rc.r_content }</td>
 				<td>
 					<button type="button" onclick="delete_comment_report(${rc.seq}, '${rc.id }','${rc.r_id }', ${video.seq_video})" 
-							class="btn btn-default btn-sm" style="border: 1px solid black;">취소</button>
+							class="btn btn-default btn-sm" style="border: 1px solid black; width: 70px;">취소</button>
 				</td>
 			</tr>
 		</c:forEach>	
