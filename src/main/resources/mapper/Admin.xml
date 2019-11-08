@@ -752,19 +752,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -772,19 +772,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -792,19 +792,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -812,19 +812,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -837,19 +837,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -857,19 +857,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -877,19 +877,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -897,19 +897,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -922,19 +922,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -942,19 +942,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -962,19 +962,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -982,19 +982,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%')
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%')
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%')
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%')
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ)
+										WHERE 1=1 AND e.ID=s.ID)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -1014,19 +1014,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -1034,19 +1034,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -1054,19 +1054,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -1074,19 +1074,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -1099,19 +1099,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -1119,19 +1119,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -1139,19 +1139,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -1159,19 +1159,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -1183,19 +1183,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -1203,19 +1203,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -1223,19 +1223,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -1243,19 +1243,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%')
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%')
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%')
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%')
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ)
+										WHERE 1=1 AND e.ID=s.ID)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -1275,19 +1275,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -1295,19 +1295,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -1315,19 +1315,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -1335,19 +1335,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EX_CHECK=1)
+										WHERE 1=1 AND e.ID=s.ID AND e.EX_CHECK=1)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -1360,19 +1360,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -1380,19 +1380,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -1400,19 +1400,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -1420,19 +1420,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EX_CHECK=0)
+										WHERE 1=1 AND e.ID=s.ID AND e.EX_CHECK=0)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
@@ -1445,19 +1445,19 @@
 							<when test="begin != null and end != null"> <!-- 시작날짜,끝날짜 둘다 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 신청자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 은행명 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 계좌번호 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE BETWEEN #{begin} AND #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE BETWEEN #{begin} AND #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 
@@ -1465,19 +1465,19 @@
 							<when test="begin != null and end == null">	<!--  시작날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[>=]]> #{begin})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[>=]]> #{begin})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose> 			
@@ -1485,19 +1485,19 @@
 							<when test="begin == null and end != null">	<!-- 끝날짜만 선택 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText} AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%' AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.EXDATE <![CDATA[<=]]> #{end})
+										WHERE 1=1 AND e.ID=s.ID AND e.EXDATE <![CDATA[<=]]> #{end})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>			
@@ -1505,19 +1505,19 @@
 							<otherwise>	<!-- 날짜 선택 없을경우 -->
 								<choose>
 									<when test="category == 'ID'">	<!-- 검색어가 작성자 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.ID=#{searchText})
+										WHERE 1=1 AND e.ID=s.ID AND e.ID=#{searchText})
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK'"> <!-- 검색어가 제목 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK LIKE '%'||#{searchText}||'%')
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK LIKE '%'||#{searchText}||'%')
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<when test="category == 'BANK_NUMBER'"> <!-- 검색어가 내용 -->
-										WHERE 1=1 AND e.SEQ=s.SEQ AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%')
+										WHERE 1=1 AND e.ID=s.ID AND e.BANK_NUMBER LIKE '%'||#{searchText}||'%')
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</when>
 									<otherwise>	<!-- 검색어가 없을경우  -->
-										WHERE 1=1 AND e.SEQ=s.SEQ)
+										WHERE 1=1 AND e.ID=s.ID)
 										WHERE RNUM<![CDATA[>=]]>(1+10*${page-1}) AND RNUM<![CDATA[<=]]>(10+10*${page-1})
 									</otherwise>
 								</choose>					
