@@ -45,8 +45,8 @@
     
     <!-- 메세지 보내기 -->
     <insert id="messagesend" parameterType="com.boot.finalpro.model.MessageDTO">
-    	INSERT INTO MESSAGE(SEQ, SEND_ID, RECEIVE_ID, CONTENT, READING, WDATE)
-    	VALUES(MESSAGE_SEQ.NEXTVAL, #{send_id}, #{receive_id}, #{content}, 1, SYSDATE)
+    	INSERT INTO MESSAGE(SEQ, SEND_ID, RECEIVE_ID, CONTENT, READING, WDATE, SEND_DEL, RECEIVE_DEL)
+    	VALUES(MESSAGE_SEQ.NEXTVAL, #{send_id}, #{receive_id}, #{content}, 1, SYSDATE, 0, 0)
     </insert>
     
     

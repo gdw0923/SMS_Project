@@ -51,8 +51,6 @@ public class LeagueMatchDAOImpl implements LeagueMatchDAO {
 	@Override
 	public boolean messagesend(MessageDTO dto) {
 
-		// System.out.println("DAO messagesend 들어옴!!!");
-
 		int n = sqlSession.insert(ns + "messagesend", dto);
 
 		return n > 0 ? true : false;
