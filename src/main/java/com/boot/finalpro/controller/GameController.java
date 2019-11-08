@@ -262,6 +262,8 @@ public class GameController {
 		model.addAttribute("mem", mem);
 		model.addAttribute("auth", auth);
 		model.addAttribute("game", game);
+		
+		model.addAttribute("InsertTitle", "SMS 경기매칭내용");
 								
 		return "gamedetail.tiles";
 	}
