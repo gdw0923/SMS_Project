@@ -36,7 +36,7 @@
 					</tr>					
 					<tr>
 						<th style="text-align: center; padding-top:3%; border-right: none" >요청일시</th>
-						<td style="border-left: none;"><input type="text" name="title" class="form-control" readonly="readonly" value="${fn:substring(exchangeDetail.exdate,0,4) }년 ${fn:substring(exchangeDetail.exdate,5,7) }월 ${fn:substring(exchangeDetail.exdate,8,10) }일 ${fn:substring(exchangeDetail.exdate,11,13) }시 ${fn:substring(exchangeDetail.exdate,14,16) }분"></td>
+						<td style="border-left: none;"><input type="text" name="title" class="form-control" readonly="readonly" value="20${fn:substring(exchangeDetail.exdate,0,2) }년 ${fn:substring(exchangeDetail.exdate,3,5) }월 ${fn:substring(exchangeDetail.exdate,6,8) }일 "></td>
 					</tr>
 					<tr>
 						<th style="text-align: center; padding-top:3%; border-right: none" >환전여부</th>
@@ -52,7 +52,7 @@
 					<c:if test="${not empty exchangeDetail.sdate }">
 					<tr>
 					<th style="text-align: center; padding-top:3%; border-right: none" >환전일시</th>
-					<td style="border-left: none;"><input type="text" name="title" class="form-control" readonly="readonly" value="${fn:substring(exchangeDetail.sdate,0,4) }년 ${fn:substring(exchangeDetail.sdate,5,7) }월 ${fn:substring(exchangeDetail.sdate,8,10) }일 ${fn:substring(exchangeDetail.sdate,11,13) }시 ${fn:substring(exchangeDetail.sdate,14,16) }분"></td>
+					<td style="border-left: none;"><input type="text" name="title" class="form-control" readonly="readonly" value="${fn:substring(exchangeDetail.sdate,0,4) }년 ${fn:substring(exchangeDetail.sdate,5,7) }월 ${fn:substring(exchangeDetail.sdate,8,10) }일"></td>
 					</tr>
 					</c:if>
 					<tr>

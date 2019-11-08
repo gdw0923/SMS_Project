@@ -137,7 +137,7 @@ th {
 												<th>${i.bank }</th>
 												<th>${i.bank_number }</th>
 												<th>${i.exchange_money}</th>
-												<th>${fn:substring(i.exdate,0,10) }</th>
+												<th>20${fn:substring(i.exdate,0,2) }-${fn:substring(i.exdate,3,5) }-${fn:substring(i.exdate,6,8) }</th>
 												<th>${fn:substring(i.sdate,0,10) }</th>
 												<th>
 												<c:choose>
