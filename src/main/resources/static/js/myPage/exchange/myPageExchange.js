@@ -78,6 +78,10 @@ $(function() {
 		}
 		
 	});
+	
+	$("#RHYMES_banner").click(function () {
+		location.href="http://112.169.197.59:18080/event/eventdetail/sms";
+	});
 	// 환전신청 조건문
 	$("#exchangeBtn").click(function () {
 		var exMoney = $("#exMoney").val() * 1;

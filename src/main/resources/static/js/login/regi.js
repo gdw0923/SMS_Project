@@ -129,7 +129,7 @@ $(function () {
 			
 			number = randomRange()+"";
 			
-			alert("number " + number);
+			//alert("number " + number);
 			
 			$.ajax({
 				//이동할때 필요한것

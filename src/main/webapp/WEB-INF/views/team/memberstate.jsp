@@ -63,7 +63,7 @@ td{
 		</c:if>
 	<tbody>
 	
-	<tr>
+	<tr style="height: 50px;">
 		<td><a onclick="_go_send_message('${member.id }')" href="#">${member.id }</a></td>
 		<td>${member.name }</td>
 		<td>${member.birthday }</td>
@@ -90,7 +90,7 @@ td{
 			           	 팀장
 			         </c:if>
 			         <c:if test="${user.username ne member.id }">
-			            <button type="button" id="_del_btn" user_id="${member.id }" >내보내기</button>         
+			            <button type="button" id="_del_btn" user_id="${member.id }" class="btn btn-danger" >내보내기</button>         
 			         </c:if>
 			         <input type="hidden" id="_team_name" value="${member.team_name }">
 				</td>
@@ -145,8 +145,6 @@ $(document).ready(function () {
 	$(document).on("click", "#_del_btn", function () {
 		var team_name = $("#_team_name").val();
 		var id = $(this).attr("user_id");
-		alert(team_name);
-		alert(id);
 		location.href="teamout.do?team_name=" + team_name + "&id=" + id; 
 	});
 });

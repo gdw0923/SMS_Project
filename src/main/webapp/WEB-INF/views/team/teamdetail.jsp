@@ -182,7 +182,7 @@ td {
 						id="parentTeam_name" value="${teamdetail.team_name }"> <input
 						type="hidden" id="parentId" value="${user.username }"> <a
 						href="teamReport.do?team_name=${teamdetail.team_name }&id=${user.username }"
-						onclick="window.open(this.href, '_blank', 'width=500px,height=350px,toolbars=no,scrollbars=no'); return false;">
+						onclick="window.open(this.href, '_blank', 'width=500px,height=400px,toolbars=no,scrollbars=no'); return false;">
 						<img alt="" src="/image/report.jpg"
 						style="width: 40px; height: 40px; padding-bottom: 10px">
 					</a> 신고하기

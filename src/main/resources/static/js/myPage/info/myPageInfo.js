@@ -71,6 +71,10 @@ function fn_press_han(obj) {
 }
 
 $(function () {
+	
+	$("#RHYMES_banner").click(function () {
+		location.href="http://112.169.197.59:18080/event/eventdetail/sms";
+	});
 	// 계정삭제
 	$("#deletebtn").click(function() {
 		if(confirm("정말 회원탈퇴를 진행하시겠습니까? 팀에 소속되어 있으면 팀을 먼저 탈퇴 혹은 해체 해야합니다.") == true)

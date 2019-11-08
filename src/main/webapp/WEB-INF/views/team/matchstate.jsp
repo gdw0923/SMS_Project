@@ -31,7 +31,7 @@ td{
 
 <table class="table table-hover table-responsive" id="matlist">
 	<colgroup>
-		<col width="80px;"><col width="80px;"><col width="300px;"><col width="150px;">
+		<col width="80px;"><col width="120px;"><col width="300px;"><col width="150px;">
 	</colgroup>
     	<thead>
 		<tr>
@@ -63,8 +63,8 @@ td{
 			</c:choose>
 			</td>
 			<td>
-				<button type="button" id="_accept_btncls" class="accept_btncls" user_id="${matlist.name_team2 }">수락</button>&nbsp;
-				<button type="button" id="_reject_btncls" class="reject_btncls" user_id="${matlist.seq_gamematch }">거절</button>
+				<button type="button" id="_accept_btncls" class="btn btn-primary" user_id="${matlist.name_team2 }">수락</button>
+				<button type="button" id="_reject_btncls" class="btn btn-danger" user_id="${matlist.seq_gamematch }">거절</button>
 				<input type="hidden" id="_seq_game" value="${matlist.seq_game }">
 				<input type="hidden" id="_mat_seq" value="${matlist.seq_gamematch }">
 			</td>

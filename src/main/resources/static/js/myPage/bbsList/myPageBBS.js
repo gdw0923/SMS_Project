@@ -19,5 +19,7 @@ $(function() {
 		var seq = $(this).attr("seq");
 		location.href="../member/teamBbsdetail.do?seq=" + seq;
 	});
-	
+	$("#RHYMES_banner").click(function () {
+		location.href="http://112.169.197.59:18080/event/eventdetail/sms";
+	});
 });

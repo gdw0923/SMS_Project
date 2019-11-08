@@ -5,6 +5,9 @@ function goPage( pageNumber ) {
 	$("#_frmFormSearch").attr("action", "myPageReceiveMessage.do").submit();	
 }
 $(function() {
+	$("#RHYMES_banner").click(function () {
+		location.href="http://112.169.197.59:18080/event/eventdetail/sms";
+	});
 	// 디테일 팝업
 	$(".detail").click(function() {
 		var seq = $(this).attr("seq");

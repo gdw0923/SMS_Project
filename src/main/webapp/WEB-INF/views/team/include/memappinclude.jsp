@@ -70,7 +70,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			<td><textarea class="form-control" id="content" rows="10"></textarea></td>
 		</tr>					
 	</table>
-	<button type="button" id="app_btn">신청 완료</button>
+	<button type="button" id="app_btn" class="btn btn-primary">신청 완료</button>
   </div>
 	
 </div>

@@ -116,7 +116,6 @@ $(function(){
 	
 	$("#_submit").on("click", function () {
 		if($(".upload-name").val() == "파일선택"){
-			alert("들어옴");
 			$("#ex_file").remove();
 		}
 		$("#_frm").submit();
@@ -141,7 +140,6 @@ $("#_sport_category").val( sel_sport );
 $(document).ready(function () {
 	var team_name = $("#_team_name").val();
 	$(document).on("click", "#_tdel", function () {
-		alert(team_name);
 		location.href="tdel.do?team_name=" + team_name;
 	});
 });

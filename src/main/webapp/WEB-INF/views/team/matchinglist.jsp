@@ -86,8 +86,14 @@ td{
 	</c:if>
 	<c:forEach items="${gamelist }" var="game" varStatus="vs">
 	<tbody>
-	<tr>
-		<td>${game.category }</td>
+	<tr height="50px;">
+		<td>
+			<c:if test="${game.category == '축구'}"><img alt="" src="../image/soccer.png" style="width: 22px; height: 22px;"></c:if>
+			<c:if test="${game.category == '농구'}"><img alt="" src="../image/basketball.png" style="width: 22px; height: 22px;"></c:if>
+			<c:if test="${game.category == '야구'}"><img alt="" src="../image/baseball.png" style="width: 22px; height: 22px;"></c:if>
+			<c:if test="${game.category == '배드민턴'}"><img alt="" src="../image/badminton.png" style="width: 22px; height: 22px;"></c:if>
+			<c:if test="${game.category == '탁구'}"><img alt="" src="../image/ping-pong.png" style="width: 22px; height: 22px;"></c:if>
+		</td>
 		<td>
 		<c:choose>
 			<c:when test="${fn:length(game.title) gt 10 }">
@@ -131,7 +137,7 @@ td{
 						<input type="hidden" id="_name_team1" value="${game.name_team1 }">
 						<input type="hidden" id="_id" value="${user.username }">
 					</td>
-					<td><button type="button" id="_stateBtn" game_seq="${game.seq_game }">현황</button></td>
+					<td><button type="button" id="_stateBtn" game_seq="${game.seq_game }" class="btn btn-primary">현황</button></td>
 					
 				</c:if>
 				<c:if test="${not empty game.game_result }">
@@ -146,7 +152,7 @@ td{
 					</c:otherwise>
 					</c:choose></td>
 					<td>
-					<button type="button" id="_resultBtn" game_seq="${game.seq_game }">경기결과</button>
+					<button type="button" id="_resultBtn" game_seq="${game.seq_game }" class="btn btn-danger">경기결과</button>
 					</td>
 				</c:if>
 			</c:if>

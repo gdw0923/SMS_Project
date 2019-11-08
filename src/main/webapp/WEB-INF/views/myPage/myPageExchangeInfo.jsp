@@ -63,7 +63,7 @@
 </div>
 
 <div class="container-banner">
-	<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px">
+	<img src="/image/RHYMES_BANNER.gif" width="180px" height="250px" id="RHYMES_banner">
 </div>
 
 </body>

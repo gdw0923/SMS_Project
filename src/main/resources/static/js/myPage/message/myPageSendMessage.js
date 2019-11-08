@@ -39,7 +39,9 @@ $(function() {
 	});
 	
 	
-	
+	$("#RHYMES_banner").click(function () {
+		location.href="http://112.169.197.59:18080/event/eventdetail/sms";
+	});
 	/*$(".allCheck-box").on('click', function() {
 		var isAllChecked = $(this).find('input[type="checkbox"]').prop("checked");
 		console.log("th클릭시" + isAllChecked);

@@ -94,8 +94,8 @@ td{
 			<td>${memapp.id }</td>
 			<td>${memapp.content }</td>
 			<td>
-				<button type="button" class="accept_btn" user_id="${memapp.id }">수락</button>&nbsp;
-				<button type="button" class="reject_btn" user_id="${memapp.id }">거절</button>
+				<button type="button" id="accept_btn" class="btn btn-primary" user_id="${memapp.id }">수락</button>&nbsp;
+				<button type="button" id="reject_btn" class="btn btn-danger" user_id="${memapp.id }">거절</button>
 				<input type="hidden" id="team_name" value="${memapp.team_name }">
 				<input type="hidden" id="_leader_id" value="${user.username}">
 			</td>
@@ -138,7 +138,7 @@ var header = $("meta[name='_csrf_header']").attr("content");
 $(document).ajaxSend(function(e, xhr, options) {
     xhr.setRequestHeader(header, token);
 });
-$(".accept_btn").on('click', function () {
+$("#accept_btn").on('click', function () {
 	var team_name = $('#team_name').val();
 	var id = $(this).attr("user_id");
 	var leader = $("#_leader_id").val();
@@ -162,7 +162,7 @@ $(".accept_btn").on('click', function () {
 	});
 });
 
-$(".reject_btn").on('click', function () {
+$("#reject_btn").on('click', function () {
 	var team_name = $('#team_name').val();
 	var id = $(this).attr("user_id");
 	var leader = $("#_leader_id").val();

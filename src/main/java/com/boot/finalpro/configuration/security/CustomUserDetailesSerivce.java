@@ -40,7 +40,7 @@ public class CustomUserDetailesSerivce implements UserDetailsService {
 		
 		//session.setAttribute("", member);
 		
-		log.info("username == " + bc.encode(username));
+		log.info("username == " + bc.encode("1"));
 		//log.info("!!!!!!!!!!!!!!!!!!!!!!!!username == " + bc.encode("admin"));
 		log.info("member :" + member.toString());
 		
