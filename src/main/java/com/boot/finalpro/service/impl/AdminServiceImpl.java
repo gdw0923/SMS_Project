@@ -296,7 +296,9 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Map<String, SportsScoreDto> sportsScore() {
 		Map<String, SportsScoreDto> sportsScore = new HashMap<String, SportsScoreDto>();
-		sportsScore.put("soccer", adminDao.sportsScore("SOCCER_MMR"));		
+		System.out.println("!!!!!!!!!!!!!!!!!!여긴 됨");
+		sportsScore.put("soccer", adminDao.sportsScore("SOCCER_MMR"));
+		System.out.println("!!!!!!!!!!!!!!!!!!여기도 됨?");
 		sportsScore.put("basketBall", adminDao.sportsScore("BASKETBALL_MMR"));
 		sportsScore.put("baseBall", adminDao.sportsScore("BASEBALL_MMR"));
 		sportsScore.put("badminton", adminDao.sportsScore("BADMINTON_MMR"));

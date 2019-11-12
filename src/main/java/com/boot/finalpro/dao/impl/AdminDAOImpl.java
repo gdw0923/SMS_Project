@@ -282,7 +282,9 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public SportsScoreDto sportsScore(String category) {
 		SportsScoreDto sportsScore =  new SportsScoreDto();
+		System.out.println("!!!!!!!category:"+category);
 		sportsScore =  sqlSession.selectOne(ns+"sportsScore",category);
+		System.out.println("!!!!!!!!!!!!여기오냐");
 		return sportsScore;
 	}
 

@@ -2210,8 +2210,28 @@
 	
 	<!-- admin 종목별 최고점,최저점,평균점 구하기(통계용) -->
 	<select id="sportsScore" parameterType="java.lang.String" resultType="com.boot.finalpro.util.SportsScoreDto">
-	SELECT NVL(MAX(#{category}),0)AS MAX,NVL(MIN(#{category}),0)AS MIN,NVL(AVG(#{category}),0)AS AVG
-	FROM TEAM_DETAIL
+	<choose>
+		<when test="category == 'SOCCER_MMR'">
+		SELECT NVL(MAX(SOCCER_MMR),0)AS MAX,NVL(MIN(SOCCER_MMR),0)AS MIN,NVL(AVG(SOCCER_MMR),0)AS AVG
+		FROM TEAM_DETAIL		
+		</when>
+		<when test="category == 'BASEBALL_MMR'">
+		SELECT NVL(MAX(BASEBALL_MMR),0)AS MAX,NVL(MIN(BASEBALL_MMR),0)AS MIN,NVL(AVG(BASEBALL_MMR),0)AS AVG
+		FROM TEAM_DETAIL		
+		</when>
+		<when test="category == 'BASKETBALL_MMR'">
+		SELECT NVL(MAX(BASKETBALL_MMR),0)AS MAX,NVL(MIN(BASKETBALL_MMR),0)AS MIN,NVL(AVG(BASKETBALL_MMR),0)AS AVG
+		FROM TEAM_DETAIL		
+		</when>
+		<when test="category == 'BADMINTON_MMR'">
+		SELECT NVL(MAX(BADMINTON_MMR),0)AS MAX,NVL(MIN(BADMINTON_MMR),0)AS MIN,NVL(AVG(BADMINTON_MMR),0)AS AVG
+		FROM TEAM_DETAIL		
+		</when>
+		<when test="category == 'PINGPONG_MMR'">
+		SELECT NVL(MAX(PINGPONG_MMR),0)AS MAX,NVL(MIN(PINGPONG_MMR),0)AS MIN,NVL(AVG(PINGPONG_MMR),0)AS AVG
+		FROM TEAM_DETAIL		
+		</when>						
+	</choose>
 	</select>
 	
 	<!-- admin 월별 경기장 이용 수 -->

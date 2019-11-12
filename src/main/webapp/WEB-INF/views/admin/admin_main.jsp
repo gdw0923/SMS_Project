@@ -215,10 +215,10 @@ th{
 													</c:choose>
 													<c:choose>
 														<c:when test="${i.gdate eq today }">
-														<th class="gdate_th" gdate="${i.gdate }" style="color: red">${i.gdate }</th>
+														<th class="gdate_th" gdate="${i.gdate }" style="color: red">${fn:substring(i.gdate,0,10) }</th>
 														</c:when>
 														<c:otherwise>
-														<th class="gdate_th" gdate="${i.gdate }">${i.gdate }</th>
+														<th class="gdate_th" gdate="${i.gdate }">${fn:substring(i.gdate,0,10) }</th>
 														</c:otherwise>
 													</c:choose>
 												</c:forEach>					
